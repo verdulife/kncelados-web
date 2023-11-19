@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "host": "astro dev --host",
+    "scrape": "tiktok-scraper user @kncelados -n 300 -t csv --session sid_tt=asdasd13123123123adasda",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
