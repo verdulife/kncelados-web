@@ -1,0 +1,33 @@
+---
+import Imago from "@/icons/Imago.astro";
+---
+
+<header class="fixed top-0 left-0 flex justify-center z-50 w-full">
+  <nav
+    class="max-w-6xl flex items-center w-full font-title bg-knblue text-white py-3 px-4 md:-skew-x-6"
+  >
+    <a class="bg-knred rounded-full p-2 md:skew-x-6" href="/">
+      <Imago />
+    </a>
+
+    <ul class="hidden md:flex px-4 md:skew-x-6">
+      <li>
+        <a class="px-6 py-4 hover:text-knred transition-colors" href="#bienvenidos">INICIO</a>
+      </li>
+      <li>
+        <a class="px-6 py-4 hover:text-knred transition-colors" href="#ultimos-videos">ÚLTIMOS VIDEOS</a>
+      </li>
+      <li>
+        <a class="px-6 py-4 hover:text-knred transition-colors" href="#nosotros">REDES</a>
+      </li>
+      <li>
+        <a class="px-6 py-4 hover:text-knred transition-colors" href="#nosotros">NOSOTROS</a>
+      </li>
+      <li>
+        <a class="px-6 py-4 hover:text-knred transition-colors" href="#di-la-tuya">DI LA TUYA</a>
+      </li>
+    </ul>
+
+    <a class="px-6 py-3 ml-auto shadow-xl hover:bg-knred/70 transition-colors md:skew-x-6 bg-knred rounded-xl" href="#patreon">PATREON</a>
+  </nav>
+</header>

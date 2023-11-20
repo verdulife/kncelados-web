@@ -1,4 +1,7 @@
 ---
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+
 interface Props {
   title: string;
 }
@@ -18,7 +21,9 @@ const { title } = Astro.props;
     <script src="https://www.tiktok.com/embed.js" async></script>
   </head>
   <body class="text-knblue">
+    <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>

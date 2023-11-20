@@ -1,0 +1,148 @@
+---
+import Logo from "@/icons/Logo.astro";
+
+function randomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const randomCharacter = randomInt(0, 3);
+---
+
+<section
+  id="bienvenidos"
+  class="relative flex flex-col gap-8 justify-center items-center h-screen bg-gradient-to-tr from-knred to-knred/90 w-full overflow-hidden p-4"
+>
+  <span class="absolute inset-0 bg-[url('/trama.svg')] opacity-10 rotate-180"
+  ></span>
+
+  <header class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-48">
+    <span id="follow" class="hidden md:flex absolute w-48">
+      <Logo />
+    </span>
+
+    <article class="flex flex-col items-center gap-4 md:items-end">
+      <h1 class="font-title text-6xl md:text-9xl text-center z-10">
+        el <del class="text-white font-">fake</del> podcast
+      </h1>
+      <p
+        class="text-xl md:text-3xl font-semibold bg-white py-1 px-4 -skew-x-6 md:mr-12"
+      >
+        Se vienen cositas...
+      </p>
+    </article>
+  </header>
+
+  <picture
+    id="joz"
+    data-random={randomCharacter}
+    class="absolute bottom-[-8%] left-[-15%]"
+  >
+  </picture>
+
+  <picture
+    id="rup"
+    data-random={randomCharacter}
+    class="absolute bottom-[-16%] left-[14%] z-20"></picture>
+
+  <picture
+    id="dani"
+    data-random={randomCharacter}
+    class="absolute bottom-[-16%] right-[14%] z-10"
+  >
+  </picture>
+
+  <picture
+    id="ander"
+    data-random={randomCharacter}
+    class="absolute bottom-[-8%] right-[-15%]"></picture>
+</section>
+
+<script>
+  const welcome = document.querySelector("#bienvenidos");
+  const follow = document.querySelector("#follow");
+  const characters = document.querySelectorAll("picture[data-random]");
+
+  characters.forEach((character, i) => {
+    if (character.getAttribute("data-random") == i) {
+      character.classList.add("mobile");
+    }
+  });
+
+  welcome?.addEventListener("mousemove", (ev) => {
+    const { pageX, pageY } = ev;
+    const { offsetWidth, offsetHeight } = follow;
+
+    setTimeout(() => {
+      follow.style.top = `${pageY - offsetHeight / 2}px`;
+      follow.style.left = `${pageX - offsetWidth / 2}px`;
+    }, 150);
+  });
+</script>
+
+<style>
+  #follow {
+    animation: rotate 5s linear infinite;
+  }
+
+  picture {
+    width: 856px;
+    height: 576px;
+    background-position: 0 0;
+    filter: drop-shadow(10px -5px 0 white) drop-shadow(-10px -5px 0 white);
+  }
+
+  picture:hover {
+    transform: scale(1.2);
+    transform-origin: bottom;
+    animation: gif 2s steps(1, end) infinite;
+    transition: 150ms;
+  }
+
+  @media (max-width: 640px) {
+    picture {
+      display: none;
+    }
+
+    picture.mobile {
+      display: inherit;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transform: scale(0.5);
+      transform-origin: bottom left;
+      animation: gif 2s steps(1, end) infinite;
+    }
+  }
+
+  #rup {
+    background-image: url("/rup-sprite.webp");
+  }
+  #joz {
+    background-image: url("/joz-sprite.png");
+  }
+  #dani {
+    background-image: url("/dani-sprite.png");
+  }
+  #ander {
+    background-image: url("/ander-sprite.png");
+  }
+
+  @keyframes gif {
+    25% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 0 100%;
+    }
+    75% {
+      background-position: 100% 100%;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
