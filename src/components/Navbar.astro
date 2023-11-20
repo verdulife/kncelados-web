@@ -1,10 +1,11 @@
 ---
 import Imago from "@/icons/Imago.astro";
+import Menu from "./Menu.astro";
 ---
 
 <header class="fixed top-0 left-0 flex justify-center z-50 w-full">
   <nav
-    class="max-w-6xl flex items-center w-full font-title bg-knblue text-white py-3 px-4 md:-skew-x-6"
+    class="max-w-6xl flex items-center w-full font-title bg-knblue text-white py-4 px-5 md:-skew-x-6"
   >
     <a class="bg-knred rounded-full p-2 md:skew-x-6" href="/">
       <Imago />
@@ -42,11 +43,13 @@ import Imago from "@/icons/Imago.astro";
     </ul>
 
     <a
-      class="px-6 py-3 ml-auto shadow-xl hover:bg-knred/70 transition-colors md:skew-x-6 bg-knred rounded-xl"
+      class="hidden md:inline px-6 py-3 ml-auto shadow-xl hover:bg-knred/70 transition-colors md:skew-x-6 bg-knred rounded-xl"
       href="https://www.patreon.com/Kncelados"
       target="_blank"
     >
       PATREON
     </a>
+
+    <Menu></Menu>
   </nav>
 </header>

@@ -12,21 +12,23 @@ import { sentences } from "@/lib/sentences";
   ></span>
 
   <header
-    class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-10 md:-mt-[20%]"
+    class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-40 md:-mt-[20%]"
   >
     <span id="follow" class="hidden md:flex absolute w-48">
       <Logo />
     </span>
 
     <article class="flex flex-col items-center gap-8 p-4">
-      <h1 class="font-title whitespace-nowrap text-8xl md:text-9xl text-center z-10 -rotate-90 md:rotate-0 scale-100 md:scale-125">
+      <h1
+        class="font-title whitespace-nowrap text-[clamp(30px,8vh,80px)] md:text-[clamp(60px,10vh,120px)] text-center z-10 -rotate-90 md:rotate-0 scale-100 md:scale-125"
+      >
         el <del class="text-white">fake</del>pod
       </h1>
-      <!-- <p
-        class="hidden md:flex max-w-lg text-center text-xl md:text-3xl font-semibold bg-white py-1 px-4 -skew-x-6 shadow-[10px_10px_0_0_cyan]"
+      <p
+        class="hidden md:flex max-w-2xl text-center text-2xl font-semibold bg-white py-4 px-8 -skew-x-6 shadow-[10px_10px_0_0_cyan]"
       >
-        {sentences[0]}
-      </p> -->
+        <span class="skew-x-6">{sentences[0]}</span>
+      </p>
     </article>
   </header>
 
@@ -79,10 +81,9 @@ import { sentences } from "@/lib/sentences";
 
   picture:hover {
     transform: scale(1.2);
-    transform-origin: bottom;
     animation: gif 2s steps(1, end) infinite;
     transition: 150ms;
-    z-index: 90;
+    z-index: 30;
   }
 
   #rup {
