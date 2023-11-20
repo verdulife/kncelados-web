@@ -1,72 +1,56 @@
 ---
 import Logo from "@/icons/Logo.astro";
-
-function randomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-const randomCharacter = randomInt(0, 3);
+import { sentences } from "@/lib/sentences";
 ---
 
 <section
   id="bienvenidos"
   class="relative flex flex-col gap-8 justify-center items-center h-screen bg-gradient-to-tr from-knred to-knred/90 w-full overflow-hidden p-4"
 >
-  <span class="absolute inset-0 bg-[url('/trama.svg')] opacity-10 rotate-180"
+  <span
+    class="absolute inset-0 bg-[url('/trama.svg')] bg-repeat-x bg-cover md:bg-contain opacity-10 rotate-180"
   ></span>
 
-  <header class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-48">
+  <header
+    class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-10 md:-mt-[20%]"
+  >
     <span id="follow" class="hidden md:flex absolute w-48">
       <Logo />
     </span>
 
-    <article class="flex flex-col items-center gap-4 md:items-end">
-      <h1 class="font-title text-6xl md:text-9xl text-center z-10">
-        el <del class="text-white font-">fake</del> podcast
+    <article class="flex flex-col items-center gap-8 p-4">
+      <h1 class="font-title whitespace-nowrap text-8xl md:text-9xl text-center z-10 -rotate-90 md:rotate-0 scale-100 md:scale-125">
+        el <del class="text-white">fake</del>pod
       </h1>
-      <p
-        class="text-xl md:text-3xl font-semibold bg-white py-1 px-4 -skew-x-6 md:mr-12"
+      <!-- <p
+        class="hidden md:flex max-w-lg text-center text-xl md:text-3xl font-semibold bg-white py-1 px-4 -skew-x-6 shadow-[10px_10px_0_0_cyan]"
       >
-        Se vienen cositas...
-      </p>
+        {sentences[0]}
+      </p> -->
     </article>
   </header>
 
-  <picture
-    id="joz"
-    data-random={randomCharacter}
-    class="absolute bottom-[-8%] left-[-15%]"
-  >
+  <picture id="joz" class="absolute bottom-0 left-[-45%] md:left-[-15%]">
   </picture>
 
   <picture
     id="rup"
-    data-random={randomCharacter}
-    class="absolute bottom-[-16%] left-[14%] z-20"></picture>
+    class="absolute -bottom-10 md:-bottom-20 left-[-15%] md:left-[14%] z-20"
+  ></picture>
 
   <picture
     id="dani"
-    data-random={randomCharacter}
-    class="absolute bottom-[-16%] right-[14%] z-10"
+    class="absolute -bottom-10 md:-bottom-20 right-[-15%] md:right-[14%] z-10"
   >
   </picture>
 
-  <picture
-    id="ander"
-    data-random={randomCharacter}
-    class="absolute bottom-[-8%] right-[-15%]"></picture>
+  <picture id="ander" class="absolute bottom-0 right-[-45%] md:right-[-15%]"
+  ></picture>
 </section>
 
 <script>
   const welcome = document.querySelector("#bienvenidos");
   const follow = document.querySelector("#follow") as HTMLElement;
-  const characters = document.querySelectorAll("picture[data-random]");
-
-  characters.forEach((character, i) => {
-    if (character.getAttribute("data-random") === i.toString()) {
-      character.classList.add("mobile");
-    }
-  });
 
   welcome?.addEventListener("mousemove", (ev) => {
     const { pageX, pageY } = ev as MouseEvent;
@@ -84,9 +68,11 @@ const randomCharacter = randomInt(0, 3);
     animation: rotate 5s linear infinite;
   }
 
-  picture { 
-    width: 856px;
-    height: 576px;
+  picture {
+    width: 45%;
+    min-width: 400px;
+    aspect-ratio: 1.4861;
+    background-size: 200%;
     background-position: 0 0;
     filter: drop-shadow(10px -5px 0 white) drop-shadow(-10px -5px 0 white);
   }
@@ -97,23 +83,6 @@ const randomCharacter = randomInt(0, 3);
     animation: gif 2s steps(1, end) infinite;
     transition: 150ms;
     z-index: 90;
-  }
-
-  @media (max-width: 640px) {
-    picture {
-      display: none;
-    }
-
-    picture.mobile {
-      display: inherit;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      transform: scale(0.5);
-      transform-origin: bottom left;
-      animation: gif 2s steps(1, end) infinite;
-    }
   }
 
   #rup {
