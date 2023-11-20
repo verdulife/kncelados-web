@@ -1,5 +1,7 @@
 ---
-import Logo from "@/icons/Logo.astro";
+import FollowLogo from "./FollowLogo.astro";
+import Characters from "./Characters.astro";
+
 import { sentences } from "@/lib/sentences";
 ---
 
@@ -14,9 +16,7 @@ import { sentences } from "@/lib/sentences";
   <header
     class="max-w-6xl flex flex-col gap-2 items-center w-full -mt-40 md:-mt-[20%]"
   >
-    <span id="follow" class="hidden md:flex absolute w-48">
-      <Logo />
-    </span>
+    <FollowLogo />
 
     <article class="flex flex-col items-center gap-8 p-4">
       <h1
@@ -32,88 +32,5 @@ import { sentences } from "@/lib/sentences";
     </article>
   </header>
 
-  <picture id="joz" class="absolute bottom-0 left-[-45%] md:left-[-15%]">
-  </picture>
-
-  <picture
-    id="rup"
-    class="absolute -bottom-10 md:-bottom-20 left-[-15%] md:left-[14%] z-20"
-  ></picture>
-
-  <picture
-    id="dani"
-    class="absolute -bottom-10 md:-bottom-20 right-[-15%] md:right-[14%] z-10"
-  >
-  </picture>
-
-  <picture id="ander" class="absolute bottom-0 right-[-45%] md:right-[-15%]"
-  ></picture>
+  <Characters />
 </section>
-
-<script>
-  const welcome = document.querySelector("#bienvenidos");
-  const follow = document.querySelector("#follow") as HTMLElement;
-
-  welcome?.addEventListener("mousemove", (ev) => {
-    const { pageX, pageY } = ev as MouseEvent;
-    const { offsetWidth, offsetHeight } = follow;
-
-    setTimeout(() => {
-      follow.style.top = `${pageY - offsetHeight / 2}px`;
-      follow.style.left = `${pageX - offsetWidth / 2}px`;
-    }, 150);
-  });
-</script>
-
-<style>
-  #follow {
-    animation: rotate 5s linear infinite;
-  }
-
-  picture {
-    width: 45%;
-    min-width: 400px;
-    aspect-ratio: 1.4861;
-    background-size: 200%;
-    background-position: 0 0;
-    filter: drop-shadow(10px -5px 0 white) drop-shadow(-10px -5px 0 white);
-  }
-
-  picture:hover {
-    transform: scale(1.2);
-    animation: gif 2s steps(1, end) infinite;
-    transition: 150ms;
-    z-index: 30;
-  }
-
-  #rup {
-    background-image: url("/rup-sprite.png");
-  }
-  #joz {
-    background-image: url("/joz-sprite.png");
-  }
-  #dani {
-    background-image: url("/dani-sprite.png");
-  }
-  #ander {
-    background-image: url("/ander-sprite.png");
-  }
-
-  @keyframes gif {
-    25% {
-      background-position: 100% 0;
-    }
-    50% {
-      background-position: 0 100%;
-    }
-    75% {
-      background-position: 100% 100%;
-    }
-  }
-
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-</style>
