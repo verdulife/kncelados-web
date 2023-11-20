@@ -59,17 +59,17 @@ const randomCharacter = randomInt(0, 3);
 
 <script>
   const welcome = document.querySelector("#bienvenidos");
-  const follow = document.querySelector("#follow");
+  const follow = document.querySelector("#follow") as HTMLElement;
   const characters = document.querySelectorAll("picture[data-random]");
 
   characters.forEach((character, i) => {
-    if (character.getAttribute("data-random") == i) {
+    if (character.getAttribute("data-random") === i.toString()) {
       character.classList.add("mobile");
     }
   });
 
   welcome?.addEventListener("mousemove", (ev) => {
-    const { pageX, pageY } = ev;
+    const { pageX, pageY } = ev as MouseEvent;
     const { offsetWidth, offsetHeight } = follow;
 
     setTimeout(() => {
