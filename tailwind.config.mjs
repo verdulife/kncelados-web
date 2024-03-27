@@ -1,4 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
+import animations from '@midudev/tailwind-animations';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,9 +9,6 @@ export default {
       fontFamily: {
         title: [
           "Clash Display Variable",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Apple Color Emoji",
           ...defaultTheme.fontFamily.sans,
         ],
       },
@@ -20,5 +18,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [animations],
 };

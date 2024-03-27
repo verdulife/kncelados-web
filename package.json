@@ -5,26 +5,24 @@
   "scripts": {
     "dev": "astro dev",
     "host": "astro dev --host",
-    "scrape": "tiktok-scraper user @kncelados -n 300 -t csv --session sid_tt=asdasd13123123123adasda",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/netlify": "^3.0.4",
-    "@astrojs/tailwind": "^5.0.2",
-    "@fontsource-variable/inter": "^5.0.17",
-    "astro": "^3.5.5",
-    "gsap": "^3.12.2",
-    "split-type": "^0.3.4",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^5.2.2"
+    "@astrojs/check": "0.5.10",
+    "@astrojs/netlify": "5.2.0",
+    "@astrojs/tailwind": "5.1.0",
+    "@fontsource-variable/inter": "5.0.17",
+    "@midudev/tailwind-animations": "^0.0.7",
+    "astro": "4.5.10",
+    "tailwindcss": "3.4.2",
+    "typescript": "5.4.3"
   },
   "devDependencies": {
-    "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.7"
+    "prettier": "3.2.5",
+    "prettier-plugin-astro": "0.13.0",
+    "prettier-plugin-tailwindcss": "0.5.12"
   }
 }
