@@ -1,55 +1,42 @@
 ---
-import Imago from "@/icons/Imago.astro";
-import Menu from "./Menu.astro";
+import Logo from "@/icons/Logo.astro";
 ---
 
-<header class="fixed top-0 left-0 flex justify-center z-50 w-full">
-  <nav
-    class="max-w-6xl flex items-center w-full font-title bg-knblue text-white py-4 px-5 md:-skew-x-6"
-  >
-    <a class="bg-knred rounded-full p-2 md:skew-x-6" href="/">
-      <Imago />
+<header class="fixed left-0 top-0 z-50 flex w-full justify-center">
+  <nav class="flex w-full max-w-6xl justify-between items-center px-5 py-4 font-title">
+    <a href="/">
+      <Logo class="w-24" />
     </a>
 
-    <ul class="hidden md:flex px-4 md:skew-x-6">
+    <ul class="flex px-4 font-title font-medium">
       <li>
         <a
-          class="px-6 py-4 hover:text-knred transition-colors"
+          class="px-6 py-4 transition-colors hover:text-knred"
           href="#bienvenidos">INICIO</a
         >
       </li>
       <li>
         <a
-          class="px-6 py-4 hover:text-knred transition-colors"
+          class="px-6 py-4 transition-colors hover:text-knred"
           href="#ultimos-videos">ÚLTIMOS VIDEOS</a
         >
       </li>
       <li>
-        <a class="px-6 py-4 hover:text-knred transition-colors" href="#redes"
+        <a class="px-6 py-4 transition-colors hover:text-knred" href="#redes"
           >REDES</a
         >
       </li>
       <li>
-        <a class="px-6 py-4 hover:text-knred transition-colors" href="#nosotros"
+        <a class="px-6 py-4 transition-colors hover:text-knred" href="#nosotros"
           >NOSOTROS</a
         >
       </li>
       <li>
         <a
-          class="px-6 py-4 hover:text-knred transition-colors"
+          class="px-6 py-4 transition-colors hover:text-knred"
           href="#di-la-tuya">DI LA TUYA</a
         >
       </li>
     </ul>
-
-    <a
-      class="hidden md:inline px-6 py-3 ml-auto shadow-xl hover:bg-knred/70 transition-colors md:skew-x-6 bg-knred rounded-xl"
-      href="https://www.patreon.com/Kncelados"
-      target="_blank"
-    >
-      PATREON
-    </a>
-
-    <Menu></Menu>
   </nav>
 </header>

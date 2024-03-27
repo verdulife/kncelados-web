@@ -5,12 +5,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      height: {
-        screen: "100dvh",
-      },
       fontFamily: {
         title: [
-          "Everett",
+          "Clash Display Variable",
           "Segoe UI Emoji",
           "Segoe UI Symbol",
           "Apple Color Emoji",

@@ -1,19 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import SectionWelcome from "@/components/SectionWelcome.astro";
-import SectionLastVideos from "@/components/SectionLastVideos.astro";
-import SectionUs from "@/components/SectionUs.astro";
+import Welcome from "@/sections/Welcome.astro";
 ---
 
 <Layout
-  title="kncelados | el f̶a̶k̶e̶pod"
+  title="KNCELADOS | El fakepod"
   description="Adéntrate en nuestro caos de risas con el f̶a̶k̶e̶pod más irreverente. Últimos videos que queman y un equipo sin filtros. ¡Encuéntranos en todas partes y participa!"
 >
   <main class="flex flex-col items-center w-full">
-    <SectionWelcome />
-    <SectionLastVideos />
-    <SectionUs />
-
-    <section class="bg-knblue h-screen w-full"></section>
+    <Welcome />
   </main>
 </Layout>
