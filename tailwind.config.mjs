@@ -5,13 +5,13 @@ import animations from '@midudev/tailwind-animations';
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    fontFamily: {
+      sans: [
+        "Clash Display Variable",
+        ...defaultTheme.fontFamily.sans,
+      ],
+    },
     extend: {
-      fontFamily: {
-        title: [
-          "Clash Display Variable",
-          ...defaultTheme.fontFamily.sans,
-        ],
-      },
       colors: {
         knred: "#e13300",
         knblue: "#0b2033",

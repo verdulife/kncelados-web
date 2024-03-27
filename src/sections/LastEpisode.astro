@@ -1,0 +1,30 @@
+---
+import NextEpisode from "@/components/NextEpisode.astro";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+---
+
+<section
+  id="ultimo-capitulo"
+  class="mt-64 flex w-full flex-col items-center justify-center gap-6 bg-knblue py-48 z-50"
+>
+  <h2 class="z-10 text-6xl font-semibold text-gray-50">Último capítulo</h2>
+
+  <div class="relative flex w-full justify-center">
+    <YouTube
+      id="94MaHry1ptA"
+      class="z-10 my-24 aspect-video w-full scale-150 rounded-xl"
+    />
+    <YouTube
+      id="94MaHry1ptA"
+      class="absolute aspect-video w-full scale-150 rounded-xl blur-3xl"
+    />
+  </div>
+
+  <NextEpisode />
+</section>
+
+<style>
+  section {
+    clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+  }
+</style>

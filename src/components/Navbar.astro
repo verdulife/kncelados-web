@@ -1,28 +1,45 @@
 ---
-import Logo from "@/icons/Logo.astro";
+import Logo from "@/lib/assets/Logo.astro";
 ---
 
 <header class="fixed left-0 top-0 z-50 flex w-full justify-center">
   <nav class="flex w-full max-w-6xl items-center justify-between px-5 py-4">
-    <a href="/" class="hover:animate-rotate-360">
+    <a href="/">
       <Logo class="w-20" />
     </a>
 
     <ul
-      class="flex px-4 font-title font-medium [&_a]:px-6 [&_a]:py-4 [&_a]:transition-colors hover:[&_a]:text-knred"
+      class="flex px-4 font-semibold [&_a]:px-6 [&_a]:py-4 [&_a]:uppercase [&_a]:transition-colors hover:[&_a]:text-knred"
     >
       <li>
-        <a href="#bienvenidos">INICIO</a>
+        <a href="#inicio">Inicio</a>
       </li>
       <li>
-        <a href="#ultimos-videos">ÚLTIMOS VIDEOS</a>
+        <a href="#podcast">Podcast</a>
       </li>
       <li>
-        <a href="#ultimos-videos">REDES</a>
+        <a href="#nosotros">Nosotros</a>
       </li>
       <li>
-        <a href="#ultimos-videos">NOSOTROS</a>
+        <a href="#tienda">KNC Store</a>
+      </li>
+      <li>
+        <a href="#colabora">Colabora</a>
       </li>
     </ul>
   </nav>
 </header>
+
+<style>
+  nav > a {
+    animation: rotate linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+  }
+
+  @keyframes rotate {
+    to {
+      rotate: 360deg;
+    }
+  }
+</style>
