@@ -22,7 +22,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="overflow-x-hidden text-knblue">
-    <div class="w-full">
+    <div class="flex flex-col items-center w-full">
       <Background />
       <Navbar />
       <slot />
@@ -47,7 +47,7 @@ const { title, description } = Astro.props;
     font-family: "Clash Display Variable";
     font-weight: normal;
     font-style: normal;
-    src: url("./fonts/clashdisplay-variable.woff2") format("woff2");
+    src: url("./fonts/clashdisplay-variable.ttf") format("ttf");
     font-displat: swap;
   }
 </style>
