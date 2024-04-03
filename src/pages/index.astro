@@ -3,15 +3,17 @@ import Layout from "@/layouts/Layout.astro";
 import Welcome from "@/sections/Welcome.astro";
 import LastEpisode from "@/sections/LastEpisode.astro";
 import Podcast from "@/sections/Podcast.astro";
+import Collaborate from "@/sections/Collaborate.astro";
 ---
 
 <Layout
   title="KNCELADOS | El podcast mas irreverente"
   description="Adéntrate en nuestro caos de risas con el podcast más irreverente. Últimos videos que queman y un equipo sin filtros. ¡Encuéntranos en todas partes y participa!"
 >
-  <main class="flex flex-col items-center w-full">
+  <main class="flex w-full flex-col items-center">
     <Welcome />
     <LastEpisode />
     <Podcast />
+    <Collaborate />
   </main>
 </Layout>

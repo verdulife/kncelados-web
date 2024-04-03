@@ -1,33 +1,35 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
-import { episodes, last_season_index } from "@/lib/videos";
+import { episodes } from "@/lib/videos";
 ---
 
 <section
   id="podcast"
-  class="mt-16 flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-2"
+  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 pt-24 md:pt-48"
 >
-  <h2 class="text-6xl">El podcast</h2>
+  <h2 class="text-center text-4xl md:text-6xl">El podcast</h2>
 
-  <div class="mt-4 flex w-full items-center gap-4">
-    <button
-      class="cursor-not-allowed text-xl text-gray-400 underline hover:no-underline"
-    >
-      Temporada 1
-    </button>
-
-    <span>/</span>
-
-    <button class="text-xl underline hover:no-underline"> Temporada 2 </button>
-  </div>
-
-  <ul data-season={last_season_index} class="grid w-full grid-cols-2 gap-4 md:grid-cols-3">
-    {
-      episodes[0].map(({ id }) => (
-        <li>
-          <YouTube id={id} class="aspect-video w-full rounded-xl" />
-        </li>
-      ))
-    }
-  </ul>
+  {
+    episodes.map((season, ind) => (
+      <details
+        open={ind === episodes.length - 1}
+        name="season"
+        class="w-full border-b border-knblue py-4 open:border-none"
+      >
+        <summary class="cursor-pointer p-2 text-xl">
+          Temporada {ind + 1}
+        </summary>
+        <ul
+          data-season={ind}
+          class="grid w-full grid-cols-1 gap-4 md:grid-cols-3"
+        >
+          {season.map(({ id }) => (
+            <li>
+              <YouTube id={id} class="aspect-video w-full rounded-xl" />
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))
+  }
 </section>

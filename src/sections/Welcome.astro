@@ -1,27 +1,31 @@
 ---
 import Characters from "@/components/Characters.astro";
+import { sentences } from "@/lib/sentences";
 ---
 
 <section
   id="inicio"
-  class="relative flex w-full max-w-5xl flex-col items-center justify-center min-h-[85vh]"
+  class="relative flex min-h-[85vh] w-full max-w-5xl flex-col items-center justify-center px-4"
 >
-  <h1 class="text-center text-5xl md:text-9xl">¿y si lo doblas?</h1>
-  <p class="mt-6 max-w-2xl text-center text-xl">
+  <h1 class="text-center text-4xl md:text-7xl">
+    {sentences[Math.floor(Math.random() * sentences.length)]}
+  </h1>
+
+  <p class="mt-6 max-w-2xl text-center text-base md:text-xl">
     Adéntrate en nuestro caos de risas con el podcast más irreverente. Visita
     nuestro últimos videos conoce nuestro equipo sin filtros.
   </p>
 
-  <div class="mt-12 flex gap-2">
+  <div class="mt-12 flex gap-0 md:gap-2">
     <a
       href="#ultimo-episodio"
-      class="rounded-md bg-knred px-8 py-3 uppercase transition-transform hover:scale-110"
+      class="rounded-md bg-knred px-8 py-3 text-sm uppercase transition-transform hover:scale-110 md:text-base"
     >
       Último episodio
     </a>
     <a
       href="#podcast"
-      class="px-8 py-3 uppercase transition-transform hover:scale-110"
+      class="px-8 py-3 text-sm uppercase transition-transform hover:scale-110 md:text-base"
     >
       Temporadas
     </a>

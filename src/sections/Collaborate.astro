@@ -1,0 +1,52 @@
+---
+import Youtube from "@/lib/assets/Youtube.astro";
+import Instagram from "@/lib/assets/Instagram.astro";
+import Tiktok from "@/lib/assets/Tiktok.astro";
+import Telegram from "@/lib/assets/Telegram.astro";
+import Patreon from "@/lib/assets/Patreon.astro";
+---
+
+<section
+  id="ultimo-episodio"
+  class="mt-16 flex w-full flex-col items-center justify-center gap-6 bg-knred px-4 pb-20 pt-40 md:mt-48 md:pb-40 md:pt-52"
+>
+  <h2 class="text-center text-4xl text-knblue md:text-6xl">
+    Colabora con nosotros
+  </h2>
+  <p class="md:mt-6 max-w-4xl text-center text-base md:text-xl text-knblue">
+    Si te gusta nuestro contenido y quieres colaborar con nosotros, suscribirte
+    a nuestro canal de youtube y siguenos en nuestras redes. Pero si esto te
+    sabe a poco, también puedes colaborar realizando una compra en nuestra
+    tienda (proximamente), o participando en nuestro Patreon (proximamente).
+  </p>
+
+  <div
+    class="mt-8 flex items-center gap-10 [&_a]:transition-transform hover:[&_a]:scale-110"
+  >
+    <a href="https://www.youtube.com/@kncelados" target="_blank">
+      <Youtube class="size-10" />
+    </a>
+
+    <a href="https://www.instagram.com/kncelados" target="_blank">
+      <Instagram class="size-8" />
+    </a>
+
+    <a href="https://www.tiktok.com/@kncelados" target="_blank">
+      <Tiktok class="size-8" />
+    </a>
+
+    <a href="https://t.me/kncelados" target="_blank">
+      <Telegram class="size-10" />
+    </a>
+
+    <a href="https://www.patreon.com/kncelados" target="_blank">
+      <Patreon class="size-8" />
+    </a>
+  </div>
+</section>
+
+<style>
+  section {
+    clip-path: polygon(0 100px, 100% 0, 100% 100%, 0% 100%);
+  }
+</style>
