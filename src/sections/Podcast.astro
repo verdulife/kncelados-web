@@ -1,25 +1,33 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
+import { episodes, last_season_index } from "@/lib/videos";
 ---
 
 <section
   id="podcast"
-  class="mt-48 flex w-full max-w-5xl flex-col items-center justify-center gap-6"
+  class="mt-16 flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-2"
 >
   <h2 class="text-6xl">El podcast</h2>
 
-  <div class="flex w-full items-center gap-4">
-    <button class="text-xl underline hover:no-underline text-gray-200 cursor-not-allowed">Temporada 1</button>
+  <div class="mt-4 flex w-full items-center gap-4">
+    <button
+      class="cursor-not-allowed text-xl text-gray-400 underline hover:no-underline"
+    >
+      Temporada 1
+    </button>
+
     <span>/</span>
-    <button class="text-xl underline hover:no-underline">Temporada 2</button>
+
+    <button class="text-xl underline hover:no-underline"> Temporada 2 </button>
   </div>
 
-  <ul class="flex w-full flex-wrap gap-4">
-    <li class="w-1/3">
-      <YouTube id="8MIZIwr_2I4" class="aspect-video w-full rounded-xl" />
-    </li>
-    <li class="w-1/3">
-      <YouTube id="94MaHry1ptA" class="aspect-video w-full rounded-xl" />
-    </li>
+  <ul data-season={last_season_index} class="grid w-full grid-cols-2 gap-4 md:grid-cols-3">
+    {
+      episodes[0].map(({ id }) => (
+        <li>
+          <YouTube id={id} class="aspect-video w-full rounded-xl" />
+        </li>
+      ))
+    }
   </ul>
 </section>

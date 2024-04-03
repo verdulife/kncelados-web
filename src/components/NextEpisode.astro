@@ -1,35 +1,103 @@
+---
+import { EVENT_TIMESTAMP } from "@/lib/consts";
+---
+
 <section
   id="proximo-capitulo"
   class="mt-20 flex w-full max-w-5xl flex-col items-center justify-center gap-6 text-gray-50"
 >
-  <h2 class="text-xl md:text-4xl font-medium">Próximo capítulo</h2>
+  <h2 class="text-xl font-medium md:text-4xl">Próximo episodio</h2>
 
   <div
-    class="flex justify-center gap-2 [&_p]:text-xs md:[&_p]:text-sm [&_p]:uppercase [&_span]:text-5xl md:[&_span]:text-6xl [&_span]:font-extrabold scale-90 md:scale-100"
+    data-date={EVENT_TIMESTAMP}
+    class="flex scale-90 justify-center gap-8 text-center md:scale-100"
   >
     <div class="flex flex-col items-center">
-      <span>00</span>
-      <p>días</p>
+      <span data-days class="text-5xl font-bold tabular-nums md:text-6xl">
+        00
+      </span>
+      <p class="text-xs uppercase md:text-sm">días</p>
     </div>
-    <span>:</span>
+
+    <span aria-hidden="true" class="text-5xl font-bold md:text-6xl">:</span>
+
     <div class="flex flex-col items-center">
-      <span>00</span>
-      <p>horas</p>
+      <span data-hours class="text-5xl font-bold tabular-nums md:text-6xl">
+        00
+      </span>
+      <p class="text-xs uppercase md:text-sm">horas</p>
     </div>
-    <span>:</span>
+
+    <span aria-hidden="true" class="text-5xl font-bold md:text-6xl">:</span>
+
     <div class="flex flex-col items-center">
-      <span>00</span>
-      <p>minutos</p>
+      <span data-minutes class="text-5xl font-bold tabular-nums md:text-6xl">
+        00
+      </span>
+      <p class="text-xs uppercase md:text-sm">minutos</p>
     </div>
-    <span>:</span>
+
+    <span aria-hidden="true" class="text-5xl font-bold md:text-6xl">:</span>
+
     <div class="flex flex-col items-center">
-      <span>00</span>
-      <p>segundos</p>
+      <span data-seconds class="text-5xl font-bold tabular-nums md:text-6xl">
+        00
+      </span>
+      <p class="text-xs uppercase md:text-sm">segundos</p>
     </div>
   </div>
 </section>
 
 <script>
-  const startDate = new Date("4/8/2024,20:00:00");
-  const currentDate = new Date();
+  const SECOND = 1000;
+  const MINUTE = SECOND * 60;
+  const HOUR = MINUTE * 60;
+  const DAY = HOUR * 24;
+  const WEEK = DAY * 7;
+  const CURRENT_DATE = Date.now();
+
+  function init() {
+    const $countdown = document.querySelector("[data-date]");
+    if (!$countdown) return;
+
+    const $days = document.querySelector("[data-days]");
+    const $hours = document.querySelector("[data-hours]");
+    const $minutes = document.querySelector("[data-minutes]");
+    const $seconds = document.querySelector("[data-seconds]");
+
+    const timestamp = $countdown.getAttribute("data-date");
+    if (!timestamp) return;
+
+    let endDate = new Date(+timestamp).getTime();
+
+    while (endDate < CURRENT_DATE) {
+      endDate += WEEK;
+    }
+
+    function formatTime(time: number) {
+      return Math.floor(time).toString().padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = endDate - now;
+
+      if ($days instanceof HTMLElement) {
+        $days.innerText = formatTime(diff / DAY);
+      }
+      if ($hours instanceof HTMLElement) {
+        $hours.innerText = formatTime((diff % DAY) / HOUR);
+      }
+      if ($minutes instanceof HTMLElement) {
+        $minutes.innerText = formatTime((diff % HOUR) / MINUTE);
+      }
+      if ($seconds instanceof HTMLElement) {
+        $seconds.innerText = formatTime((diff % MINUTE) / SECOND);
+      }
+    }
+
+    setInterval(updateCountdown, SECOND);
+  }
+
+  init();
 </script>
