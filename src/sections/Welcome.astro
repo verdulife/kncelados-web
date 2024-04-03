@@ -4,9 +4,9 @@ import Characters from "@/components/Characters.astro";
 
 <section
   id="inicio"
-  class="mt-52 flex w-full max-w-5xl flex-col items-center justify-center"
+  class="relative flex w-full max-w-5xl flex-col items-center justify-center min-h-[85vh]"
 >
-  <h1 class="text-5xl md:text-9xl font-medium text-center">¿y si lo doblas?</h1>
+  <h1 class="text-center text-5xl md:text-9xl">¿y si lo doblas?</h1>
   <p class="mt-6 max-w-2xl text-center text-xl">
     Adéntrate en nuestro caos de risas con el podcast más irreverente. Visita
     nuestro últimos videos conoce nuestro equipo sin filtros.
@@ -15,17 +15,17 @@ import Characters from "@/components/Characters.astro";
   <div class="mt-12 flex gap-2">
     <a
       href="#podcast"
-      class="rounded-md bg-knred px-8 py-3 font-semibold uppercase transition-transform hover:scale-110"
+      class="rounded-md bg-knred px-8 py-3 uppercase transition-transform hover:scale-110"
     >
       Ver podcast
     </a>
     <a
       href="#knc-store"
-      class="px-8 py-3 font-semibold uppercase transition-transform hover:scale-110"
+      class="px-8 py-3 uppercase transition-transform hover:scale-110"
     >
       KNC Store
     </a>
   </div>
 
-  <!-- <Characters /> -->
+  <Characters />
 </section>

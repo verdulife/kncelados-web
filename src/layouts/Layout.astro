@@ -21,8 +21,8 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="overflow-x-hidden text-knblue">
-    <div class="flex flex-col items-center w-full">
+  <body>
+    <div class="flex min-h-screen flex-col overflow-x-hidden text-knblue">
       <Background />
       <Navbar />
       <slot />
@@ -32,14 +32,15 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
-  body {
+  :root {
     text-wrap: pretty;
     scroll-behavior: smooth;
   }
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     text-wrap: balance;
   }
 
@@ -47,7 +48,15 @@ const { title, description } = Astro.props;
     font-family: "Clash Display Variable";
     font-weight: normal;
     font-style: normal;
-    src: url("./fonts/clashdisplay-variable.ttf") format("ttf");
+    src: url("./fonts/clashdisplay-medium.woff2") format("woff2");
+    font-displat: swap;
+  }
+
+  @font-face {
+    font-family: "Clash Display Variable";
+    font-weight: bold;
+    font-style: normal;
+    src: url("./fonts/clashdisplay-bold.woff2") format("woff2");
     font-displat: swap;
   }
 </style>
