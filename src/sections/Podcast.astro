@@ -1,21 +1,25 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import { episodes } from "@/lib/seasons";
-import { shorts } from "@/lib/shorts";
-import { collections } from "@/lib/collentions";
 ---
 
 <section
   id="podcast"
-  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 pt-24 md:pt-48"
+  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 pt-24"
 >
   <h2 class="text-center text-4xl md:text-6xl">El podcast</h2>
+
+  <p class="mb-8 mt-2 max-w-3xl text-center text-base md:text-xl">
+    Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar
+    adecuado. Tanto en esta página web, como en nuestro canal de YouTube
+    encontrarás todos los episodios.
+  </p>
 
   {
     episodes.map((season, ind) => (
       <details
         open={ind === episodes.length - 1}
-        name="videos"
+        name="seasons"
         class="w-full border-b border-knblue py-4 open:border-none"
       >
         <summary class="cursor-pointer p-2 text-xl">
@@ -31,36 +35,4 @@ import { collections } from "@/lib/collentions";
       </details>
     ))
   }
-
-  <details
-    name="videos"
-    class="w-full border-b border-knblue py-4 open:border-none"
-  >
-    <summary class="cursor-pointer p-2 text-xl">Cortos</summary>
-    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-      {
-        shorts.map((id) => (
-          <li>
-            <YouTube id={id} class="aspect-video w-full rounded-xl" />
-          </li>
-        ))
-      }
-    </ul>
-  </details>
-
-  <details
-    name="videos"
-    class="w-full border-b border-knblue py-4 open:border-none"
-  >
-    <summary class="cursor-pointer p-2 text-xl">Recopilaciones</summary>
-    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-      {
-        collections.map((id) => (
-          <li>
-            <YouTube id={id} class="aspect-video w-full rounded-xl" />
-          </li>
-        ))
-      }
-    </ul>
-  </details>
 </section>

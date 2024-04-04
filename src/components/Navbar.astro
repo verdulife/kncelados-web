@@ -3,29 +3,31 @@ import Logo from "@/lib/assets/Logo.astro";
 ---
 
 <header class="absolute left-0 top-0 z-50 flex w-full justify-center">
-  <nav class="flex w-full max-w-6xl items-center justify-center md:justify-between px-5 py-4">
+  <nav
+    class="flex w-full max-w-6xl items-center justify-center px-5 py-4 md:justify-between"
+  >
     <a href="/">
       <Logo class="w-20" />
       <span class="sr-only">www.kncelados.com</span>
     </a>
 
     <ul
-      class="hidden md:flex px-4 [&_a]:px-6 [&_a]:py-4 [&_a]:uppercase [&_a]:transition-colors hover:[&_a]:text-knred"
+      class="hidden px-4 md:flex [&_a]:px-6 [&_a]:py-4 [&_a]:uppercase [&_a]:transition-colors hover:[&_a]:text-knred"
     >
-      <li>
-        <a href="/#inicio">Inicio</a>
-      </li>
-      <li>
-        <a href="/#ultimo-episodio">Último episodio</a>
-      </li>
       <li>
         <a href="/#podcast">Podcast</a>
       </li>
       <li>
-        <a href="/tienda">KNC Store</a>
+        <a href="/#knc-shorts">KNC Shorts</a>
+      </li>
+      <li>
+        <a href="/#nosotros">Nosotros</a>
       </li>
       <li>
         <a href="/#colabora">Colabora</a>
+      </li>
+      <li>
+        <a href="/tienda">Tienda</a>
       </li>
     </ul>
   </nav>

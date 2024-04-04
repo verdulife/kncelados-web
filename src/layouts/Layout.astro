@@ -16,9 +16,16 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1.0, viewport-fit=cover"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Kncelados" />
+    <link rel="apple-touch-icon" type="image/png" href="/mobile.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="author" content="verdu | verdu@live.com" />

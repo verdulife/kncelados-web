@@ -1,5 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import animations from '@midudev/tailwind-animations';
+import textstroke from "@designbycode/tailwindcss-text-stroke";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -13,10 +14,10 @@ export default {
     },
     extend: {
       colors: {
-        knred: "#e13300",
-        knblue: "#0b2033",
+        knred: "#e5311f",
+        knblue: "#102133",
       },
     },
   },
-  plugins: [animations],
+  plugins: [animations, textstroke],
 };

@@ -1,0 +1,107 @@
+<section
+  id="nosotros"
+  class="z-40 flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 py-48"
+>
+  <h2 class="z-10 text-center text-4xl md:text-6xl">¿Quiénes son estos?</h2>
+
+  <p class="mb-8 mt-2 max-w-3xl text-center text-base md:text-xl">
+    ¿Quién son estos Kncelados? Colectivamente, son amigos, individualmente, eso
+    lo tendrás que descubrir tú mismo.
+  </p>
+
+  <div class="grid w-full grid-cols-1 gap-x-1 gap-y-10 md:grid-cols-4">
+    <article class="flex w-full flex-col items-center">
+      <picture
+        id="rup-is"
+        class="-ml-6 w-full -rotate-6 border-b-4 border-knblue"></picture>
+
+      <div class="relative">
+        <h3
+          class="text-stroke-2 text-stroke-knblue z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-knred"
+        >
+          Rup
+        </h3>
+      </div>
+    </article>
+
+    <article class="flex w-full flex-col items-center">
+      <picture
+        id="dani-is"
+        class="-ml-6 w-full -rotate-6 border-b-4 border-knblue"></picture>
+
+      <div class="relative">
+        <h3
+          class="text-stroke-2 text-stroke-knblue z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-knred"
+        >
+          Dani
+        </h3>
+      </div>
+    </article>
+
+    <article class="flex w-full flex-col items-center">
+      <picture
+        id="ander-is"
+        class="-ml-6 w-full -rotate-6 border-b-4 border-knblue"></picture>
+
+      <div class="relative">
+        <h3
+          class="text-stroke-2 text-stroke-knblue z-20 -mt-10 -rotate-6 -skew-x-12 text-7xl font-bold uppercase text-knred"
+        >
+          Ander
+        </h3>
+      </div>
+    </article>
+
+    <article class="flex w-full flex-col items-center">
+      <picture
+        id="joz-is"
+        class="-ml-6 w-full -rotate-6 border-b-4 border-knblue"></picture>
+
+      <div class="relative">
+        <h3
+          class="text-stroke-2 text-stroke-knblue z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-knred"
+        >
+          Joz
+        </h3>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  picture {
+    aspect-ratio: 1.4861;
+    background-size: 200%;
+    background-position: 0 0;
+  }
+
+  picture:hover {
+    animation: gif 2s steps(1, end) infinite;
+    transition: 150ms;
+  }
+
+  #rup-is {
+    background-image: url("/sprites/rup.png");
+  }
+  #joz-is {
+    background-image: url("/sprites/joz.png");
+  }
+  #dani-is {
+    background-image: url("/sprites/dani.png");
+  }
+  #ander-is {
+    background-image: url("/sprites/ander.png");
+  }
+
+  @keyframes gif {
+    25% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 0 100%;
+    }
+    75% {
+      background-position: 100% 100%;
+    }
+  }
+</style>

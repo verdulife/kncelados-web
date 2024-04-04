@@ -17,6 +17,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: 5.1.0
     version: 5.1.0(astro@4.5.10)(tailwindcss@3.4.2)
+  '@designbycode/tailwindcss-text-stroke':
+    specifier: ^1.2.1
+    version: 1.2.1(tailwindcss@3.4.2)
   '@midudev/tailwind-animations':
     specifier: ^0.0.7
     version: 0.0.7(tailwindcss@3.4.2)
@@ -430,6 +433,14 @@ packages:
       '@babel/helper-string-parser': 7.24.1
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@designbycode/tailwindcss-text-stroke@1.2.1(tailwindcss@3.4.2):
+    resolution: {integrity: sha512-6SqiFuMjJaWWv5Mm+RIu8Ui3Kc/8AK3m0qSocPOFhk4yS6aMVioy8QLghAj5KOR/8lsfZe3r7I1uJ7YM1FimUA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.4.2
     dev: false
 
   /@emmetio/abbreviation@2.3.3:
