@@ -83,6 +83,20 @@ const { title, description } = Astro.props;
       }
     </script>
   </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-486FS251TB"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-486FS251TB");
+  </script>
+
   <body>
     <div class="flex min-h-screen flex-col overflow-x-hidden text-knblue">
       <Background />
