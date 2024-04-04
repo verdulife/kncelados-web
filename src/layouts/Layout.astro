@@ -16,10 +16,72 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="author" content="verdu | verdu@live.com" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="preload"
+      href="/fonts/clashdisplay-medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/clashdisplay-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Kncelados | Un podcast de torerías varias"
+    />
+    <meta property="og:url" content="https://www.kncelados.com" />
+    <meta property="og:image" content="https://www.kncelados.com/card.jpg" />
+    <meta
+      property="og:description"
+      content="Un podcast de torerías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Kncelados | Un podcast de torerías varias"
+    />
+    <meta name="twitter:site" content="@kncelados" />
+    <meta
+      name="twitter:description"
+      content="Un podcast de torerías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
+    />
+    <meta name="twitter:image" content="https://www.kncelados.com/card.jpg" />
+    <meta name="twitter:image:alt" content="Kncelados" />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "PerformingGroup",
+        "name": "Kncelados",
+        "logo": "https://www.kncelados.com/mobile.png",
+        "url": "https://www.kncelados.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Barcelona",
+          "addressCountry": "Spain"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@kncelados",
+          "https://www.instagram.com/kncelados",
+          "https://www.tiktok.com/@kncelados",
+          "https://open.spotify.com/show/5bDQAbJUSdfHYdii8A8eX0",
+          "https://t.me/kncelados",
+          "https://www.patreon.com/kncelados"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="flex min-h-screen flex-col overflow-x-hidden text-knblue">
@@ -42,7 +104,7 @@ const { title, description } = Astro.props;
     font-weight: normal;
     font-style: normal;
     src: url("/fonts/clashdisplay-medium.woff2") format("woff2");
-    font-displat: swap;
+    font-display: swap;
   }
 
   @font-face {
@@ -50,6 +112,6 @@ const { title, description } = Astro.props;
     font-weight: bold;
     font-style: normal;
     src: url("/fonts/clashdisplay-bold.woff2") format("woff2");
-    font-displat: swap;
+    font-display: swap;
   }
 </style>
