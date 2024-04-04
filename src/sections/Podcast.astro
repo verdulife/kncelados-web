@@ -1,6 +1,8 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
-import { episodes } from "@/lib/videos";
+import { episodes } from "@/lib/seasons";
+import { shorts } from "@/lib/shorts";
+import { collections } from "@/lib/collentions";
 ---
 
 <section
@@ -13,16 +15,13 @@ import { episodes } from "@/lib/videos";
     episodes.map((season, ind) => (
       <details
         open={ind === episodes.length - 1}
-        name="season"
+        name="videos"
         class="w-full border-b border-knblue py-4 open:border-none"
       >
         <summary class="cursor-pointer p-2 text-xl">
           Temporada {ind + 1}
         </summary>
-        <ul
-          data-season={ind}
-          class="grid w-full grid-cols-1 gap-4 md:grid-cols-3"
-        >
+        <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
           {season.map(({ id }) => (
             <li>
               <YouTube id={id} class="aspect-video w-full rounded-xl" />
@@ -32,4 +31,36 @@ import { episodes } from "@/lib/videos";
       </details>
     ))
   }
+
+  <details
+    name="videos"
+    class="w-full border-b border-knblue py-4 open:border-none"
+  >
+    <summary class="cursor-pointer p-2 text-xl">Cortos</summary>
+    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+      {
+        shorts.map((id) => (
+          <li>
+            <YouTube id={id} class="aspect-video w-full rounded-xl" />
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+
+  <details
+    name="videos"
+    class="w-full border-b border-knblue py-4 open:border-none"
+  >
+    <summary class="cursor-pointer p-2 text-xl">Recopilaciones</summary>
+    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+      {
+        collections.map((id) => (
+          <li>
+            <YouTube id={id} class="aspect-video w-full rounded-xl" />
+          </li>
+        ))
+      }
+    </ul>
+  </details>
 </section>

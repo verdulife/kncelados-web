@@ -7,13 +7,15 @@ import { sentences } from "@/lib/sentences";
   id="inicio"
   class="relative flex min-h-[85vh] w-full max-w-5xl flex-col items-center justify-center px-4"
 >
-  <h1 class="text-center text-4xl font-bold md:text-7xl">
+  <span class="text-center text-4xl md:text-7xl">
     {sentences[Math.floor(Math.random() * sentences.length)]}
-  </h1>
+  </span>
+
+  <h1 class="sr-only">Un podcast de torerías varias</h1>
 
   <p class="mt-6 max-w-2xl text-center text-base md:text-xl">
     Un podcast de torerías varias. Quizá no aprendes nada, pero seguro que te
-    ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin
+    ríes un rato. Mira los últimos videos y descubre nuestro equipo sin
     filtros.
   </p>
 
