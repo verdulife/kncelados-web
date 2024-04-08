@@ -1,7 +1,6 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import { shorts } from "@/lib/shorts";
-import { collections } from "@/lib/collentions";
 ---
 
 <section
@@ -25,22 +24,6 @@ import { collections } from "@/lib/collentions";
     <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
       {
         shorts.map((id) => (
-          <li>
-            <YouTube id={id} class="aspect-video w-full rounded-xl" />
-          </li>
-        ))
-      }
-    </ul>
-  </details>
-
-  <details
-    name="studios"
-    class="w-full border-b border-knblue py-4 open:border-none"
-  >
-    <summary class="cursor-pointer p-2 text-xl">Recopilaciones</summary>
-    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-      {
-        collections.map((id) => (
           <li>
             <YouTube id={id} class="aspect-video w-full rounded-xl" />
           </li>

@@ -1,6 +1,7 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import { episodes } from "@/lib/seasons";
+import { collections } from "@/lib/collentions";
 ---
 
 <section
@@ -35,4 +36,20 @@ import { episodes } from "@/lib/seasons";
       </details>
     ))
   }
+
+  <details
+    name="studios"
+    class="w-full border-b border-knblue py-4 open:border-none"
+  >
+    <summary class="cursor-pointer p-2 text-xl">Recopilaciones</summary>
+    <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+      {
+        collections.map((id) => (
+          <li>
+            <YouTube id={id} class="aspect-video w-full rounded-xl" />
+          </li>
+        ))
+      }
+    </ul>
+  </details>
 </section>
