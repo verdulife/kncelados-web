@@ -82,6 +82,11 @@ export const episodes = [
       season: 2,
       id: "6gCCQ58cqhY",
     },
+    {
+      episode: 4,
+      season: 2,
+      id: "WFstKZnsu3Y",
+    }
   ],
 ];
 

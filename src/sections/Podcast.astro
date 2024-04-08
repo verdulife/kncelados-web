@@ -27,7 +27,7 @@ import { collections } from "@/lib/collentions";
           Temporada {ind + 1}
         </summary>
         <ul class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-          {season.map(({ id }) => (
+          {season.reverse().map(({ id }) => (
             <li>
               <YouTube id={id} class="aspect-video w-full rounded-xl" />
             </li>
