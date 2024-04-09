@@ -12,6 +12,13 @@ const { result } = metadata;
 ---
 
 <Layout title="Podcast" description="Podcast">
-  <VideoHeader data={result} />
-  <VideoSlider data={result}/>
+  <div class="bg-black text-gray-50">
+    <div class="bg-knblue/40 pb-10">
+      <VideoHeader data={result} />
+      <VideoSlider data={result} title="Temporada 2" />
+      <VideoSlider data={result} title="Temporada 1" />
+      <VideoSlider data={result} title="KNC Shorts" />
+      <VideoSlider data={result} title="Recopilatorios" />
+    </div>
+  </div>
 </Layout>

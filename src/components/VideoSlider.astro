@@ -1,9 +1,72 @@
 ---
 import VideoCard from "./VideoCard.astro";
+import Prev from "@/lib/assets/Prev.astro";
+import Next from "@/lib/assets/Next.astro";
 
-const { data } = Astro.props;
+const { data, title } = Astro.props;
 ---
 
-<section class="flex h-96 w-full items-center justify-center bg-knblue">
-  <VideoCard data={data} />
+<section class="relative flex w-full flex-col pt-4 md:pt-8">
+  <h2 class="px-6 text-lg md:px-20 md:text-3xl">{title}</h2>
+  <div
+    class="slider flex h-44 w-full snap-x snap-mandatory items-center gap-1 snap overflow-x-auto md:h-72 scroll-p-6"
+  >
+    <div class="shrink-0 snap-start">
+      <div class="w-6 shrink-0 md:w-20"></div>
+    </div>
+
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+    <VideoCard data={data} />
+
+    <div class="shrink-0 snap-end">
+      <div class="w-6 shrink-0 md:w-20"></div>
+    </div>
+
+    <button
+      class="hidden md:inline prev absolute left-0 z-10 h-full bg-gradient-to-b from-transparent via-black/30 to-transparent"
+      ><Prev class="w-20" /></button
+    >
+    <button
+      class="hidden md:inline right-0 z-10 h-full bg-gradient-to-b from-transparent via-black/30 to-transparent"
+      ><Next class="w-20" /></button
+    >
+  </div>
 </section>
+
+<script>
+  const slider = document.querySelector(".slider");
+  const slide = document.querySelector(".slider > article");
+  const prev = document.querySelector(".prev");
+  const next = document.querySelector(".next");
+
+  function init() {
+    if (!slider || !slide || !prev || !next) return;
+
+    next.addEventListener("click", () => {
+      slider.scrollBy({
+        left: slide.clientWidth * 1.5,
+        behavior: "smooth",
+      });
+    });
+
+    prev.addEventListener("click", () => {
+      slider.scrollBy({
+        left: -slide.clientWidth * 1.5,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  init();
+</script>
+
+<style>
+  section > div {
+    scrollbar-width: none;
+  }
+</style>

@@ -1,4 +1,6 @@
 ---
+import { YouTube } from "@astro-community/astro-embed-youtube";
+
 const { data } = Astro.props;
 const { ogTitle, ogImage } = data;
 
@@ -6,7 +8,9 @@ if (!ogImage) return;
 const image = ogImage[0];
 ---
 
-<article class="aspect-video">
+<article
+  class="aspect-video w-2/3 md:w-96 shrink-0 snap-start transition-all duration-300 md:hover:w-[30rem]"
+>
   <button>
     <picture>
       <img src={image.url} alt={ogTitle} />

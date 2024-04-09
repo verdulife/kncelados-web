@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "scrape": "node ./src/lib/scrape/getMetadata.js",
     "host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -12,19 +11,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astro-community/astro-embed-youtube": "^0.4.4",
+    "@astro-community/astro-embed-youtube": "0.5.1",
     "@astrojs/check": "0.5.10",
     "@astrojs/netlify": "5.2.0",
-    "@astrojs/partytown": "^2.0.4",
+    "@astrojs/partytown": "2.0.4",
     "@astrojs/tailwind": "5.1.0",
-    "@designbycode/tailwindcss-text-stroke": "^1.2.1",
-    "@midudev/tailwind-animations": "^0.0.7",
+    "@designbycode/tailwindcss-text-stroke": "1.2.1",
     "astro": "4.5.10",
     "tailwindcss": "3.4.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "devDependencies": {
-    "open-graph-scraper": "^6.5.1",
+    "open-graph-scraper": "6.5.1",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
     "prettier-plugin-tailwindcss": "0.5.12"

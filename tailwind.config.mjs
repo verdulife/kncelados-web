@@ -1,5 +1,4 @@
 import defaultTheme from "tailwindcss/defaultTheme";
-import animations from '@midudev/tailwind-animations';
 import textstroke from "@designbycode/tailwindcss-text-stroke";
 
 /** @type {import('tailwindcss').Config} */
@@ -19,5 +18,5 @@ export default {
       },
     },
   },
-  plugins: [animations, textstroke],
+  plugins: [textstroke],
 };

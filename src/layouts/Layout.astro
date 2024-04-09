@@ -50,7 +50,10 @@ const { title, description } = Astro.props;
       content="Kncelados | Un podcast de tonterías varias"
     />
     <meta property="og:url" content="https://www.kncelados.com" />
-    <meta property="og:image" content="https://www.kncelados.com/logo-512.jpg" />
+    <meta
+      property="og:image"
+      content="https://www.kncelados.com/logo-512.jpg"
+    />
     <meta
       property="og:description"
       content="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
@@ -111,7 +114,7 @@ const { title, description } = Astro.props;
   </script>
 
   <body>
-    <div class="flex min-h-screen flex-col overflow-x-hidden text-knblue">
+    <div class="flex min-h-screen flex-col overflow-hidden text-knblue">
       <Background />
       <Navbar />
       <slot />
