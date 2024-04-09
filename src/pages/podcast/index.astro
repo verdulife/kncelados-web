@@ -1,4 +1,6 @@
 ---
+import VideoHeader from "@/components/VideoHeader.astro";
+import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 import ogs from "open-graph-scraper";
 
@@ -7,45 +9,9 @@ const id = "Iw6uTW_CWoM";
 const options = { url: BASE_URL + id };
 const metadata = await ogs(options);
 const { result } = metadata;
-const { ogTitle, ogDescription, ogImage } = result;
-
-if (!ogImage) return;
-const image = ogImage[0];
 ---
 
 <Layout title="Podcast" description="Podcast">
-  <section
-    class="flex min-h-screen w-full flex-col items-center gap-8 bg-knblue"
-  >
-    <article
-      class="relative flex h-[70vh] w-full flex-col items-center justify-center"
-    >
-      <img
-        class="absolute size-full object-cover object-top"
-        src={image.url}
-        alt={ogTitle}
-      />
-
-      <span
-        class="absolute inset-0 bg-gradient-to-b from-knblue via-transparent to-knblue"
-      ></span>
-
-      <span
-        class="absolute inset-0 bg-gradient-to-r from-knblue from-35% to-transparent"
-      ></span>
-
-      <div class="z-20 flex w-full max-w-6xl flex-col justify-center">
-        <h1 class="max-w-3xl text-7xl text-white">{ogTitle}</h1>
-
-        <div class="flex mt-10">
-          <button class="rounded-xl bg-knred px-8 py-3 text-white">
-            Reproducir
-          </button>
-          <button class="px-8 py-3 text-white"> Ver en YouTube </button>
-        </div>
-
-        <p class="max-w-4xl text-white text-xl mt-10">{ogDescription}</p>
-      </div>
-    </article>
-  </section>
+  <VideoHeader data={result} />
+  <VideoSlider data={result}/>
 </Layout>

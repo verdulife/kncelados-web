@@ -1,0 +1,40 @@
+---
+const { data } = Astro.props;
+const { ogTitle, ogDescription, ogImage } = data;
+
+if (!ogImage) return;
+const image = ogImage[0];
+---
+
+<section class="flex w-full flex-col items-center gap-8 bg-knblue">
+  <article
+    class="relative flex h-[70vh] w-full flex-col items-center justify-end"
+  >
+    <img
+      class="absolute size-full object-cover object-top"
+      src={image.url}
+      alt={ogTitle}
+    />
+
+    <span
+      class="absolute inset-0 bg-gradient-to-b from-knblue via-transparent to-knblue"
+    ></span>
+
+    <span
+      class="absolute inset-0 bg-gradient-to-r from-knblue from-35% to-transparent"
+    ></span>
+
+    <div class="z-20 flex w-full flex-col justify-center px-20 pb-20">
+      <h1 class="max-w-3xl text-7xl text-white">{ogTitle}</h1>
+
+      <div class="mt-10 flex">
+        <button class="rounded-xl bg-knred px-8 py-3 text-white">
+          Reproducir
+        </button>
+        <button class="px-8 py-3 text-white"> Ver en YouTube </button>
+      </div>
+
+      <p class="mt-10 max-w-4xl text-xl text-white">{ogDescription}</p>
+    </div>
+  </article>
+</section>

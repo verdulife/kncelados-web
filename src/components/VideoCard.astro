@@ -1,0 +1,15 @@
+---
+const { data } = Astro.props;
+const { ogTitle, ogImage } = data;
+
+if (!ogImage) return;
+const image = ogImage[0];
+---
+
+<article class="aspect-video">
+  <button>
+    <picture>
+      <img src={image.url} alt={ogTitle} />
+    </picture>
+  </button>
+</article>

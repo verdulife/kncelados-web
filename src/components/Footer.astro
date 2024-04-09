@@ -1,10 +1,16 @@
 ---
 import Iso from "@/lib/assets/Iso.astro";
+
+const { url } = Astro.request;
+const isPodcast = url.includes("podcast");
 ---
 
 <footer class="flex justify-center bg-knblue p-4">
   <div
-    class="flex w-full max-w-5xl items-center justify-between p-2 text-gray-200"
+    class:list={[
+      "flex w-full items-center justify-between p-2 text-gray-200",
+      isPodcast ? "px-20" : "max-w-6xl px-5",
+    ]}
   >
     <p class="text-sm">2024-2025. Algún derecho reservado.</p>
     <Iso class="size-6" />

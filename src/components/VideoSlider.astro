@@ -1,0 +1,9 @@
+---
+import VideoCard from "./VideoCard.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="flex h-96 w-full items-center justify-center bg-knblue">
+  <VideoCard data={data} />
+</section>
