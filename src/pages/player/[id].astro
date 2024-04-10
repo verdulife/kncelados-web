@@ -1,0 +1,8 @@
+---
+import { YouTube } from "@astro-community/astro-embed-youtube";
+const { id } = Astro.params;
+---
+
+<main class="flex h-screen items-center justify-center bg-black">
+  {id && <YouTube id={id} class="size-full" />}
+</main>

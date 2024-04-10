@@ -2,23 +2,20 @@
 import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
-import ogs from "open-graph-scraper";
+import metadata from "@/lib/metadata.json";
 
-const BASE_URL = "https://www.youtube.com/watch?v=";
-const id = "Iw6uTW_CWoM";
-const options = { url: BASE_URL + id };
-const metadata = await ogs(options);
-const { result } = metadata;
+const last_episode_ind = metadata.length - 1;
+const lastEpisode = metadata[last_episode_ind];
 ---
 
 <Layout title="Podcast" description="Podcast">
   <div class="bg-black text-gray-50">
     <div class="bg-knblue/40 pb-10">
-      <VideoHeader data={result} />
-      <VideoSlider data={result} title="Temporada 2" />
+      <VideoHeader data={lastEpisode} />
+      <!-- <VideoSlider data={result} title="Temporada 2" />
       <VideoSlider data={result} title="Temporada 1" />
       <VideoSlider data={result} title="KNC Shorts" />
-      <VideoSlider data={result} title="Recopilatorios" />
+      <VideoSlider data={result} title="Recopilatorios" /> -->
     </div>
   </div>
 </Layout>
