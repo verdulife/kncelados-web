@@ -1,0 +1,37 @@
+---
+import { findBestMatch } from "string-similarity";
+
+import VideoHeader from "@/components/VideoHeader.astro";
+import VideoSlider from "@/components/VideoSlider.astro";
+import Layout from "@/layouts/Layout.astro";
+import metadata from "@/lib/metadata.json";
+
+const { slug } = Astro.params;
+const seasons = [...metadata].reverse();
+
+if (!slug) return;
+
+let current_episode;
+let titles: Array<string> = [];
+
+seasons.forEach((season) => {
+  season.forEach((episode) => titles.push(episode.title.toLowerCase()));
+
+  const { target } = findBestMatch(slug, titles).bestMatch;
+  const match = season.find(
+    (episode) => episode.title.toLowerCase() === target
+  );
+  if (!match) return;
+
+  current_episode = match;
+});
+---
+
+<Layout title="Podcast" description="Podcast">
+  <div class="bg-black text-gray-50">
+    <div class="bg-knblue/40 pb-10">
+      <VideoHeader data={current_episode} />
+      {seasons.map((season) => <VideoSlider data={season} />)}
+    </div>
+  </div>
+</Layout>

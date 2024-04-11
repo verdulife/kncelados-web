@@ -3,66 +3,69 @@ import VideoCard from "./VideoCard.astro";
 import Prev from "@/lib/assets/Prev.astro";
 import Next from "@/lib/assets/Next.astro";
 
-const { data, title } = Astro.props;
+const { data } = Astro.props;
+const episodes = [...data].reverse();
+const current_season = episodes[0].season;
 ---
 
 <section class="relative flex w-full flex-col pt-4 md:pt-8">
-  <h2 class="px-6 text-lg md:px-20 md:text-3xl">{title}</h2>
+  <h2 class="px-6 text-lg md:px-20 md:text-3xl">Temporada {current_season}</h2>
+
   <div
-    class="slider flex h-44 w-full snap-x snap-mandatory items-center gap-1 snap overflow-x-auto md:h-72 scroll-p-6"
+    class="slider snap flex h-44 w-full snap-x snap-mandatory scroll-p-6 items-center gap-1 overflow-x-auto md:h-72 md:scroll-p-20"
   >
     <div class="shrink-0 snap-start">
       <div class="w-6 shrink-0 md:w-20"></div>
     </div>
 
-    <VideoCard data={data} />
-    <VideoCard data={data} />
-    <VideoCard data={data} />
-    <VideoCard data={data} />
-    <VideoCard data={data} />
-    <VideoCard data={data} />
-    <VideoCard data={data} />
+    {episodes.map((episode) => <VideoCard data={episode} />)}
 
     <div class="shrink-0 snap-end">
       <div class="w-6 shrink-0 md:w-20"></div>
     </div>
 
     <button
-      class="hidden md:inline prev absolute left-0 z-10 h-full bg-gradient-to-b from-transparent via-black/30 to-transparent"
-      ><Prev class="w-20" /></button
+      class="prev absolute left-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent md:inline"
     >
+      <Prev class="w-20" />
+    </button>
+
     <button
-      class="hidden md:inline right-0 z-10 h-full bg-gradient-to-b from-transparent via-black/30 to-transparent"
-      ><Next class="w-20" /></button
+      class="next absolute right-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent md:inline"
     >
+      <Next class="w-20" />
+    </button>
   </div>
 </section>
 
 <script>
-  const slider = document.querySelector(".slider");
-  const slide = document.querySelector(".slider > article");
-  const prev = document.querySelector(".prev");
-  const next = document.querySelector(".next");
+  const sliders = document.querySelectorAll(".slider");
 
-  function init() {
-    if (!slider || !slide || !prev || !next) return;
+  (function () {
+    if (!sliders) return;
 
-    next.addEventListener("click", () => {
-      slider.scrollBy({
-        left: slide.clientWidth * 1.5,
-        behavior: "smooth",
+    sliders.forEach((slider) => {
+      const slide = slider.querySelector("article");
+      const prev = slider.querySelector(".prev");
+      const next = slider.querySelector(".next");
+
+      if (!slide || !prev || !next) return;
+
+      prev.addEventListener("click", () => {
+        slider.scrollBy({
+          left: -slide.clientWidth * 2,
+          behavior: "smooth",
+        });
+      });
+
+      next.addEventListener("click", () => {
+        slider.scrollBy({
+          left: slide.clientWidth * 2,
+          behavior: "smooth",
+        });
       });
     });
-
-    prev.addEventListener("click", () => {
-      slider.scrollBy({
-        left: -slide.clientWidth * 1.5,
-        behavior: "smooth",
-      });
-    });
-  }
-
-  init();
+  })();
 </script>
 
 <style>

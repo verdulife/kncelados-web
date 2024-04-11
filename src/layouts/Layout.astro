@@ -1,12 +1,9 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import Background from "@/components/Background.astro";
-
-interface Props {
-  title: string;
-  description: string;
-}
 
 const { title, description } = Astro.props;
 ---
@@ -28,6 +25,7 @@ const { title, description } = Astro.props;
     <link rel="apple-touch-icon" type="image/png" href="/mobile.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
     <meta name="author" content="verdu | verdu@live.com" />
     <meta name="robots" content="index, follow" />
     <link
@@ -120,28 +118,27 @@ const { title, description } = Astro.props;
       <slot />
       <Footer />
     </div>
+    <style is:global>
+      :root {
+        text-wrap: pretty;
+        scroll-behavior: smooth;
+      }
+
+      @font-face {
+        font-family: "Clash Display Variable";
+        font-weight: normal;
+        font-style: normal;
+        src: url("/fonts/clashdisplay-medium.woff2") format("woff2");
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Clash Display Variable";
+        font-weight: bold;
+        font-style: normal;
+        src: url("/fonts/clashdisplay-bold.woff2") format("woff2");
+        font-display: swap;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    text-wrap: pretty;
-    scroll-behavior: smooth;
-  }
-
-  @font-face {
-    font-family: "Clash Display Variable";
-    font-weight: normal;
-    font-style: normal;
-    src: url("/fonts/clashdisplay-medium.woff2") format("woff2");
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Clash Display Variable";
-    font-weight: bold;
-    font-style: normal;
-    src: url("/fonts/clashdisplay-bold.woff2") format("woff2");
-    font-display: swap;
-  }
-</style>

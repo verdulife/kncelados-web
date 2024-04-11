@@ -1,19 +1,17 @@
 ---
-import { YouTube } from "@astro-community/astro-embed-youtube";
+import slugify from "slugify";
 
 const { data } = Astro.props;
-const { ogTitle, ogImage } = data;
-
-if (!ogImage) return;
-const image = ogImage[0];
+const { title, image } = data;
+const slug = slugify(title).toLowerCase();
 ---
 
 <article
-  class="aspect-video w-2/3 md:w-96 shrink-0 snap-start transition-all duration-300 md:hover:w-[30rem]"
+  class="aspect-video w-2/3 shrink-0 snap-start transition-all duration-300 md:w-96 md:hover:w-[30rem]"
 >
-  <button>
+  <a href={`/podcast/${slug}`}>
     <picture>
-      <img src={image.url} alt={ogTitle} />
+      <img src={image.url} alt={title} />
     </picture>
-  </button>
+  </a>
 </article>

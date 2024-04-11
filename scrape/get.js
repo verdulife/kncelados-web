@@ -5,7 +5,9 @@ import { episodes } from "./episodes.js";
 const BASE_URL = "https://www.youtube.com/watch?v=";
 let data = [];
 
-for await (let seasonData of episodes) {
+for await (let [ind, seasonData] of episodes.entries()) {
+  data[ind] = [];
+
   for await (let episodeData of seasonData) {
     const { episode, season, id } = episodeData;
     const options = { url: BASE_URL + id };
@@ -13,7 +15,8 @@ for await (let seasonData of episodes) {
     try {
       const res = await ogs(options);
       const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
-      data.push({
+
+      data[ind].push({
         episode,
         season,
         id,

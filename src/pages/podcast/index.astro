@@ -4,18 +4,17 @@ import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 import metadata from "@/lib/metadata.json";
 
-const last_episode_ind = metadata.length - 1;
-const lastEpisode = metadata[last_episode_ind];
+const last_season_index = metadata.length - 1;
+const last_episode_index = metadata[last_season_index].length - 1;
+const lastEpisode = metadata[last_season_index][last_episode_index];
+const seasons = [...metadata].reverse();
 ---
 
 <Layout title="Podcast" description="Podcast">
   <div class="bg-black text-gray-50">
     <div class="bg-knblue/40 pb-10">
       <VideoHeader data={lastEpisode} />
-      <!-- <VideoSlider data={result} title="Temporada 2" />
-      <VideoSlider data={result} title="Temporada 1" />
-      <VideoSlider data={result} title="KNC Shorts" />
-      <VideoSlider data={result} title="Recopilatorios" /> -->
+      {seasons.map((season) => <VideoSlider data={season} />)}
     </div>
   </div>
 </Layout>
