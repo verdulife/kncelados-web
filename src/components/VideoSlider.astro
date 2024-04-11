@@ -8,30 +8,30 @@ const episodes = [...data].reverse();
 const current_season = episodes[0].season;
 ---
 
-<section class="relative flex w-full flex-col pt-4 md:pt-8">
-  <h2 class="px-6 text-lg md:px-20 md:text-3xl">Temporada {current_season}</h2>
+<section class="relative flex w-full flex-col pt-4 lg:pt-8">
+  <h2 class="px-6 text-lg lg:px-20 lg:text-3xl">Temporada {current_season}</h2>
 
   <div
-    class="slider snap flex h-44 w-full snap-x snap-mandatory scroll-p-6 items-center gap-1 overflow-x-auto md:h-72 md:scroll-p-20"
+    class="slider snap flex h-44 w-full snap-x snap-mandatory scroll-p-6 items-center gap-1 overflow-x-auto lg:h-72 lg:scroll-p-20"
   >
     <div class="shrink-0 snap-start">
-      <div class="w-6 shrink-0 md:w-20"></div>
+      <div class="w-6 shrink-0 lg:w-20"></div>
     </div>
 
     {episodes.map((episode) => <VideoCard data={episode} />)}
 
     <div class="shrink-0 snap-end">
-      <div class="w-6 shrink-0 md:w-20"></div>
+      <div class="w-6 shrink-0 lg:w-20"></div>
     </div>
 
     <button
-      class="prev absolute left-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent md:inline"
+      class="prev absolute left-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent lg:inline"
     >
       <Prev class="w-20" />
     </button>
 
     <button
-      class="next absolute right-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent md:inline"
+      class="next absolute right-0 z-10 hidden h-full bg-gradient-to-b from-transparent via-black/30 to-transparent lg:inline"
     >
       <Next class="w-20" />
     </button>
