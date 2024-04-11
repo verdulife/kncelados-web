@@ -8,13 +8,13 @@ const isPodcast = url.includes("podcast");
 
 <header class="absolute left-0 top-0 z-50 flex w-full justify-center">
   <nav class="flex w-full items-center justify-between text-gray-50 lg:px-14">
-    <a href="/" class="p-6 z-10">
+    <a href="/" class="z-10 p-6">
       <Logo class="w-14 lg:w-20" />
       <span class="sr-only">www.kncelados.com</span>
     </a>
 
     <ul
-      class="absolute top-0 left-full h-screen right-0 bg-black/70 backdrop-blur px-4 lg:static flex flex-col lg:flex-row [&_a]:px-6 [&_a]:py-4 [&_a]:uppercase [&_a]:transition-colors hover:[&_a]:text-knred"
+      class="hidden px-4 lg:flex [&_a]:px-6 [&_a]:py-4 [&_a]:uppercase [&_a]:transition-colors hover:[&_a]:text-knred"
     >
       <li>
         <a href="/podcast">Podcast</a>
@@ -33,6 +33,6 @@ const isPodcast = url.includes("podcast");
       </li>
     </ul>
 
-    <button class="p-6 lg:hidden z-10"><Menu class="size-8" /></button>
+    <button class="z-10 p-6 lg:hidden"><Menu class="size-8" /></button>
   </nav>
 </header>
