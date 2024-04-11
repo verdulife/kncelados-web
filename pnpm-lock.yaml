@@ -41,7 +41,7 @@ dependencies:
 
 devDependencies:
   '@types/string-similarity':
-    specifier: ^4.0.2
+    specifier: 4.0.2
     version: 4.0.2
   open-graph-scraper:
     specifier: 6.5.1
