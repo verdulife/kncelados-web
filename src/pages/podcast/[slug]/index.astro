@@ -4,10 +4,10 @@ import { findBestMatch } from "string-similarity";
 import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
-import metadata from "@/lib/metadata.json";
+import episodes from "@/lib/episodes.json";
 
 const { slug } = Astro.params;
-const seasons = [...metadata].reverse();
+const seasons = [...episodes].reverse();
 
 if (!slug) return;
 
@@ -29,7 +29,7 @@ seasons.forEach((season) => {
 
 <Layout title="Podcast" description="Podcast">
   <div class="bg-black text-gray-50">
-    <div class="bg-knblue/40 pb-10">
+    <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={current_episode} />
       {seasons.map((season) => <VideoSlider data={season} />)}
     </div>

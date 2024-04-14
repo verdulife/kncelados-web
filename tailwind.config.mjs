@@ -13,8 +13,9 @@ export default {
     },
     extend: {
       colors: {
-        knred: "#e5311f",
-        knblue: "#102133",
+        "knc-red": "#e5311f",
+        "knc-blue": "#102133",
+        "knc-dark": "#060d14",
       },
     },
   },

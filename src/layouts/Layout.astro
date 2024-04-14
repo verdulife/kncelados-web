@@ -3,7 +3,6 @@ import { ViewTransitions } from "astro:transitions";
 
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
-import Background from "@/components/Background.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -111,13 +110,13 @@ const { title, description } = Astro.props;
     gtag("config", "G-486FS251TB");
   </script>
 
-  <body>
-    <div class="flex min-h-screen flex-col overflow-hidden text-knblue">
-      <Background />
+  <body class="bg-knc-dark text-gray-50">
+    <div class="flex min-h-screen flex-col overflow-hidden">
       <Navbar />
       <slot />
       <Footer />
     </div>
+
     <style is:global>
       :root {
         text-wrap: pretty;

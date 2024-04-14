@@ -1,15 +1,15 @@
 import { writeFile } from "node:fs/promises";
 import ogs from "open-graph-scraper";
-import { episodes } from "./episodes.js";
+import { extras } from "./extras.js";
 
 const BASE_URL = "https://www.youtube.com/watch?v=";
 let data = [];
 
-for await (let [ind, seasonData] of episodes.entries()) {
+for await (let [ind, seasonData] of extras.entries()) {
   data[ind] = [];
 
   for await (let episodeData of seasonData) {
-    const { episode, season, id } = episodeData;
+    const { type, id } = episodeData;
     const options = { url: BASE_URL + id };
 
     try {
@@ -17,8 +17,7 @@ for await (let [ind, seasonData] of episodes.entries()) {
       const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
 
       data[ind].push({
-        episode,
-        season,
+        type,
         id,
         title: ogTitle,
         description: ogDescription,
@@ -32,4 +31,4 @@ for await (let [ind, seasonData] of episodes.entries()) {
 }
 
 const json = JSON.stringify(data, null, 2);
-await writeFile("./src/lib/metadata.json", json, "utf-8")
+await writeFile("./src/lib/extras.json", json, "utf-8")

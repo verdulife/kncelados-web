@@ -5,13 +5,8 @@ const { url } = Astro.request;
 const isPodcast = url.includes("podcast");
 ---
 
-<footer class="flex justify-center bg-knblue p-4">
-  <div
-    class:list={[
-      "flex w-full items-center justify-between p-2 text-gray-200",
-      isPodcast ? "lg:px-20" : "max-w-6xl px-5",
-    ]}
-  >
+<footer class="bg-knc-red p-3 text-knc-dark lg:px-20">
+  <div class="flex items-center justify-between">
     <p class="text-sm">2024-2025. Algún derecho reservado.</p>
     <Iso class="size-6" />
   </div>

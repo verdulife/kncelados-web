@@ -1,37 +1,61 @@
 ---
-import Characters from "@/components/Characters.astro";
 import { sentences } from "@/lib/sentences";
+import episodes from "@/lib/episodes.json";
+
+const last_season_index = episodes.length - 1;
+const last_episode_index = episodes[last_season_index].length - 1;
+const lastEpisode = episodes[last_season_index][last_episode_index];
+const { title, image } = lastEpisode;
 ---
 
-<section
-  class="relative flex min-h-[85vh] w-full max-w-5xl flex-col items-center justify-center px-4"
->
-  <span class="text-center text-4xl lg:text-7xl">
-    {sentences[Math.floor(Math.random() * sentences.length)]}
-  </span>
+<section class="flex w-full flex-col items-center gap-8">
+  <article
+    class="relative flex h-[65vh] w-full flex-col items-center justify-end lg:h-[80vh]"
+  >
+    <img
+      class="absolute size-full object-cover object-top"
+      src={image.url}
+      alt={title}
+    />
 
-  <h1 class="sr-only">Un podcast de tonterías varias</h1>
+    <span
+      class="absolute inset-0 bg-gradient-to-b from-knc-dark via-transparent to-knc-dark"
+    ></span>
 
-  <p class="mt-6 max-w-3xl text-center text-base lg:text-xl">
-    Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te
-    ríes un rato. Dónde ver el podcast, quienes son estos Kncelados, todo esta
-    aquí.
-  </p>
+    <span
+      class="absolute inset-0 bg-gradient-to-r from-knc-dark from-35% to-transparent"
+    ></span>
 
-  <div class="mt-12 flex gap-0 lg:gap-2">
-    <a
-      href="#ultimo-episodio"
-      class="rounded-md bg-knred px-6 py-3 text-center text-sm uppercase text-gray-100 transition-transform hover:scale-110 lg:px-8 lg:text-base"
+    <div
+      class="z-20 flex w-full flex-col justify-center px-6 pb-6 lg:px-20 lg:pb-20"
     >
-      Último episodio
-    </a>
-    <a
-      href="/contacto"
-      class="px-6 py-3 text-center text-sm uppercase transition-transform hover:scale-110 lg:px-8 lg:text-base"
-    >
-      ¿ERES SPONSOR?
-    </a>
-  </div>
+      <span class="max-w-3xl text-4xl lg:text-7xl">
+        {sentences[Math.floor(Math.random() * sentences.length)]}
+      </span>
 
-  <Characters />
+      <h1 class="sr-only">Un podcast de tonterías varias</h1>
+
+      <div class="mt-4 flex flex-wrap lg:mt-10">
+        <a
+          href="/podcast"
+          class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+        >
+          Ver último episodio
+        </a>
+        <a
+          href="/contacto"
+          target="_blank"
+          class="px-8 py-3 transition-transform hover:scale-110"
+        >
+          ¿Eres sponsor?
+        </a>
+      </div>
+
+      <p class="mt-6 max-w-4xl text-sm text-gray-300 lg:mt-12 lg:text-xl">
+        Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que
+        te ríes un rato. Dónde ver el podcast, quienes son estos Kncelados, todo
+        esta aquí.
+      </p>
+    </div>
+  </article>
 </section>

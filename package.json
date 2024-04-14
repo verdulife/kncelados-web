@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "scrape": "node ./scrape/get.js",
+    "scrape:episodes": "node ./scrape/getEpisodes.js",
+    "scrape:extras": "node ./scrape/getExtras.js",
     "host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",

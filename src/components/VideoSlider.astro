@@ -39,9 +39,9 @@ const current_season = episodes[0].season;
 </section>
 
 <script>
-  const sliders = document.querySelectorAll(".slider");
+  function init_slider() {
+    const sliders = document.querySelectorAll(".slider");
 
-  (function () {
     if (!sliders) return;
 
     sliders.forEach((slider) => {
@@ -65,7 +65,10 @@ const current_season = episodes[0].season;
         });
       });
     });
-  })();
+  }
+
+  init_slider();
+  document.addEventListener("astro:after-swap", init_slider);
 </script>
 
 <style>
