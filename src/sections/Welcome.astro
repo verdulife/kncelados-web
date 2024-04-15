@@ -1,23 +1,11 @@
 ---
 import { sentences } from "@/lib/sentences";
-import episodes from "@/lib/episodes.json";
-
-const last_season_index = episodes.length - 1;
-const last_episode_index = episodes[last_season_index].length - 1;
-const lastEpisode = episodes[last_season_index][last_episode_index];
-const { title, image } = lastEpisode;
 ---
 
 <section class="flex w-full flex-col items-center gap-8">
   <article
-    class="relative flex h-[65vh] w-full flex-col items-center justify-end lg:h-[80vh]"
+    class="pt-48 flex w-full flex-col items-center justify-end"
   >
-    <img
-      class="absolute size-full object-cover object-top"
-      src={image.url}
-      alt={title}
-    />
-
     <span
       class="absolute inset-0 bg-gradient-to-b from-knc-dark via-transparent to-knc-dark"
     ></span>
@@ -27,7 +15,7 @@ const { title, image } = lastEpisode;
     ></span>
 
     <div
-      class="z-20 flex w-full flex-col justify-center px-6 pb-6 lg:px-20 lg:pb-20"
+      class="z-20 flex w-full flex-col items-center px-6 pb-6 lg:px-20 lg:pb-20"
     >
       <span class="max-w-3xl text-4xl lg:text-7xl">
         {sentences[Math.floor(Math.random() * sentences.length)]}
