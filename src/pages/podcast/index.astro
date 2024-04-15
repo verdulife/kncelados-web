@@ -9,6 +9,10 @@ const last_season_index = episodes.length - 1;
 const last_episode_index = episodes[last_season_index].length - 1;
 const lastEpisode = episodes[last_season_index][last_episode_index];
 const seasons = [...episodes].reverse();
+/* const episodes_list = await Astro.glob("@/lib/episodes/*.json");
+
+const ep = episodes_list.map((e) => e.default);
+console.log(ep); */
 ---
 
 <Layout title="Podcast" description="Podcast">
