@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "scrape:remake": "node ./scrape/remake.js",
     "scrape:episodes": "node ./scrape/getEpisodes.js",
     "scrape:extras": "node ./scrape/getExtras.js",
     "host": "astro dev --host",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/string-similarity": "4.0.2",
+    "cohere-ai": "^7.9.3",
     "open-graph-scraper": "6.5.1",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
