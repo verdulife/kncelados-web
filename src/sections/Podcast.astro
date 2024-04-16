@@ -1,55 +1,62 @@
 ---
-import { YouTube } from "@astro-community/astro-embed-youtube";
-import { episodes } from "@/lib/seasons";
-import { collections } from "@/lib/collentions";
+import episodes from "@/lib/episodes.json";
+
+const seconds = "30s";
+const gap = "1rem";
 ---
 
 <section
   id="podcast"
-  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 pt-24"
+  class="flex w-full flex-col items-center justify-center gap-6 pt-24"
 >
-  <h2 class="text-center text-4xl lg:text-6xl">El podcast</h2>
+  <h2 class="max-w-5xl px-4 text-center text-4xl lg:text-6xl">El podcast</h2>
 
-  <p class="mb-8 mt-2 max-w-3xl text-center text-base lg:text-xl">
+  <p class="mb-8 mt-2 max-w-3xl px-4 text-center text-base lg:text-xl">
     Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar
     adecuado. Tanto en esta página web, como en nuestro canal de YouTube
     encontrarás todos los episodios.
   </p>
 
-  {
-    episodes.map((season, ind) => (
-      <details
-        open={ind === episodes.length - 1}
-        name="seasons"
-        class="w-full border-b border-knc-blue py-4 open:border-none"
-      >
-        <summary class="cursor-pointer p-2 text-xl">
-          Temporada {ind + 1}
-        </summary>
-        <ul class="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-          {season.reverse().map(({ id }) => (
-            <li>
-              <YouTube id={id} class="aspect-video w-full rounded-xl" />
-            </li>
-          ))}
-        </ul>
-      </details>
-    ))
+  <div class="relative flex w-full overflow-hidden">
+    {
+      episodes.map((season) => (
+        <>
+          <ul class="flex shrink-0 pb-12">
+            {season.map(({ title, image }) => (
+              <img src={image} alt={title} class="w-60" />
+            ))}
+          </ul>
+          <ul class="flex shrink-0 pb-12">
+            {season.map(({ title, image }) => (
+              <img src={image} alt={title} class="w-60" />
+            ))}
+          </ul>
+        </>
+      ))
+    }
+  </div>
+</section>
+
+<style define:vars={{ seconds, gap }}>
+  main {
+    gap: var(--gap);
   }
 
-  <details
-    name="studios"
-    class="w-full border-b border-knc-blue py-4 open:border-none"
-  >
-    <summary class="cursor-pointer p-2 text-xl">Recopilaciones</summary>
-    <ul class="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-      {
-        collections.map((id) => (
-          <li>
-            <YouTube id={id} class="aspect-video w-full rounded-xl" />
-          </li>
-        ))
-      }
-    </ul>
-  </details>
-</section>
+  ul {
+    animation: marquee var(--seconds) linear infinite;
+    gap: var(--gap);
+  }
+
+  .reverse {
+    animation-direction: reverse;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+</style>

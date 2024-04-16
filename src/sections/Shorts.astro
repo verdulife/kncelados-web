@@ -1,11 +1,6 @@
----
-import { YouTube } from "@astro-community/astro-embed-youtube";
-import { shorts } from "@/lib/shorts";
----
-
 <section
   id="knc-shorts"
-  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 pt-24"
+  class="mt-48 flex w-full flex-col items-center justify-center gap-6 bg-knc-blue px-4 py-48 text-center"
 >
   <h2 class="text-center text-4xl lg:text-6xl">KNC Shorts</h2>
 
@@ -14,21 +9,10 @@ import { shorts } from "@/lib/shorts";
     creativos los llamamos KNC Shorts. No es KN coches, pero por algo se
     empieza.
   </p>
-
-  <details
-    open
-    name="studios"
-    class="w-full border-b border-knc-blue py-4 open:border-none"
-  >
-    <summary class="cursor-pointer p-2 text-xl">Cortos</summary>
-    <ul class="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-      {
-        shorts.map((id) => (
-          <li>
-            <YouTube id={id} class="aspect-video w-full rounded-xl" />
-          </li>
-        ))
-      }
-    </ul>
-  </details>
 </section>
+
+<style>
+  section {
+    clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+  }
+</style>
