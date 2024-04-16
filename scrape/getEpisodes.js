@@ -22,9 +22,11 @@ for await (let [ind, seasonData] of episodes.entries()) {
         id,
         title: ogTitle,
         description: ogDescription,
-        image: ogImage[0],
+        image: ogImage[0].url,
         url: requestUrl
       });
+
+      console.log(`Making ${season}x${episode}`);
     } catch (error) {
       console.error(error);
     }
@@ -32,4 +34,4 @@ for await (let [ind, seasonData] of episodes.entries()) {
 }
 
 const json = JSON.stringify(data, null, 2);
-await writeFile("./src/lib/episodes.json", json, "utf-8")
+await writeFile("./scrape/episodes.json", json, "utf-8")

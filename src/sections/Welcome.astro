@@ -4,46 +4,34 @@ import { sentences } from "@/lib/sentences";
 
 <section class="flex w-full flex-col items-center gap-8">
   <article
-    class="pt-48 flex w-full flex-col items-center justify-end text-center"
+    class="flex w-full flex-col items-center justify-center px-6 pb-6 pt-48 text-center lg:px-20 lg:pb-20"
   >
-    <span
-      class="absolute inset-0 bg-gradient-to-b from-knc-dark via-transparent to-knc-dark"
-    ></span>
+    <span class="max-w-3xl text-4xl lg:text-7xl">
+      {sentences[Math.floor(Math.random() * sentences.length)]}
+    </span>
 
-    <span
-      class="absolute inset-0 bg-gradient-to-r from-knc-dark from-35% to-transparent"
-    ></span>
+    <h1 class="sr-only">Un podcast de tonterías varias</h1>
 
-    <div
-      class="z-20 flex w-full flex-col items-center px-6 pb-6 lg:px-20 lg:pb-20"
-    >
-      <span class="max-w-3xl text-4xl lg:text-7xl">
-        {sentences[Math.floor(Math.random() * sentences.length)]}
-      </span>
-
-      <h1 class="sr-only">Un podcast de tonterías varias</h1>
-
-      <div class="mt-4 flex flex-wrap lg:mt-10">
-        <a
-          href="/podcast"
-          class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
-        >
-          Ver último episodio
-        </a>
-        <a
-          href="/contacto"
-          target="_blank"
-          class="px-8 py-3 transition-transform hover:scale-110"
-        >
-          ¿Eres sponsor?
-        </a>
-      </div>
-
-      <p class="mt-6 max-w-4xl text-sm text-gray-300 lg:mt-12 lg:text-xl">
-        Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que
-        te ríes un rato. Dónde ver el podcast, quienes son estos Kncelados, todo
-        esta aquí.
-      </p>
+    <div class="mt-4 flex flex-wrap justify-center lg:mt-10">
+      <a
+        href="/podcast"
+        class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+      >
+        Ver último episodio
+      </a>
+      <a
+        href="/contacto"
+        target="_blank"
+        class="px-8 py-3 transition-transform hover:scale-110"
+      >
+        ¿Eres sponsor?
+      </a>
     </div>
+
+    <p class="mt-6 max-w-4xl text-sm text-gray-300 lg:mt-12 lg:text-xl">
+      Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te
+      ríes un rato. Dónde ver el podcast, quienes son estos Kncelados, todo esta
+      aquí.
+    </p>
   </article>
 </section>

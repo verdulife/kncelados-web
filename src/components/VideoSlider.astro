@@ -4,7 +4,7 @@ import Prev from "@/lib/assets/Prev.astro";
 import Next from "@/lib/assets/Next.astro";
 
 const { data } = Astro.props;
-const episodes = [...data].reverse();
+const episodes = [...data];
 const current_season = episodes[0].season;
 ---
 

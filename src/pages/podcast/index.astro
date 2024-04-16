@@ -3,24 +3,15 @@ import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 import episodes from "@/lib/episodes.json";
-/* import extras from "@/lib/extras.json"; */
 
-const last_season_index = episodes.length - 1;
-const last_episode_index = episodes[last_season_index].length - 1;
-const lastEpisode = episodes[last_season_index][last_episode_index];
-const seasons = [...episodes].reverse();
-/* const episodes_list = await Astro.glob("@/lib/episodes/*.json");
-
-const ep = episodes_list.map((e) => e.default);
-console.log(ep); */
+const lastEpisode = episodes[0][0];
 ---
 
 <Layout title="Podcast" description="Podcast">
   <div class="bg-black text-gray-50">
     <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={lastEpisode} />
-      {seasons.map((season) => <VideoSlider data={season} />)}
-      <!-- {extras.map((extra) => <VideoSlider data={extra} />)} -->
+      {episodes.map((season) => <VideoSlider data={season} />)}
     </div>
   </div>
 </Layout>

@@ -7,7 +7,7 @@ import Layout from "@/layouts/Layout.astro";
 import episodes from "@/lib/episodes.json";
 
 const { slug } = Astro.params;
-const seasons = [...episodes].reverse();
+const seasons = [...episodes];
 
 if (!slug) return;
 

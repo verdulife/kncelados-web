@@ -1,81 +1,21 @@
 export const episodes = [
   [
     {
-      episode: 1,
-      season: 1,
-      id: "Iw6uTW_CWoM",
-    },
-    {
-      episode: 2,
-      season: 1,
-      id: "ulOpNfz64gA",
-    },
-    {
-      episode: 3,
-      season: 1,
-      id: "mnTh5r6sJac",
-    },
-    {
-      episode: 3,
-      season: 1,
-      id: "oTZmI-rMwBc",
-    },
-    {
-      episode: 3,
-      season: 1,
-      id: "ysIQeRAk-Cg",
-    },
-    {
-      episode: 3,
-      season: 1,
-      id: "xEY_IpEqqGM",
+      episode: 5,
+      season: 2,
+      id: "q2bjibs2KKk",
     },
     {
       episode: 4,
-      season: 1,
-      id: "usZudg4T0I0",
-    },
-    {
-      episode: 5,
-      season: 1,
-      id: "DfYNW0Na2Gg",
-    },
-    {
-      episode: 6,
-      season: 1,
-      id: "qHQgi7vkHIM",
-    },
-    {
-      episode: 7,
-      season: 1,
-      id: "wVstFgePIFY",
-    },
-    {
-      episode: 8,
-      season: 1,
-      id: "pan35TQxtGk",
-    },
-    {
-      episode: 9,
-      season: 1,
-      id: "WZjC27vS6RA",
-    },
-    {
-      episode: 10,
-      season: 1,
-      id: "PjD1CEdz_ZE",
-    },
-  ],
-  [
-    {
-      episode: 1,
       season: 2,
-      id: "8MIZIwr_2I4",
+      part: 2,
+      id: "WFstKZnsu3Y",
     },
     {
-      episode: 2,
+      episode: 4,
       season: 2,
-      id: "94MaHry1ptA",
+      part: 1,
+      id: "jZaE2bS59Lw",
     },
     {
       episode: 3,
@@ -83,19 +23,85 @@ export const episodes = [
       id: "6gCCQ58cqhY",
     },
     {
-      episode: 4,
+      episode: 2,
       season: 2,
-      id: "jZaE2bS59Lw",
+      id: "94MaHry1ptA",
     },
     {
-      episode: 4,
+      episode: 1,
       season: 2,
-      id: "WFstKZnsu3Y",
+      id: "8MIZIwr_2I4",
+    }
+  ],
+  [
+    {
+      episode: 10,
+      season: 1,
+      id: "PjD1CEdz_ZE",
+    },
+    {
+      episode: 9,
+      season: 1,
+      id: "WZjC27vS6RA",
+    },
+    {
+      episode: 8,
+      season: 1,
+      id: "pan35TQxtGk",
+    },
+    {
+      episode: 7,
+      season: 1,
+      id: "wVstFgePIFY",
+    },
+    {
+      episode: 6,
+      season: 1,
+      id: "qHQgi7vkHIM",
     },
     {
       episode: 5,
-      season: 2,
-      id: "q2bjibs2KKk",
+      season: 1,
+      id: "DfYNW0Na2Gg",
+    },
+    {
+      episode: 4,
+      season: 1,
+      id: "usZudg4T0I0",
+    },
+    {
+      episode: 3,
+      season: 1,
+      part: 4,
+      id: "xEY_IpEqqGM",
+    },
+    {
+      episode: 3,
+      season: 1,
+      part: 3,
+      id: "ysIQeRAk-Cg",
+    },
+    {
+      episode: 3,
+      season: 1,
+      part: 2,
+      id: "oTZmI-rMwBc",
+    },
+    {
+      episode: 3,
+      season: 1,
+      part: 1,
+      id: "mnTh5r6sJac",
+    },
+    {
+      episode: 2,
+      season: 1,
+      id: "ulOpNfz64gA",
+    },
+    {
+      episode: 1,
+      season: 1,
+      id: "Iw6uTW_CWoM",
     }
-  ],
+  ]
 ];

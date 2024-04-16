@@ -1,5 +1,5 @@
 ---
-import { EVENT_TIMESTAMP } from "@/lib/consts";
+const EVENT_TIMESTAMP = 1712599200000 as const;
 ---
 
 <section
@@ -13,39 +13,46 @@ import { EVENT_TIMESTAMP } from "@/lib/consts";
     class="flex scale-90 justify-center gap-2 text-center lg:scale-100 lg:gap-8"
   >
     <div class="flex flex-col items-center">
-      <span data-days class="text-5xl font-bold tabular-nums lg:text-6xl">
+      <span data-days class="text-5xl font-bold tabular-nums lg:text-9xl">
         00
       </span>
       <p class="text-xs uppercase lg:text-sm">días</p>
     </div>
 
-    <span aria-hidden="true" class="text-5xl font-bold lg:text-6xl">:</span>
+    <span aria-hidden="true" class="text-5xl font-bold lg:text-9xl">:</span>
 
     <div class="flex flex-col items-center">
-      <span data-hours class="text-5xl font-bold tabular-nums lg:text-6xl">
+      <span data-hours class="text-5xl font-bold tabular-nums lg:text-9xl">
         00
       </span>
       <p class="text-xs uppercase lg:text-sm">horas</p>
     </div>
 
-    <span aria-hidden="true" class="text-5xl font-bold lg:text-6xl">:</span>
+    <span aria-hidden="true" class="text-5xl font-bold lg:text-9xl">:</span>
 
     <div class="flex flex-col items-center">
-      <span data-minutes class="text-5xl font-bold tabular-nums lg:text-6xl">
+      <span data-minutes class="text-5xl font-bold tabular-nums lg:text-9xl">
         00
       </span>
       <p class="text-xs uppercase lg:text-sm">minutos</p>
     </div>
 
-    <span aria-hidden="true" class="text-5xl font-bold lg:text-6xl">:</span>
+    <span aria-hidden="true" class="text-5xl font-bold lg:text-9xl">:</span>
 
     <div class="flex flex-col items-center">
-      <span data-seconds class="text-5xl font-bold tabular-nums lg:text-6xl">
+      <span data-seconds class="text-5xl font-bold tabular-nums lg:text-9xl">
         00
       </span>
       <p class="text-xs uppercase lg:text-sm">segundos</p>
     </div>
   </div>
+
+  <a
+    href="/podcast"
+    class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+  >
+    Ver episodios
+  </a>
 </section>
 
 <script>
