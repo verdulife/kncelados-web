@@ -1,18 +1,35 @@
 <section
   id="knc-shorts"
-  class="mt-48 flex w-full flex-col items-center justify-center gap-6 bg-knc-blue px-4 py-48 text-center"
+  class="relative mt-24 lg:mt-48 flex w-full flex-col items-center justify-center gap-6 bg-knc-blue bg-[radial-gradient(transparent,#000)] px-4 py-28 lg:py-48 text-center"
 >
-  <h2 class="text-center text-4xl lg:text-6xl">KNC Shorts</h2>
+  <img
+    src="/knc-shorts.jpg"
+    alt="KNC Shorts"
+    class="absolute inset-0 -z-10 size-full object-cover opacity-5"
+  />
 
-  <p class="mb-8 mt-2 max-w-3xl text-center text-base lg:text-xl">
+  <h2 class="text-center text-5xl lg:text-7xl">KNC Shorts</h2>
+
+  <p class="mb-8 mt-2 max-w-5xl text-center text-lg lg:text-2xl">
     Y cuando nos da la vida y la gana, hacemos cortos, y como somos muy
     creativos los llamamos KNC Shorts. No es KN coches, pero por algo se
     empieza.
   </p>
+
+  <a
+    href="/podcast"
+    class="min-w-48 rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+  >
+    Ver shorts
+  </a>
 </section>
 
 <style>
   section {
-    clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+    clip-path: polygon(0 30px, 100% 0, 100% calc(100% - 30px), 0% 100%);
+
+    @media (min-width: 1024px) {
+      clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+    }
   }
 </style>

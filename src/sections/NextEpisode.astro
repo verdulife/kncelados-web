@@ -4,14 +4,14 @@ const EVENT_TIMESTAMP = 1712599200000 as const;
 
 <section
   id="proximo-episodio"
-  class="mt-[-100px] flex w-full flex-col items-center justify-center gap-6 bg-knc-red px-4 py-48 text-center"
+  class="mt-[-30px] lg:mt-[-100px] flex w-full flex-col items-center justify-center bg-knc-red px-4 py-28 lg:py-48 text-center"
 >
-  <h2 class="max-w-4xl text-xl font-medium lg:text-5xl">
-    Disfruta de un nuevo episodio todos los lunes a las 20:00h, horario
-    peninsular.
+  <h2 class="max-w-5xl text-3xl font-medium lg:text-5xl">
+    Disfruta de un nuevo episodio del podcast de Kncelados todos los lunes a las
+    20:00h
   </h2>
 
-  <p class="mt-6 text-xl uppercase">Próximo episodio</p>
+  <p class="mt-16 lg:mt-24 text-lg uppercase">Próximo episodio</p>
 
   <div
     data-date={EVENT_TIMESTAMP}
@@ -55,7 +55,11 @@ const EVENT_TIMESTAMP = 1712599200000 as const;
 
 <style>
   section {
-    clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+    clip-path: polygon(0 30px, 100% 0, 100% calc(100% - 30px), 0% 100%);
+
+    @media (min-width: 1024px) {
+      clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+    }
   }
 </style>
 

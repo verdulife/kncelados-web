@@ -1,96 +1,82 @@
 <section
   id="nosotros"
-  class="z-40 flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 py-48"
+  class="flex w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 py-24 lg:py-48"
 >
-  <h2 class="z-10 text-center text-4xl lg:text-6xl">¿Quiénes son estos?</h2>
+  <h2 class="text-center text-5xl lg:text-7xl">¿Quiénes son estos?</h2>
 
-  <p class="mb-8 mt-2 max-w-3xl text-center text-base lg:text-xl">
+  <p class="mb-8 mt-2 max-w-4xl text-center text-lg lg:text-2xl">
     ¿Quién son estos Kncelados? Colectivamente, son amigos, individualmente, eso
     lo tendrás que descubrir tú mismo.
   </p>
 
-  <div class="grid w-full grid-cols-1 gap-x-1 gap-y-10 lg:grid-cols-4">
-    <article class="flex w-full flex-col items-center">
-      <picture
-        id="rup-is"
-        class="-ml-6 w-full -rotate-6 border-b-4 border-knc-blue"></picture>
-
-      <div class="relative">
-        <h3
-          class="z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-white text-stroke-2 text-stroke-knc-blue"
-        >
-          Rup
-        </h3>
-      </div>
+  <div
+    class="lg:mt-16 grid w-full max-w-3xl grid-cols-2 gap-2 text-center lg:gap-4"
+  >
+    <article
+      class="shadow-knc-black/70 flex aspect-[3/4] w-full flex-col items-center overflow-hidden bg-knc-blue shadow-2xl transition-transform hover:z-10 hover:-rotate-3 hover:scale-110"
+    >
+      <h3
+        class="z-20 w-full p-1 text-xl font-bold text-white lg:py-8 lg:text-7xl"
+      >
+        Rup
+      </h3>
+      <picture class="h-full bg-knc-blue bg-[url('/sprites/rup.png')]"
+      ></picture>
     </article>
 
-    <article class="flex w-full flex-col items-center">
-      <picture
-        id="dani-is"
-        class="-ml-6 w-full -rotate-6 border-b-4 border-knc-blue"></picture>
-
-      <div class="relative">
-        <h3
-          class="z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-white text-stroke-2 text-stroke-knc-blue"
-        >
-          Dani
-        </h3>
-      </div>
+    <article
+      class="shadow-knc-black/70 flex aspect-[3/4] w-full flex-col items-center overflow-hidden bg-knc-red shadow-2xl transition-transform hover:z-10 hover:-rotate-3 hover:scale-110"
+    >
+      <h3
+        class="z-20 w-full p-1 text-xl font-bold text-white lg:py-8 lg:text-7xl"
+      >
+        Dani
+      </h3>
+      <picture class="h-full bg-knc-red bg-[url('/sprites/dani.png')]"
+      ></picture>
     </article>
 
-    <article class="flex w-full flex-col items-center">
-      <picture
-        id="ander-is"
-        class="-ml-6 w-full -rotate-6 border-b-4 border-knc-blue"></picture>
-
-      <div class="relative">
-        <h3
-          class="z-20 -mt-10 -rotate-6 -skew-x-12 text-7xl font-bold uppercase text-white text-stroke-2 text-stroke-knc-blue"
-        >
-          Ander
-        </h3>
-      </div>
+    <article
+      class="shadow-knc-black/70 flex aspect-[3/4] w-full flex-col items-center overflow-hidden bg-knc-red shadow-2xl transition-transform hover:z-10 hover:-rotate-3 hover:scale-110"
+    >
+      <h3
+        class="z-20 w-full p-1 text-xl font-bold text-white lg:py-8 lg:text-7xl"
+      >
+        Ander
+      </h3>
+      <picture class="h-full bg-knc-red bg-[url('/sprites/ander.png')]"
+      ></picture>
     </article>
 
-    <article class="flex w-full flex-col items-center">
-      <picture
-        id="joz-is"
-        class="-ml-6 w-full -rotate-6 border-b-4 border-knc-blue"></picture>
-
-      <div class="relative">
-        <h3
-          class="z-20 -mt-12 -rotate-6 -skew-x-12 text-8xl font-bold uppercase text-white text-stroke-2 text-stroke-knc-blue"
-        >
-          Joz
-        </h3>
-      </div>
+    <article
+      class="shadow-knc-black/70 flex aspect-[3/4] w-full flex-col items-center overflow-hidden bg-knc-blue shadow-2xl transition-transform hover:z-10 hover:-rotate-3 hover:scale-110"
+    >
+      <h3
+        class="z-20 w-full p-1 text-xl font-bold text-white lg:py-8 lg:text-7xl"
+      >
+        Joz
+      </h3>
+      <picture class="h-full bg-knc-blue bg-[url('/sprites/joz.png')]"
+      ></picture>
     </article>
   </div>
 </section>
 
 <style>
+  article {
+    border-radius: 0.25rem;
+  }
+
   picture {
     aspect-ratio: 1.4861;
     background-size: 200%;
     background-position: 0 0;
+    filter: contrast(102%);
   }
 
-  picture:hover {
+  article:hover > picture {
     animation: gif 2s steps(1, end) infinite;
     transition: 150ms;
-  }
-
-  #rup-is {
-    background-image: url("/sprites/rup.png");
-  }
-  #joz-is {
-    background-image: url("/sprites/joz.png");
-  }
-  #dani-is {
-    background-image: url("/sprites/dani.png");
-  }
-  #ander-is {
-    background-image: url("/sprites/ander.png");
   }
 
   @keyframes gif {

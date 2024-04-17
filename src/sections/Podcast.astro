@@ -1,44 +1,62 @@
 ---
 import episodes from "@/lib/episodes.json";
+import Image from "astro/components/Image.astro";
 
-const seconds = "30s";
+const seconds = "60s";
 const gap = "1rem";
 ---
 
 <section
   id="podcast"
-  class="flex w-full flex-col items-center justify-center gap-6 pt-24"
+  class="flex w-full flex-col items-center justify-center pt-20 text-center lg:py-24"
 >
-  <h2 class="max-w-5xl px-4 text-center text-4xl lg:text-6xl">El podcast</h2>
+  <h2 class="max-w-5xl px-4 text-5xl lg:text-7xl">El podcast</h2>
 
-  <p class="mb-8 mt-2 max-w-3xl px-4 text-center text-base lg:text-xl">
+  <p class="mt-6 max-w-4xl px-4 text-lg lg:text-2xl">
     Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar
     adecuado. Tanto en esta página web, como en nuestro canal de YouTube
     encontrarás todos los episodios.
   </p>
 
-  <div class="relative flex w-full overflow-hidden">
+  <a
+    href="/podcast"
+    class="mt-10 min-w-48 rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+  >
+    Ver podcast
+  </a>
+
+  <div class="relative mt-16 origin-top lg:scale-150">
+    <div
+      class="absolute left-[16%] top-0 z-10 hidden h-full w-1/4 bg-gradient-to-r from-knc-dark from-20% via-knc-dark/90 to-transparent lg:flex"
+    >
+    </div>
+    <div
+      class="absolute right-[16%] top-0 z-10 hidden h-full w-1/4 bg-gradient-to-l from-knc-dark from-20% via-knc-dark/90 to-transparent lg:flex"
+    >
+    </div>
+
     {
-      episodes.map((season) => (
-        <>
-          <ul class="flex shrink-0 pb-12">
+      episodes.map((season, i) => (
+        <span class="relative mt-4 flex w-full overflow-hidden">
+          <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
             {season.map(({ title, image }) => (
-              <img src={image} alt={title} class="w-60" />
+              <Image src={image} alt={title} width={240} height={135} />
             ))}
           </ul>
-          <ul class="flex shrink-0 pb-12">
+
+          <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
             {season.map(({ title, image }) => (
-              <img src={image} alt={title} class="w-60" />
+              <Image src={image} alt={title} width={240} height={135} />
             ))}
           </ul>
-        </>
+        </span>
       ))
     }
   </div>
 </section>
 
 <style define:vars={{ seconds, gap }}>
-  main {
+  span {
     gap: var(--gap);
   }
 

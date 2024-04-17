@@ -9,10 +9,11 @@ import Patreon from "@/lib/assets/Patreon.astro";
 
 <section
   id="colabora"
-  class="flex w-full flex-col items-center justify-center gap-6 bg-knc-red px-4 pb-20 pt-40 text-gray-100 lg:pb-40 lg:pt-52"
+  class="flex w-full flex-col items-center justify-center gap-6 bg-knc-red px-4 py-28 text-gray-100 lg:py-48"
 >
-  <h2 class="text-center text-4xl lg:text-6xl">Colabora con nosotros</h2>
-  <p class="max-w-4xl text-center text-base lg:mt-6 lg:text-xl">
+  <h2 class="text-center text-5xl lg:text-7xl">Colabora con nosotros</h2>
+
+  <p class="max-w-5xl text-center text-lg lg:mt-6 lg:text-2xl">
     Si te gusta nuestro contenido y quieres colaborar con nosotros, suscribirte
     a nuestro canal de youtube y siguenos en nuestras redes. Pero si esto te
     sabe a poco, también puedes colaborar realizando una compra en nuestra
@@ -59,6 +60,10 @@ import Patreon from "@/lib/assets/Patreon.astro";
 
 <style>
   section {
-    clip-path: polygon(0 100px, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0% 100%);
+
+    @media (min-width: 1024px) {
+      clip-path: polygon(0 100px, 100% 0, 100% 100%, 0% 100%);
+    }
   }
 </style>
