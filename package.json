@@ -14,12 +14,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astro-community/astro-embed-youtube": "0.5.1",
     "@astrojs/check": "0.5.10",
     "@astrojs/netlify": "5.2.0",
     "@astrojs/partytown": "2.0.4",
     "@astrojs/tailwind": "5.1.0",
-    "@designbycode/tailwindcss-text-stroke": "1.2.1",
     "astro": "4.5.10",
     "slugify": "^1.6.6",
     "string-similarity": "^4.0.4",

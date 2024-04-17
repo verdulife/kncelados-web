@@ -1,5 +1,4 @@
 import defaultTheme from "tailwindcss/defaultTheme";
-import textstroke from "@designbycode/tailwindcss-text-stroke";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,6 +17,5 @@ export default {
         "knc-dark": "#060d14",
       },
     },
-  },
-  plugins: [textstroke],
+  }
 };

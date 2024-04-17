@@ -39,13 +39,33 @@ const gap = "1rem";
         <span class="relative mt-4 flex w-full overflow-hidden">
           <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
             {season.map(({ title, image }) => (
-              <img src={image} alt={title} class="w-60" />
+              <li>
+                <img
+                  src={image}
+                  alt={title}
+                  width="240"
+                  height="135"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-60"
+                />
+              </li>
             ))}
           </ul>
 
           <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
             {season.map(({ title, image }) => (
-              <img src={image} alt={title} class="w-60" />
+              <li>
+                <img
+                  src={image}
+                  alt={title}
+                  width="240"
+                  height="135"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-60"
+                />
+              </li>
             ))}
           </ul>
         </span>

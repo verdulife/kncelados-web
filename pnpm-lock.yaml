@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@astro-community/astro-embed-youtube':
-    specifier: 0.5.1
-    version: 0.5.1(astro@4.5.10)
   '@astrojs/check':
     specifier: 0.5.10
     version: 0.5.10(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.4)
@@ -20,9 +17,6 @@ dependencies:
   '@astrojs/tailwind':
     specifier: 5.1.0
     version: 5.1.0(astro@4.5.10)(tailwindcss@3.4.2)
-  '@designbycode/tailwindcss-text-stroke':
-    specifier: 1.2.1
-    version: 1.2.1(tailwindcss@3.4.2)
   astro:
     specifier: 4.5.10
     version: 4.5.10(typescript@5.4.4)
@@ -72,15 +66,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
-    dev: false
-
-  /@astro-community/astro-embed-youtube@0.5.1(astro@4.5.10):
-    resolution: {integrity: sha512-IvjCCpaNZD7xrcgD/WZIRlpRphAUlwOZtR0IOI0pSNijegPOBghygYHeU81WvRnK2Fwuw2RTmGo8PbVZ15wp1w==}
-    peerDependencies:
-      astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
-    dependencies:
-      astro: 4.5.10(typescript@5.4.4)
-      lite-youtube-embed: 0.3.2
     dev: false
 
   /@astrojs/check@0.5.10(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.4):
@@ -461,14 +446,6 @@ packages:
     resolution: {integrity: sha512-WKGE+SO0qUGirW8J+xOWkHeCkfFEoPPvHnFkcdMl+MY3kDbAcTwjZCzjg27JCvoD0h8fH47FR7DSIss0/S5lyg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
-    dev: false
-
-  /@designbycode/tailwindcss-text-stroke@1.2.1(tailwindcss@3.4.2):
-    resolution: {integrity: sha512-6SqiFuMjJaWWv5Mm+RIu8Ui3Kc/8AK3m0qSocPOFhk4yS6aMVioy8QLghAj5KOR/8lsfZe3r7I1uJ7YM1FimUA==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || >=3.0.0-alpha.1'
-    dependencies:
-      tailwindcss: 3.4.2
     dev: false
 
   /@emmetio/abbreviation@2.3.3:
@@ -2702,10 +2679,6 @@ packages:
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
-    dev: false
-
-  /lite-youtube-embed@0.3.2:
-    resolution: {integrity: sha512-b1dgKyF4PHhinonmr3PB172Nj0qQgA/7DE9EmeIXHR1ksnFEC2olWjNJyJGdsN2cleKHRjjsmrziKlwXtPlmLQ==}
     dev: false
 
   /load-yaml-file@0.2.0:

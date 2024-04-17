@@ -5,7 +5,7 @@ const { title, description, image, url, id } = data;
 
 <section class="flex w-full flex-col items-center gap-8">
   <article
-    class="relative flex h-[60vh] w-full flex-col items-center justify-end lg:h-[65vh]"
+    class="relative flex min-h-[60vh] w-full flex-col items-center justify-end lg:min-h-[65vh]"
   >
     <img
       class="absolute size-full object-cover object-top"
@@ -22,9 +22,9 @@ const { title, description, image, url, id } = data;
     ></span>
 
     <div
-      class="z-20 flex w-full flex-col justify-center px-6 pb-6 lg:px-20 lg:pb-20"
+      class="mt-32 lg:mt-48 z-10 flex w-full flex-col justify-center px-6 pb-6 lg:px-20 lg:pb-20"
     >
-      <h1 class="max-w-3xl text-2xl lg:text-6xl">{title}</h1>
+      <h1 class="max-w-3xl text-4xl lg:text-7xl">{title}</h1>
 
       <div class="mt-4 flex lg:mt-10">
         <a
@@ -33,6 +33,7 @@ const { title, description, image, url, id } = data;
         >
           Reproducir
         </a>
+
         <a
           href={url}
           target="_blank"
@@ -42,7 +43,7 @@ const { title, description, image, url, id } = data;
         </a>
       </div>
 
-      <p class="mt-6 max-w-4xl text-sm text-gray-300 lg:mt-12 lg:text-lg">
+      <p class="mt-6 max-w-4xl text-gray-300 lg:mt-12 lg:text-xl">
         {description}
       </p>
     </div>
