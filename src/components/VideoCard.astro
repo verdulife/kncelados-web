@@ -12,12 +12,17 @@ const slug = slugify(title).toLowerCase();
 >
   <a href={`/podcast/${slug}`}>
     <picture>
-      <img src={image} alt={title} />
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+      />
     </picture>
   </a>
 
   <span
-    class="fast-play pointer-events-none absolute inset-0 flex items-center justify-center bg-black/70 opacity-0 transition-all duration-500"
+    class="fast-play pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-all duration-500"
   >
     <a
       href={`/player/${id}`}
@@ -53,7 +58,7 @@ const slug = slugify(title).toLowerCase();
       card.addEventListener("mouseenter", () => {
         cancel = setTimeout(() => {
           fastPlay.classList.add("over");
-        }, 800);
+        }, 400);
       });
 
       card.addEventListener("mouseleave", () => {

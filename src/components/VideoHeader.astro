@@ -3,6 +3,10 @@ const { data } = Astro.props;
 const { title, description, image, url, id } = data;
 ---
 
+<Fragment slot="head">
+  <link rel="preload" href={image} as="image" />
+</Fragment>
+
 <section class="flex w-full flex-col items-center gap-8">
   <article
     class="relative flex min-h-[60vh] w-full flex-col items-center justify-end lg:min-h-[65vh]"
@@ -22,7 +26,7 @@ const { title, description, image, url, id } = data;
     ></span>
 
     <div
-      class="mt-32 lg:mt-48 z-10 flex w-full flex-col justify-center px-6 pb-6 lg:px-20 lg:pb-20"
+      class="z-10 mt-32 flex w-full flex-col justify-center px-6 pb-6 lg:mt-48 lg:px-20 lg:pb-20"
     >
       <h1 class="max-w-3xl text-4xl lg:text-7xl">{title}</h1>
 
