@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "scrape:remake": "node ./scrape/remake.js",
+    "scrape:last": "node ./scrape/getLast.js",
     "scrape:episodes": "node ./scrape/getEpisodes.js",
     "scrape:extras": "node ./scrape/getExtras.js",
     "host": "astro dev --host",
