@@ -1,10 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Close from "@/lib/assets/Close.astro";
+
 const { id } = Astro.params;
 ---
 
-<Layout>
+<Layout
+  title="Reproductor"
+  description="Visualiza los video del podcast de Kncelados con nuestro reproductor."
+>
   <main class="fixed inset-0 z-50 h-screen bg-black">
     {
       id && (
@@ -20,10 +24,11 @@ const { id } = Astro.params;
     }
 
     <div
-      class="pointer-events-none absolute top-0 flex w-full justify-center p-4"
+      id="player-hud"
+      class="active pointer-events-none absolute top-0 flex w-full justify-center p-4 opacity-0 transition-opacity"
     >
       <button
-        id="close-btn"
+        id="player-close"
         class="pointer-events-auto rounded-full bg-black/40 p-4 text-xl text-gray-50 backdrop-blur transition-transform hover:scale-110"
       >
         <Close class="size-6" />
@@ -32,12 +37,33 @@ const { id } = Astro.params;
   </main>
 </Layout>
 
+<style>
+  .active {
+    opacity: 1;
+  }
+</style>
+
 <script>
   function init_player() {
-    const closeBtn = document.querySelector("#close-btn");
-    if (!closeBtn) return;
+    const frame = document.querySelector("iframe");
+    const closeBtn = document.querySelector("#player-close");
+    const hud = document.querySelector("#player-hud");
+    if (!closeBtn || !hud || !frame) return;
 
     closeBtn.addEventListener("click", () => history.back());
+
+    const hideHud = () => {
+      hud.classList.remove("active");
+    };
+
+    setTimeout(hideHud, 3000);
+
+    frame.addEventListener("mousemove", (ev) => {
+      if (!hud.classList.contains("active")) {
+        hud.classList.add("active");
+        setTimeout(hideHud, 3000);
+      }
+    });
   }
 
   init_player();
