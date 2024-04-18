@@ -9,27 +9,26 @@ const { episode, season, id } = last_episode;
 const options = { url: BASE_URL + id };
 
 try {
+  console.log(`⌛ Making ${season}x${episode}...`);
+
   const res = await ogs(options);
   const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
   const description = await remakeDescription(ogDescription);
-
-  console.log(description);
 
   const data = {
     episode,
     season,
     id,
     title: ogTitle,
-    description: ogDescription,
+    description: description,
     image: ogImage[0].url,
     url: requestUrl
   };
 
-  console.log(`Making ${season}x${episode}`);
-  /* const json = JSON.stringify(data, null, 2);
-  await writeFile("./scrape/episodes.json", json, "utf-8"); */
-
   console.log(data);
+
+  /* const json = JSON.stringify(data, null, 2);
+  await writeFile(`./src/lib/episodes/${season}/${season}x${episode}.json`, json, "utf-8"); */
 } catch (error) {
   console.error(error);
 }

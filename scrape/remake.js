@@ -1,10 +1,10 @@
 import { CohereClient } from "cohere-ai";
 
 const cohere = new CohereClient({
-  token: "PhYsAmyxZ50A5WKnYmaaN3uICnWsrhVnzsSJZpvs"
+  token: import.meta.env.TOKEN
 });
 
-export async function remakeDescription(title, description) {
+export async function remakeDescription(description) {
   const { text } = await cohere.chat({
     chatHistory: [
       {
@@ -24,8 +24,7 @@ export async function remakeDescription(title, description) {
             - Devuelte un texto en primera persona (como si fueras el podcast Kncelados).
             - Habla tuteando, con español de España.
             - No generes textos de cierre.
-            - Segun el titulo "${title}", y considerando la description que generes, reforumala tambien el titulo.
-            - devuelveme el titulo y la descripcion en un array, donde la posicion 0 sea el titulo y la 1 la descripcion.
+            - La descripcion generada no debe superar los 300 caracteres.
         `
       }
     ],

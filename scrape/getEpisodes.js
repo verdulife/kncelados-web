@@ -1,6 +1,7 @@
+import { episodes } from "./episodes.js";
+import { remakeDescription } from "./remake.js";
 import { writeFile } from "node:fs/promises";
 import ogs from "open-graph-scraper";
-import { episodes } from "./episodes.js";
 
 const BASE_URL = "https://www.youtube.com/watch?v=";
 let data = [];
@@ -15,13 +16,14 @@ for await (let [ind, seasonData] of episodes.entries()) {
     try {
       const res = await ogs(options);
       const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
+      const description = await remakeDescription(ogDescription);
 
       data[ind].push({
         episode,
         season,
         id,
         title: ogTitle,
-        description: ogDescription,
+        description,
         image: ogImage[0].url,
         url: requestUrl
       });
@@ -34,4 +36,4 @@ for await (let [ind, seasonData] of episodes.entries()) {
 }
 
 const json = JSON.stringify(data, null, 2);
-await writeFile("./scrape/episodes.json", json, "utf-8")
+await writeFile("./src/lib/episodes.json", json, "utf-8")

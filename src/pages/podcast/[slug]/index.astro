@@ -7,10 +7,10 @@ import Layout from "@/layouts/Layout.astro";
 import episodes from "@/lib/episodes.json";
 
 const { slug } = Astro.params;
-const seasons = [...episodes];
 
 if (!slug) return;
 
+const seasons = [...episodes];
 let current_episode;
 let titles: Array<string> = [];
 
@@ -25,9 +25,11 @@ seasons.forEach((season) => {
 
   current_episode = match;
 });
+
+let { title, description } = current_episode;
 ---
 
-<Layout title="Podcast" description="Podcast">
+<Layout title={title} description={description}>
   <div class="bg-black text-gray-50">
     <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={current_episode} />
