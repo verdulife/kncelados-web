@@ -1,5 +1,9 @@
 ---
+import "core-js/actual/object/group-by";
 import episodes from "@/lib/episodes.json";
+
+const seasons_object = Object.groupBy(episodes, ({ season }) => season);
+const seasons = Object.values(seasons_object);
 
 const seconds = "60s";
 const gap = "1rem";
@@ -35,10 +39,10 @@ const gap = "1rem";
     </div>
 
     {
-      episodes.map((season, i) => (
+      seasons.map((season, i) => (
         <span class="relative mt-4 flex w-full overflow-hidden">
           <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
-            {season.map(({ title, image }) => (
+            {season?.map(({ title, image }) => (
               <li>
                 <img
                   src={image}
@@ -54,7 +58,7 @@ const gap = "1rem";
           </ul>
 
           <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
-            {season.map(({ title, image }) => (
+            {season?.map(({ title, image }) => (
               <li>
                 <img
                   src={image}

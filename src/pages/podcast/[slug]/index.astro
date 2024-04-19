@@ -1,33 +1,27 @@
 ---
+import "core-js/actual/object/group-by";
 import { findBestMatch } from "string-similarity";
 
+import episodes from "@/lib/episodes.json";
+import Layout from "@/layouts/Layout.astro";
 import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
-import Layout from "@/layouts/Layout.astro";
-import episodes from "@/lib/episodes.json";
 
 const { slug } = Astro.params;
-
 if (!slug) return;
 
-const seasons = [...episodes];
-let current_episode;
-let titles: Array<string> = [];
-
-seasons.forEach((season) => {
-  season.forEach((episode) => titles.push(episode.title.toLowerCase()));
-
-  const { target } = findBestMatch(slug, titles).bestMatch;
-  const match = season.find(
-    (episode) => episode.title.toLowerCase() === target
-  );
-  if (!match) return;
-
-  current_episode = match;
-});
+const titles = episodes.map(({ title }) => title);
+const { target } = findBestMatch(slug, titles).bestMatch;
+const current_episode = episodes.find(({ title }) => title === target);
+const seasons_object = Object.groupBy(episodes, ({ season }) => season);
+const seasons = Object.values(seasons_object).reverse();
 ---
 
-<Layout title="Podcast" description="Podcast">
+<Layout
+  title={current_episode && current_episode.title}
+  description={current_episode && current_episode.description}
+  image={current_episode && current_episode.image}
+>
   <div class="bg-black text-gray-50">
     <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={current_episode} />

@@ -4,7 +4,7 @@ import { ViewTransitions } from "astro:transitions";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +17,7 @@ const { title, description } = Astro.props;
       content="width=device-width, initial-scale=1, minimum-scale=1.0, viewport-fit=cover"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -42,32 +43,23 @@ const { title, description } = Astro.props;
       crossorigin
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Kncelados | Un podcast de tonterías varias"
-    />
+    <meta property="og:title" content={title} />
     <meta property="og:url" content="https://www.kncelados.com" />
     <meta
       property="og:image"
-      content="https://www.kncelados.com/logo-512.jpg"
+      content={image || "https://www.kncelados.com/logo-512.jpg"}
     />
-    <meta
-      property="og:description"
-      content="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
-    />
+    <meta property="og:description" content={description} />
     <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Kncelados | Un podcast de tonterías varias"
-    />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:site" content="@kncelados" />
+    <meta name="twitter:description" content={description} />
     <meta
-      name="twitter:description"
-      content="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
+      name="twitter:image"
+      content={image || "https://www.kncelados.com/card.jpg"}
     />
-    <meta name="twitter:image" content="https://www.kncelados.com/card.jpg" />
-    <meta name="twitter:image:alt" content="Kncelados" />
-    <script type="application/ld+json">
+    <meta name="twitter:image:alt" content={title} />
+    <script type="application/ld+json" is:inline>
       {
         "@context": "http://schema.org/",
         "@type": "PerformingGroup",
@@ -93,7 +85,8 @@ const { title, description } = Astro.props;
     <script
       type="text/partytown"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2074822779325165"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+      is:inline></script>
   </head>
 
   <!-- Google tag (gtag.js) -->

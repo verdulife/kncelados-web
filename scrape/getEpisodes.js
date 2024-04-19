@@ -6,9 +6,7 @@ import ogs from "open-graph-scraper";
 const BASE_URL = "https://www.youtube.com/watch?v=";
 let data = [];
 
-for await (let [ind, seasonData] of episodes.entries()) {
-  data[ind] = [];
-
+for await (let seasonData of episodes) {
   for await (let episodeData of seasonData) {
     const { episode, season, id } = episodeData;
     const options = { url: BASE_URL + id };
@@ -18,7 +16,7 @@ for await (let [ind, seasonData] of episodes.entries()) {
       const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
       const description = await remakeDescription(ogDescription);
 
-      data[ind].push({
+      data.push({
         episode,
         season,
         id,

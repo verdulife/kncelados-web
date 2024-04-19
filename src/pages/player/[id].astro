@@ -1,13 +1,17 @@
 ---
+import "core-js/actual/object/group-by";
+import episodes from "@/lib/episodes.json";
 import Layout from "@/layouts/Layout.astro";
 import Close from "@/lib/assets/Close.astro";
 
 const { id } = Astro.params;
+const current_episode = episodes.find((episode) => episode.id === id);
+console.log(current_episode);
 ---
 
 <Layout
-  title="Reproductor"
-  description="Visualiza los video del podcast de Kncelados con nuestro reproductor."
+  title={`▶ ${current_episode && current_episode.title}`}
+  description={current_episode && current_episode.description}
 >
   <main class="fixed inset-0 z-50 h-screen bg-black">
     {
@@ -58,7 +62,7 @@ const { id } = Astro.params;
 
     setTimeout(hideHud, 3000);
 
-    frame.addEventListener("mousemove", (ev) => {
+    frame.addEventListener("mousemove", (_) => {
       if (!hud.classList.contains("active")) {
         hud.classList.add("active");
         setTimeout(hideHud, 3000);

@@ -12,12 +12,7 @@ const slug = slugify(title).toLowerCase();
 >
   <a href={`/podcast/${slug}`}>
     <picture>
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        decoding="async"
-      />
+      <img src={image} alt={title} loading="lazy" decoding="async" />
     </picture>
   </a>
 
@@ -53,7 +48,7 @@ const slug = slugify(title).toLowerCase();
       const fastPlay = card.querySelector(".fast-play");
       if (!fastPlay) return;
 
-      let cancel: number;
+      let cancel: NodeJS.Timeout;
 
       card.addEventListener("mouseenter", () => {
         cancel = setTimeout(() => {
