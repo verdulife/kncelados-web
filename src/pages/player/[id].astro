@@ -9,6 +9,10 @@ const current_episode = episodes.find((episode) => episode.id === id);
 console.log(current_episode);
 ---
 
+<Fragment>
+  <meta name="robots" content="noindex" />
+</Fragment>
+
 <Layout
   title={`▶ ${current_episode && current_episode.title}`}
   description={current_episode && current_episode.description}
