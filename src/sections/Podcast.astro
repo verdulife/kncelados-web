@@ -3,7 +3,7 @@ import "core-js/actual/object/group-by";
 import episodes from "@/lib/episodes.json";
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
-const seasons = Object.values(seasons_object);
+const seasons = Object.values(seasons_object).reverse();
 
 const seconds = "60s";
 const gap = "1rem";

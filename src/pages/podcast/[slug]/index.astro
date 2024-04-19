@@ -10,9 +10,11 @@ import VideoSlider from "@/components/VideoSlider.astro";
 const { slug } = Astro.params;
 if (!slug) return;
 
-const titles = episodes.map(({ title }) => title);
+const titles = episodes.map(({ title }) => title.toLowerCase());
 const { target } = findBestMatch(slug, titles).bestMatch;
-const current_episode = episodes.find(({ title }) => title === target);
+const current_episode = episodes.find(
+  ({ title }) => title.toLowerCase() === target
+);
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
 const seasons = Object.values(seasons_object).reverse();
 ---
