@@ -1,9 +1,5 @@
 ---
-import "core-js/actual/object/group-by";
-import episodes from "@/lib/episodes.json";
-
-const seasons_object = Object.groupBy(episodes, ({ season }) => season);
-const seasons = Object.values(seasons_object).reverse();
+import { seasons } from "@/lib/utils";
 
 const seconds = "60s";
 const gap = "1rem";

@@ -1,3 +1,10 @@
+---
+import { generateSlug, lastEpisode } from "@/lib/utils";
+
+const slug = generateSlug(lastEpisode.title);
+const lastEpisode_url = `podcast/${slug}`;
+---
+
 <section
   class="relative flex min-h-[90vh] w-full flex-col items-center justify-center gap-8"
 >
@@ -19,9 +26,9 @@
       aquí.
     </p>
 
-    <div class="flex flex-wrap justify-center mt-10">
+    <div class="mt-10 flex flex-wrap justify-center">
       <a
-        href="/podcast"
+        href={lastEpisode_url}
         class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
       >
         Último episodio

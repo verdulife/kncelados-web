@@ -1,13 +1,9 @@
 ---
-import "core-js/actual/object/group-by";
 import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
-import episodes from "@/lib/episodes.json";
 
-const lastEpisode = episodes[0];
-const seasons_object = Object.groupBy(episodes, ({ season }) => season);
-const seasons = Object.values(seasons_object).reverse();
+import { lastEpisode, seasons } from "@/lib/utils";
 ---
 
 <Layout

@@ -1,8 +1,6 @@
 ---
-import "core-js/actual/object/group-by";
-import { findBestMatch } from "string-similarity";
+import { seasons, getCurrentEpisode } from "@/lib/utils";
 
-import episodes from "@/lib/episodes.json";
 import Layout from "@/layouts/Layout.astro";
 import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
@@ -10,13 +8,7 @@ import VideoSlider from "@/components/VideoSlider.astro";
 const { slug } = Astro.params;
 if (!slug) return;
 
-const titles = episodes.map(({ title }) => title.toLowerCase());
-const { target } = findBestMatch(slug, titles).bestMatch;
-const current_episode = episodes.find(
-  ({ title }) => title.toLowerCase() === target
-);
-const seasons_object = Object.groupBy(episodes, ({ season }) => season);
-const seasons = Object.values(seasons_object).reverse();
+const current_episode = getCurrentEpisode(slug);
 ---
 
 <Layout

@@ -1,10 +1,10 @@
 ---
 import Play from "@/lib/assets/Play.astro";
-import slugify from "slugify";
+import { generateSlug } from "@/lib/utils";
 
 const { data } = Astro.props;
 const { title, image, id } = data;
-const slug = slugify(title).toLowerCase();
+const slug = generateSlug(title);
 ---
 
 <article
