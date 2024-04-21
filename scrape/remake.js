@@ -1,7 +1,7 @@
 import { CohereClient } from "cohere-ai";
 
 const cohere = new CohereClient({
-  token: import.meta.env.CODEHERE_TOKEN
+  token: process.env.TOKEN
 });
 
 export async function remakeDescription(description) {

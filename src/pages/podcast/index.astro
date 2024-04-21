@@ -4,6 +4,11 @@ import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 
 import { lastEpisode, seasons } from "@/lib/utils";
+
+const collections_data = await Astro.glob("@/lib/collections/*.json");
+const collections = collections_data
+  .map((collection) => collection.default)
+  .reverse();
 ---
 
 <Layout
@@ -13,7 +18,10 @@ import { lastEpisode, seasons } from "@/lib/utils";
   <div class="bg-black text-gray-50">
     <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={lastEpisode} />
+
       {seasons.map((season) => <VideoSlider data={season} />)}
+
+      <VideoSlider data={collections} title="Recopilaciones" />
     </div>
   </div>
 </Layout>

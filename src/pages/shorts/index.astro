@@ -1,5 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+
+const shorts = await Astro.glob("@/lib/shorts/*.json");
+const episodes = shorts.map((short) => short.default);
 ---
 
 <Layout

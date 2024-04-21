@@ -1,29 +1,32 @@
+import { episodes } from "./episodes.js";
+import { remakeDescription } from "./remake.js";
 import { writeFile } from "node:fs/promises";
 import ogs from "open-graph-scraper";
-import { collections } from "./collections.js";
 
 const BASE_URL = "https://www.youtube.com/watch?v=";
 let data = [];
 
-for await (let [ind, seasonData] of collections.entries()) {
-  data[ind] = [];
-
+for await (let seasonData of episodes) {
   for await (let episodeData of seasonData) {
-    const { type, id } = episodeData;
+    const { episode, season, id } = episodeData;
     const options = { url: BASE_URL + id };
 
     try {
       const res = await ogs(options);
       const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
+      const description = await remakeDescription(ogDescription);
 
-      data[ind].push({
-        type,
+      data.push({
+        episode,
+        season,
         id,
         title: ogTitle,
-        description: ogDescription,
-        image: ogImage[0],
+        description,
+        image: ogImage[0].url,
         url: requestUrl
       });
+
+      console.log(`Making ${season}x${episode}`);
     } catch (error) {
       console.error(error);
     }
@@ -31,4 +34,4 @@ for await (let [ind, seasonData] of collections.entries()) {
 }
 
 const json = JSON.stringify(data, null, 2);
-await writeFile("./src/lib/extras.json", json, "utf-8")
+await writeFile("./src/lib/episodes.json", json, "utf-8")

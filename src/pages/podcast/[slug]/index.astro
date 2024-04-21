@@ -9,6 +9,10 @@ const { slug } = Astro.params;
 if (!slug) return;
 
 const current_episode = getCurrentEpisode(slug);
+const collections_data = await Astro.glob("@/lib/collections/*.json");
+const collections = collections_data
+  .map((collection) => collection.default)
+  .reverse();
 ---
 
 <Layout
@@ -19,7 +23,10 @@ const current_episode = getCurrentEpisode(slug);
   <div class="bg-black text-gray-50">
     <div class="bg-knc-blue/40 pb-10">
       <VideoHeader data={current_episode} />
+
       {seasons.map((season) => <VideoSlider data={season} />)}
+
+      <VideoSlider data={collections} title="Recopilaciones" />
     </div>
   </div>
 </Layout>

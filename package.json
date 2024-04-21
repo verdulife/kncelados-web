@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "scrape:last": "node ./scrape/getLast.js",
-    "scrape:episodes": "node ./scrape/getEpisodes.js",
-    "scrape:extras": "node ./scrape/getExtras.js",
+    "scrape:episodes": "node --env-file=.env ./scrape/getEpisodes.js",
+    "scrape:collections": "node --env-file=.env ./scrape/getCollections.js",
+    "scrape:shorts": "node --env-file=.env ./scrape/getShorts.js",
     "host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
