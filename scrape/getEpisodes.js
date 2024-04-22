@@ -5,11 +5,11 @@ import ogs from "open-graph-scraper";
 
 const BASE_URL = "https://www.youtube.com/watch?v=";
 
-const { episode, season, id } = episodes[0];
+const { episode, season, id, part } = episodes[0];
 const options = { url: BASE_URL + id };
 
 try {
-  console.log(`Making ${season}x${episode}`);
+  console.log(`Making ${season}x${episode}${part ? "_" + part : ""}`);
 
   const res = await ogs(options);
   const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
@@ -26,7 +26,7 @@ try {
   };
 
   const json = JSON.stringify(data, null, 2);
-  await writeFile(`./src/lib/episodes/${season}x${episode}.json`, json, "utf-8")
+  await writeFile(`./src/lib/episodes/${season}x${episode}${part ? "_" + part : ""}.json`, json, "utf-8")
 } catch (error) {
   console.error(error);
 }
