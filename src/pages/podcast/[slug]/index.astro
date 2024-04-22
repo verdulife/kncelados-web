@@ -1,5 +1,5 @@
 ---
-import { seasons, getCurrentEpisode } from "@/lib/utils";
+import { seasons, getCurrentEpisode, collections } from "@/lib/utils";
 
 import Layout from "@/layouts/Layout.astro";
 import VideoHeader from "@/components/VideoHeader.astro";
@@ -9,10 +9,6 @@ const { slug } = Astro.params;
 if (!slug) return;
 
 const current_episode = getCurrentEpisode(slug);
-const collections_data = await Astro.glob("@/lib/collections/*.json");
-const collections = collections_data
-  .map((collection) => collection.default)
-  .reverse();
 ---
 
 <Layout

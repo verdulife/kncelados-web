@@ -3,12 +3,7 @@ import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 
-import { lastEpisode, seasons } from "@/lib/utils";
-
-const collections_data = await Astro.glob("@/lib/collections/*.json");
-const collections = collections_data
-  .map((collection) => collection.default)
-  .reverse();
+import { lastEpisode, seasons, collections } from "@/lib/utils";
 ---
 
 <Layout
