@@ -14,10 +14,12 @@ const slug = generateSlug(title);
     <picture>
       <img src={image} alt={title} loading="lazy" decoding="async" />
     </picture>
+
+    <h3 class="sr-only">{title}</h3>
   </a>
 
   <span
-    class="fast-play pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-all duration-500"
+    class="fast-play pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
   >
     <a
       href={`/player/${id}`}
@@ -53,7 +55,7 @@ const slug = generateSlug(title);
       card.addEventListener("mouseenter", () => {
         cancel = setTimeout(() => {
           fastPlay.classList.add("over");
-        }, 400);
+        }, 150);
       });
 
       card.addEventListener("mouseleave", () => {

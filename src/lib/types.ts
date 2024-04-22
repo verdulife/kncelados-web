@@ -5,3 +5,8 @@ export interface Metadata {
   image: string,
   url: string
 }
+
+export interface Episode extends Metadata {
+  episode: number,
+  season: number
+}

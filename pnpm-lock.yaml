@@ -29,9 +29,6 @@ dependencies:
   slugify:
     specifier: 1.6.6
     version: 1.6.6
-  string-similarity:
-    specifier: 4.0.4
-    version: 4.0.4
   tailwindcss:
     specifier: 3.4.2
     version: 3.4.2
@@ -43,9 +40,6 @@ devDependencies:
   '@types/core-js':
     specifier: 2.5.8
     version: 2.5.8
-  '@types/string-similarity':
-    specifier: 4.0.2
-    version: 4.0.2
   cohere-ai:
     specifier: 7.9.3
     version: 7.9.3
@@ -1183,10 +1177,6 @@ packages:
     dependencies:
       '@types/node': 17.0.45
     dev: false
-
-  /@types/string-similarity@4.0.2:
-    resolution: {integrity: sha512-LkJQ/jsXtCVMK+sKYAmX/8zEq+/46f1PTQw7YtmQwb74jemS1SlNLmARM2Zml9DgdDTWKAtc5L13WorpHPDjDA==}
-    dev: true
 
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
@@ -4156,11 +4146,6 @@ packages:
       bare-events: 2.2.2
     dev: false
     optional: true
-
-  /string-similarity@4.0.4:
-    resolution: {integrity: sha512-/q/8Q4Bl4ZKAPjj8WerIBJWALKkaPRfrvhfF8k/B23i4nzrlRj2/go1m90In7nG/3XDSbOo0+pu6RvCTM9RGMQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    dev: false
 
   /string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
