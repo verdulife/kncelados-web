@@ -3,11 +3,15 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
-import episodes from "./src/lib/episodes.json" assert { type: 'json' };
-import slugify from 'slugify';
+
+import { collections, episodes, generateSlug, shorts } from "./src/lib/utils";
 
 const BASE_URL = "https://www.kncelados.com";
-const customPages = episodes.map(({ title }) => `${BASE_URL}/${slugify(title).toLowerCase()}`);
+const episodesPages = episodes.map(({ title }) => `${BASE_URL}/podcast/${generateSlug(title)}`);
+const collectionsPages = collections.map(({ title }) => `${BASE_URL}/podcast/${generateSlug(title)}`);
+const shortsPages = shorts.map(({ title }) => `${BASE_URL}/shorts/${generateSlug(title)}`);
+const customPages = [...episodesPages, ...collectionsPages, ...shortsPages];
+
 const pt_opts = {
   config: {
     forward: ["dataLayer.push"]
