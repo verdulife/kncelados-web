@@ -16,13 +16,9 @@ const current_episode = getCurrentEpisode(slug);
   description={current_episode && current_episode.description}
   image={current_episode && current_episode.image}
 >
-  <div class="bg-black text-gray-50">
-    <div class="bg-knc-blue/40 pb-10">
-      <VideoHeader data={current_episode} />
-
-      {seasons.map((season) => <VideoSlider data={season} />)}
-
-      <VideoSlider data={collections} title="Recopilaciones" />
-    </div>
+  <div class="pb-10">
+    <VideoHeader data={current_episode} />
+    {seasons.map((season) => <VideoSlider data={season} />)}
+    <VideoSlider data={collections} title="Recopilaciones" />
   </div>
 </Layout>

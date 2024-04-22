@@ -3,7 +3,7 @@ import type { Metadata, Episode } from "./types";
 import slugify from "slugify";
 
 const episodes_obj: Record<string, Episode> = import.meta.glob('@/lib/episodes/*.json', { import: 'default', eager: true });
-export const episodes = Object.values(episodes_obj);
+export const episodes = Object.values(episodes_obj).reverse();
 export const lastEpisode = episodes[0];
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);

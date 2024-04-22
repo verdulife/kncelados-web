@@ -10,13 +10,9 @@ import { lastEpisode, seasons, collections } from "@/lib/utils";
   title="Podcast"
   description="Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar adecuado. Tanto en esta página web, como en nuestro canal de YouTube encontrarás todos los episodios."
 >
-  <div class="bg-black text-gray-50">
-    <div class="bg-knc-blue/40 pb-10">
-      <VideoHeader data={lastEpisode} />
-
-      {seasons.map((season) => <VideoSlider data={season} />)}
-
-      <VideoSlider data={collections} title="Recopilaciones" />
-    </div>
+  <div class="pb-10">
+    <VideoHeader data={lastEpisode} />
+    {seasons.map((season) => <VideoSlider data={season} />)}
+    <VideoSlider data={collections} title="Recopilaciones" />
   </div>
 </Layout>

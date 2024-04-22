@@ -1,4 +1,5 @@
 ---
+import "@fontsource-variable/inter";
 const { data } = Astro.props;
 const { title, description, image, url, id } = data;
 ---
@@ -7,15 +8,19 @@ const { title, description, image, url, id } = data;
   <link rel="preload" href={image} as="image" />
 </Fragment>
 
-<section class="flex w-full flex-col items-center gap-8">
+<section class="flex size-full flex-col items-center gap-8">
   <article
-    class="relative flex min-h-[60vh] w-full flex-col items-center justify-end lg:min-h-[65vh]"
+    class="relative flex size-full flex-col items-center justify-end lg:justify-center"
   >
     <img
       class="absolute size-full object-cover object-top"
       src={image}
       alt={title}
     />
+
+    <picture class="hidden px-4 z-10">
+      <img src={image} alt={title} class="rounded-xl" />
+    </picture>
 
     <span
       class="absolute inset-0 bg-gradient-to-b from-knc-dark via-transparent to-knc-dark"
@@ -28,7 +33,9 @@ const { title, description, image, url, id } = data;
     <div
       class="z-10 mt-32 flex w-full flex-col justify-center px-6 pb-6 lg:mt-48 lg:px-20 lg:pb-20"
     >
-      <h1 class="max-w-3xl text-4xl lg:text-7xl">{title}</h1>
+      <h1 class="max-w-3xl text-4xl capitalize lg:text-7xl">
+        {title.toLowerCase()}
+      </h1>
 
       <div class="mt-4 flex lg:mt-10">
         <a
@@ -47,9 +54,27 @@ const { title, description, image, url, id } = data;
         </a>
       </div>
 
-      <p class="mt-6 line-clamp-4 max-w-4xl text-gray-300 lg:mt-12 lg:text-xl">
+      <p class="mt-6 line-clamp-4 max-w-4xl text-gray-300 lg:mt-12 lg:text-lg">
         {description}
       </p>
     </div>
   </article>
 </section>
+
+<style>
+  p {
+    font-family:
+      "Inter Variable",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+</style>

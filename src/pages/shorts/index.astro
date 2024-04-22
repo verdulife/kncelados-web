@@ -1,24 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-const shorts = await Astro.glob("@/lib/shorts/*.json");
-const episodes = shorts.map((short) => short.default);
+import VideoHeader from "@/components/VideoHeader.astro";
+import { shorts } from "@/lib/utils";
 ---
 
 <Layout
   title="KNC Shorts"
-  description="Proximamente todos nuestros cortos estaran online"
+  description="Y cuando nos da la vida y la gana, hacemos cortos, y como somos muy creativos los llamamos KNC Shorts. No es KN coches, pero por algo se empieza."
 >
-  <section
-    class="flex h-screen flex-col items-center justify-center gap-8 bg-knc-red px-4"
-  >
-    <h1 class="text-4xl font-bold lg:text-8xl">Proximamente</h1>
-
-    <a
-      href="/"
-      class="rounded-md bg-knc-blue px-8 py-3 text-sm uppercase text-gray-50 transition-transform hover:scale-110 lg:text-base"
-    >
-      VOLVER
-    </a>
-  </section>
+  {
+    shorts.map((short) => (
+      <div class="flex h-screen items-center">
+        <VideoHeader data={short} />
+      </div>
+    ))
+  }
 </Layout>
