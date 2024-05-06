@@ -6,8 +6,10 @@ const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.jso
 export const episodes = Object.values(episodes_obj).reverse();
 
 const currentDate = new Date();
+const timezone = 2;
 const currentDay = currentDate.getDay();
-const currentHours = currentDate.getHours();
+const currentUTCHours = currentDate.getUTCHours();
+const currentHours = currentUTCHours + timezone;
 export const hideLast = currentHours > 14 && currentHours < 20 && currentDay === 1;
 export const lastEpisode = episodes[hideLast ? 1 : 0];
 
