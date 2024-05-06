@@ -3,8 +3,10 @@ import VideoCard from "./VideoCard.astro";
 import Prev from "@/lib/assets/Prev.astro";
 import Next from "@/lib/assets/Next.astro";
 
+import { hideLast } from "@/lib/utils";
+
 const { data, title } = Astro.props;
-const episodes = [...data];
+const episodes = hideLast ? [...data].slice(1) : [...data];
 const current_season = episodes[0].season;
 ---
 
