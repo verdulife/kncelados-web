@@ -3,7 +3,9 @@ import type { Metadata, Episode } from "./types";
 import slugify from "slugify";
 
 const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
-export const episodes = Object.values(episodes_obj).reverse();
+const sortedBySeason = Object.values(episodes_obj).sort((a, b) => a.season - b.season);
+const sortedByEpisope = sortedBySeason.sort((a, b) => a.episode - b.episode);
+export const episodes = sortedByEpisope.reverse();
 
 const currentDate = new Date();
 const timezone = 2;
