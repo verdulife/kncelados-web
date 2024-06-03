@@ -12,7 +12,7 @@ const timezone = 2;
 const currentDay = currentDate.getDay();
 const currentUTCHours = currentDate.getUTCHours();
 const currentHours = currentUTCHours + timezone;
-export const hideLast = currentHours > 14 && currentHours < 20 && currentDay === 1;
+export const hideLast = currentHours > 11 && currentHours < 20 && currentDay === 1;
 export const lastEpisode = episodes[hideLast ? 1 : 0];
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
