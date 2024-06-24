@@ -15,6 +15,8 @@ try {
   const { ogTitle, ogDescription, ogImage, requestUrl } = res.result;
   const description = await remakeDescription(ogDescription);
 
+  console.log(res.result);
+
   const data = {
     episode,
     season,
