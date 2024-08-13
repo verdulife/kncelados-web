@@ -35,3 +35,7 @@ export function getCurrentEpisode(slug: string) {
   const ind = titles.findIndex((title) => title === slug);
   return allVideos[ind];
 }
+
+export function getCurrentEpisodeById(id: string) {
+  return allVideos.find((episode) => episode.id === id);
+}

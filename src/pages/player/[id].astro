@@ -1,12 +1,12 @@
 ---
-import "core-js/actual/object/group-by";
-import episodes from "@/lib/episodes.json";
+import { getCurrentEpisodeById } from "@/lib/utils";
 import Layout from "@/layouts/Layout.astro";
 import Close from "@/lib/assets/Close.astro";
 
 const { id } = Astro.params;
-const current_episode = episodes.find((episode) => episode.id === id);
-console.log(current_episode);
+if (!id) return;
+
+const current_episode = getCurrentEpisodeById(id);
 ---
 
 <Fragment>
