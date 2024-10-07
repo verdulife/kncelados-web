@@ -1,5 +1,10 @@
 export const episodes = [
   {
+    episode: 30,
+    season: 2,
+    id: "1Phbr-sTfWk",
+  },
+  {
     episode: 29,
     season: 2,
     id: "4HOzsJa6Rw0",
