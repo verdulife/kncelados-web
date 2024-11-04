@@ -1,19 +1,24 @@
 export const episodes = [
   {
+    episode: 34,
+    season: 2,
+    id: "t2tkUxbwSqM",
+  },
+  {
     episode: 33,
     season: 2,
     id: "AKx0e4d7xgg",
- },
+  },
   {
     episode: 32,
     season: 2,
     id: "BNonmCXfnzA",
- },
+  },
   {
     episode: 31,
     season: 2,
     id: "bC3F_Oj03aI",
- },
+  },
   {
     episode: 30,
     season: 2,
