@@ -19,6 +19,6 @@ const current_episode = getCurrentEpisode(slug);
   <div class="pb-10">
     <VideoHeader data={current_episode} />
     {seasons.map((season) => <VideoSlider data={season} />)}
-    <VideoSlider data={collections} title="Recopilaciones" />
+    <VideoSlider data={collections} title="Especiales" />
   </div>
 </Layout>
