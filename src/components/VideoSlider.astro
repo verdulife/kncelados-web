@@ -1,13 +1,19 @@
 ---
-import VideoCard from "./VideoCard.astro";
+import VideoCard from "@/components/VideoCard.astro";
 import Prev from "@/lib/assets/Prev.astro";
 import Next from "@/lib/assets/Next.astro";
 
 import { hideLast } from "@/lib/utils";
 
 const { data, title } = Astro.props;
-const episodes = hideLast ? [...data].slice(1) : [...data];
+const episodes =
+  title !== "Especiales"
+    ? hideLast
+      ? [...data].slice(1)
+      : [...data]
+    : [...data];
 const current_season = episodes[0].season;
+console.log(title);
 ---
 
 <section class="relative flex w-full flex-col pt-4 lg:pt-8">
