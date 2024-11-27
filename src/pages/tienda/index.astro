@@ -23,20 +23,21 @@ const store = await getStore();
 
     <!-- <h1 class="text-4xl font-bold lg:text-8xl">Tienda</h1>
 
-    {
-      store.map((product) => (
-        <div class="flex flex-col gap-4 p-4">
-          <a href={`/tienda/${product.id}`}>
-            <img
-              src={product.previewUrl}
-              alt={product.title}
-              class="w-full rounded-md"
-            />
-          </a>
-          <h2 class="text-2xl font-bold">{product.title}</h2>
-          <p class="text-sm" set:html={product.description} />
-        </div>
-      ))
-    } -->
+    <ul class="grid max-w-6xl grid-cols-3 gap-4">
+      {
+        store.map((product) => (
+          <li>
+            <a href={`/tienda/${product.id}`}>
+              <img
+                src={product.previewUrl}
+                alt={product.title}
+                class="w-full rounded-md"
+              />
+              <h2 class="text-2xl font-bold">{product.title}</h2>
+            </a>
+          </li>
+        ))
+      }
+    </ul> -->
   </section>
 </Layout>

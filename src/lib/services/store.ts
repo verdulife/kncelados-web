@@ -5,19 +5,27 @@ const headers = {
   'X-API-KEY': import.meta.env.SECRET_STORE
 };
 
-function getPrice(id: string) {
-  return fetch(STORE_ENDPOINTS.GET_PRICE(id), { method: 'GET', headers });
+export async function getPrice(id: string) {
+  try {
+    const res = await fetch(STORE_ENDPOINTS.GET_PRICE(id), { method: 'GET', headers });
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getProduct(id: string) {
+  const res = await fetch(STORE_ENDPOINTS.GET_PRODUCT(id), { method: 'GET', headers });
+  const product = await res.json();
+  return product;
 }
 
 export async function getStore() {
-  const res = await fetch(STORE_ENDPOINTS.GET_STORE, {
-    method: 'GET', headers: {
-      'X-API-KEY': import.meta.env.SECRET_STORE
-    }
-  });
+  const res = await fetch(STORE_ENDPOINTS.GET_STORE, { method: 'GET', headers });
   const store = await res.json();
   const { products } = store;
-  const productList = products.map(async (product: any) => {
+
+  return products.map((product: any) => {
     const {
       id,
       title,
@@ -30,8 +38,6 @@ export async function getStore() {
       productVariantsOptions,
       metadata,
     } = product;
-    const res = await getPrice(id);
-    const price = await res.json();
 
     return {
       id,
@@ -44,9 +50,6 @@ export async function getStore() {
       variants,
       productVariantsOptions,
       metadata,
-      price
     };
   });
-
-  return await Promise.all(productList);
 }
