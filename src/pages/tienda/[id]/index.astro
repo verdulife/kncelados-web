@@ -1,19 +1,25 @@
 ---
-import { getProduct } from "@/lib/services/store";
+import { getPrice, getProduct } from "@/lib/services/store";
 import Layout from "@/layouts/Layout.astro";
 const { id } = Astro.params;
 
 const product = await getProduct(id);
-console.log(product);
+const data = await getPrice(product.variants[0].productUid);
+
+console.log({ data });
 ---
 
 <Layout
   title="Tienda"
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
-  <section
-    class="flex min-h-screen flex-col items-center justify-center gap-8 bg-knc-blue px-4"
-  >
-    <h1 class="text-4xl font-bold lg:text-8xl">{id}</h1>
+  <section class="flex min-h-screen flex-col items-center bg-knc-blue px-4">
+    <article class="flex max-w-3xl flex-col gap-8">
+      <img src={product.previewUrl} alt={product.title} class="w-full" />
+      <h1 class="text-4xl font-bold lg:text-8xl">{product.title}</h1>
+      <h2>{data[0].price}€</h2>
+      <p set:html={product.description} />
+      <button>Comprar</button>
+    </article>
   </section>
 </Layout>

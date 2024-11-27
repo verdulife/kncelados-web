@@ -5,9 +5,9 @@ const headers = {
   'X-API-KEY': import.meta.env.SECRET_STORE
 };
 
-export async function getPrice(id: string) {
+export async function getPrice(id: string, country = "ES", currency = 'EUR') {
   try {
-    const res = await fetch(STORE_ENDPOINTS.GET_PRICE(id), { method: 'GET', headers });
+    const res = await fetch(STORE_ENDPOINTS.GET_PRICE(id, country, currency), { method: 'GET', headers });
     return await res.json();
   } catch (error) {
     console.log(error);
