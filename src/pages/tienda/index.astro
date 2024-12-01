@@ -3,6 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 import { getStore } from "@/lib/services/store";
 
 const store = await getStore();
+const products = store.products.sort((a, b) =>
+  a.category.localeCompare(b.category)
+);
 ---
 
 <Layout
@@ -10,34 +13,53 @@ const store = await getStore();
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
   <section
-    class="flex min-h-screen flex-col items-center justify-center gap-8 bg-knc-blue px-4"
+    class="flex min-h-screen flex-col items-center bg-white bg-[url('pattern.png')] px-4 py-44 text-knc-dark"
   >
-    <h1 class="text-4xl font-bold lg:text-8xl">Proximamente</h1>
-
-    <a
-      href="/"
-      class="rounded-md bg-knc-red px-8 py-3 text-sm uppercase text-gray-50 transition-transform hover:scale-110 lg:text-base"
+    <article
+      class="relative flex aspect-video w-full max-w-7xl flex-col items-center justify-center overflow-clip rounded-3xl"
     >
-      VOLVER
-    </a>
+      <div
+        class="absolute size-full bg-[url('store.jpg')] bg-cover bg-center bg-no-repeat"
+      >
+      </div>
+      <h1 class="z-10 -mt-24 text-4xl font-bold lg:text-6xl">Tienda oficial</h1>
+      <p class="z-10 mt-2 max-w-xl text-center text-xl lg:text-2xl">
+        Si te gusta nuestro look, podrás encontrar los productos aquí, en
+        nuestra tienda oficial.
+      </p>
+    </article>
 
-    <!-- <h1 class="text-4xl font-bold lg:text-8xl">Tienda</h1>
-
-    <ul class="grid max-w-6xl grid-cols-3 gap-4">
+    <ul class="z-10 -mt-64 grid w-full max-w-6xl grid-cols-3 gap-6">
       {
-        store.map((product) => (
-          <li>
-            <a href={`/tienda/${product.id}`}>
+        products.map((product) => (
+          <li class="card aspect-[4/5] w-full rounded-md border-2 border-knc-dark p-4 shadow-xl">
+            <a class="flex size-full flex-col items-center justify-end text-center">
               <img
                 src={product.previewUrl}
                 alt={product.title}
-                class="w-full rounded-md"
+                class="size-full rounded-lg border border-gray-200 object-cover shadow-xl "
               />
-              <h2 class="text-2xl font-bold">{product.title}</h2>
+
+              <h2 class="z-10 mt-4 text-2xl font-bold">{product.title}</h2>
+              <p class="z-10">COMING SOON</p>
             </a>
           </li>
         ))
       }
-    </ul> -->
+    </ul>
   </section>
 </Layout>
+
+<script>
+  import tilt from "vanilla-tilt";
+  const cards = document.querySelectorAll(".card");
+  tilt.init(cards, {
+    glare: true,
+  });
+</script>
+
+<style>
+  article > div {
+    mask-image: linear-gradient(to top, transparent 60%, black 100%);
+  }
+</style>

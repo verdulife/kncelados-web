@@ -23,33 +23,5 @@ export async function getProduct(id: string) {
 export async function getStore() {
   const res = await fetch(STORE_ENDPOINTS.GET_STORE, { method: 'GET', headers });
   const store = await res.json();
-  const { products } = store;
-
-  return products.map((product: any) => {
-    const {
-      id,
-      title,
-      description,
-      previewUrl,
-      createdAt,
-      updatedAt,
-      category,
-      variants,
-      productVariantsOptions,
-      metadata,
-    } = product;
-
-    return {
-      id,
-      title,
-      description,
-      previewUrl,
-      createdAt,
-      updatedAt,
-      category,
-      variants,
-      productVariantsOptions,
-      metadata,
-    };
-  });
+  return store;
 }

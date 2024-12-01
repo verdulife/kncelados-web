@@ -5,8 +5,6 @@ const { id } = Astro.params;
 
 const product = await getProduct(id);
 const data = await getPrice(product.variants[0].productUid);
-
-console.log({ data });
 ---
 
 <Layout

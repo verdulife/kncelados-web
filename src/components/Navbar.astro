@@ -1,12 +1,12 @@
 ---
 import Logo from "@/lib/assets/Logo.astro";
 import Menu from "@/lib/assets/Menu.astro";
+
+const { pathname } = Astro.url;
+const isStore = pathname.startsWith("/tienda");
 ---
 
-<header
-  class="fixed left-0 top-0 z-50 flex w-full justify-center lg:absolute"
-  transition:persist
->
+<header class="fixed left-0 top-0 z-50 flex w-full justify-center lg:absolute">
   <nav class="flex w-full items-center justify-between text-gray-50 lg:px-14">
     <a href="/" class="z-10 p-6">
       <Logo class="w-14 lg:w-20" />
@@ -24,7 +24,10 @@ import Menu from "@/lib/assets/Menu.astro";
       <li class="flex">
         <a
           href="/"
-          class="w-full border-b border-knc-blue px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base"
+          class:list={[
+            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            isStore && "text-knc-dark",
+          ]}
         >
           Inicio
         </a>
@@ -33,7 +36,10 @@ import Menu from "@/lib/assets/Menu.astro";
       <li class="flex">
         <a
           href="/podcast"
-          class="w-full border-b border-knc-blue px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base"
+          class:list={[
+            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            isStore && "text-knc-dark",
+          ]}
         >
           Podcast
         </a>
@@ -42,7 +48,10 @@ import Menu from "@/lib/assets/Menu.astro";
       <li class="flex">
         <a
           href="/shorts"
-          class="w-full border-b border-knc-blue px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base"
+          class:list={[
+            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            isStore && "text-knc-dark",
+          ]}
         >
           Shorts
         </a>
@@ -51,7 +60,10 @@ import Menu from "@/lib/assets/Menu.astro";
       <li class="flex">
         <a
           href="/tienda"
-          class="w-full border-b border-knc-blue px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base"
+          class:list={[
+            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            isStore && "text-knc-dark",
+          ]}
         >
           Tienda
         </a>
@@ -60,7 +72,10 @@ import Menu from "@/lib/assets/Menu.astro";
       <li class="flex">
         <a
           href="/contacto"
-          class="w-full border-b border-knc-blue px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base"
+          class:list={[
+            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            isStore && "text-knc-dark",
+          ]}
         >
           Contacto
         </a>
