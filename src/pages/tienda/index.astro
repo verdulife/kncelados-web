@@ -1,11 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getStore } from "@/lib/services/store";
+import { getCollection } from "astro:content";
+/* import { getStore } from "@/lib/services/store";
 
 const store = await getStore();
 const products = store.products.sort((a: any, b: any) =>
   a.category.localeCompare(b.category)
-);
+); */
+
+const products = await getCollection("products");
 ---
 
 <Layout
@@ -31,16 +34,16 @@ const products = store.products.sort((a: any, b: any) =>
 
     <ul class="z-10 -mt-64 grid w-full max-w-6xl grid-cols-3 gap-6">
       {
-        products.map((product: any) => (
+        products.map(({ data, ...product }) => (
           <li class="card aspect-[4/5] w-full rounded-md border-2 border-knc-dark p-4 shadow-xl">
             <a class="flex size-full flex-col items-center justify-end text-center">
               <img
-                src={product.previewUrl}
-                alt={product.title}
+                src={data.images[0]}
+                alt={data.title}
                 class="size-full rounded-lg border border-gray-200 object-cover shadow-xl "
               />
 
-              <h2 class="z-10 mt-4 text-2xl font-bold">{product.title}</h2>
+              <h2 class="z-10 mt-4 text-2xl font-bold">{data.title}</h2>
               <p class="z-10">COMING SOON</p>
             </a>
           </li>
