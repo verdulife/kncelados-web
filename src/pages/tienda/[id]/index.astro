@@ -3,6 +3,8 @@ import { getPrice, getProduct } from "@/lib/services/store";
 import Layout from "@/layouts/Layout.astro";
 const { id } = Astro.params;
 
+if (!id) return Astro.redirect("/tienda");
+
 const product = await getProduct(id);
 const data = await getPrice(product.variants[0].productUid);
 ---
