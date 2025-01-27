@@ -6,15 +6,13 @@ import Next from "@/lib/assets/Next.astro";
 import { hideLast } from "@/lib/utils";
 
 const { data, title } = Astro.props;
-//const episodes =
-//  title !== true
-//    ? hideLast
-//      ? [...data].slice(1)
-//      : [...data]
-//    : [...data];
-const episodes = [...data];
+const episodes =
+  title !== true
+    ? hideLast
+      ? [...data].slice(1)
+      : [...data]
+    : [...data];
 const current_season = episodes[0].season;
-// const current_season = 2;
 ---
 
 <section class="relative flex w-full flex-col pt-4 lg:pt-8">
