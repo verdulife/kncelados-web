@@ -2,27 +2,39 @@ import "core-js/actual/object/group-by";
 import type { Metadata, Episode } from "./types";
 import slugify from "slugify";
 
-const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
-const sortedBySeason = Object.values(episodes_obj).sort((a, b) => a.season - b.season);
-const sortedByEpisope = sortedBySeason.sort((a, b) => a.episode - b.episode);
-export const episodes = sortedByEpisope.reverse();
-
 const currentDate = new Date();
-const timezone = 2;
-const currentDay = currentDate.getDay();
+const timezone = 1;
+const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth();
+const currentYear = currentDate.getFullYear();
 const currentUTCHours = currentDate.getUTCHours();
 const currentHours = currentUTCHours + timezone;
-export const hideLast = currentHours >= 10 && currentHours < 20 && currentDay === 1;
-export const lastEpisode = episodes[hideLast ? 1 : 0];
+const TIME_TO_SHOW = 20;
+
+const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
+const sortedEpisodes = Object.values(episodes_obj).sort((a, b) => b.episode - a.episode);
+export const episodes = sortedEpisodes.filter((episode) => {
+  if (!episode.createdAt) return true;
+
+  const episodeDate = new Date(episode.createdAt);
+  const episodeDay = episodeDate.getDate();
+  const episodeMonth = episodeDate.getMonth();
+  const episodeYear = episodeDate.getFullYear();
+  const sameDate = currentDay === episodeDay && currentMonth === episodeMonth && currentYear === episodeYear;
+
+  return sameDate && currentHours >= TIME_TO_SHOW;
+});
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
 export const seasons = Object.values(seasons_object).reverse();
-
-const shorts_obj: Record<string, Metadata> = import.meta.glob('./shorts/*.json', { import: 'default', eager: true });
-export const shorts = Object.values(shorts_obj).reverse();
+const lastSeason = seasons[0]!;
+export const lastEpisode = lastSeason[0];
 
 const collections_obj: Record<string, Metadata> = import.meta.glob('./collections/*.json', { import: 'default', eager: true });
 export const collections = Object.values(collections_obj).reverse();
+
+const shorts_obj: Record<string, Metadata> = import.meta.glob('./shorts/*.json', { import: 'default', eager: true });
+export const shorts = Object.values(shorts_obj).reverse();
 
 const allVideos = [...episodes, ...shorts, ...collections];
 const titles = allVideos.map(({ title }) => generateSlug(title));

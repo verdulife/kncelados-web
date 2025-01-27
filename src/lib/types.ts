@@ -7,6 +7,7 @@ export interface Metadata {
 }
 
 export interface Episode extends Metadata {
+  createdAt?: Date,
   episode: number,
   season: number
 }
