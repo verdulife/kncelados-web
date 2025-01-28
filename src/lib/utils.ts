@@ -20,9 +20,9 @@ export const episodes = sortedEpisodes.filter((episode) => {
   const episodeDay = episodeDate.getDate();
   const episodeMonth = episodeDate.getMonth();
   const episodeYear = episodeDate.getFullYear();
-  const sameDate = currentDay === episodeDay && currentMonth === episodeMonth && currentYear === episodeYear;
+  const sameDate = currentDay === episodeDay && currentMonth === episodeMonth && currentYear === episodeYear; 
 
-  return sameDate && currentHours >= TIME_TO_SHOW;
+  return !(sameDate && currentHours < TIME_TO_SHOW);
 });
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
