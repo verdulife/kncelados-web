@@ -1,17 +1,122 @@
 ---
 import { seasons } from "@/lib/utils";
-
-const seconds = "60s";
-const gap = "1rem";
 ---
 
-<section
-  id="podcast"
-  class="flex w-full flex-col items-center justify-center pt-20 text-center lg:py-24"
->
-  <h2 class="max-w-5xl px-4 text-5xl lg:text-7xl">El podcast</h2>
+<section id="podcast" class="relative flex w-full flex-col pt-20 text-center lg:py-24">
+  {
+    seasons.map((season, i) => (
+      <>
+        {i === 1 ? (
+          <div class="title flex min-w-full shrink-0 items-center gap-5">
+            <h2 class="whitespace-nowrap px-4 text-5xl lg:text-[16rem]">
+              El podcast
+            </h2>
+            <div class="covers relative mt-4 flex shrink-0">
+              <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+                {season?.map(({ title, image }) => (
+                  <li>
+                    <img
+                      src={image}
+                      alt={title}
+                      width="228"
+                      height="128"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-60"
+                    />
+                  </li>
+                ))}
+              </ul>
 
-  <p class="mt-6 max-w-4xl px-4 text-lg lg:text-2xl">
+              <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+                {season?.map(({ title, image }) => (
+                  <li>
+                    <img
+                      src={image}
+                      alt={title}
+                      width="228"
+                      height="128"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-60"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <div class="covers mt-4 flex min-w-full shrink-0 gap-5">
+            <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+              {season?.map(({ title, image }) => (
+                <li>
+                  <img
+                    src={image}
+                    alt={title}
+                    width="228"
+                    height="128"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-60"
+                  />
+                </li>
+              ))}
+            </ul>
+
+            <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+              {season?.map(({ title, image }) => (
+                <li>
+                  <img
+                    src={image}
+                    alt={title}
+                    width="228"
+                    height="128"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-60"
+                  />
+                </li>
+              ))}
+            </ul>
+
+            <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+              {season?.map(({ title, image }) => (
+                <li>
+                  <img
+                    src={image}
+                    alt={title}
+                    width="228"
+                    height="128"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-60"
+                  />
+                </li>
+              ))}
+            </ul>
+
+            <ul class:list={["flex h-32 shrink-0 gap-5", i % 2 && "reverse"]}>
+              {season?.map(({ title, image }) => (
+                <li>
+                  <img
+                    src={image}
+                    alt={title}
+                    width="228"
+                    height="128"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-60"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </>
+    ))
+  }
+
+  <p class="mt-24 max-w-4xl self-center px-4 text-lg lg:text-2xl">
     Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar
     adecuado. Tanto en esta página web, como en nuestro canal de YouTube
     encontrarás todos los episodios.
@@ -19,81 +124,8 @@ const gap = "1rem";
 
   <a
     href="/podcast"
-    class="mt-10 min-w-48 rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+    class="mt-10 min-w-48 self-center rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
   >
     Ver podcast
   </a>
-
-  <div class="relative mt-16 origin-top lg:scale-150">
-    <div
-      class="absolute left-[16%] top-0 z-10 hidden h-full w-1/4 bg-gradient-to-r from-knc-dark from-20% via-knc-dark/90 to-transparent lg:flex"
-    >
-    </div>
-    <div
-      class="absolute right-[16%] top-0 z-10 hidden h-full w-1/4 bg-gradient-to-l from-knc-dark from-20% via-knc-dark/90 to-transparent lg:flex"
-    >
-    </div>
-
-    {
-      seasons.map((season, i) => (
-        <span class="relative mt-4 flex w-full overflow-hidden">
-          <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
-            {season?.map(({ title, image }) => (
-              <li>
-                <img
-                  src={image}
-                  alt={title}
-                  width="240"
-                  height="135"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-60"
-                />
-              </li>
-            ))}
-          </ul>
-
-          <ul class:list={["flex shrink-0", i % 2 && "reverse"]}>
-            {season?.map(({ title, image }) => (
-              <li>
-                <img
-                  src={image}
-                  alt={title}
-                  width="240"
-                  height="135"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-60"
-                />
-              </li>
-            ))}
-          </ul>
-        </span>
-      ))
-    }
-  </div>
 </section>
-
-<style define:vars={{ seconds, gap }}>
-  span {
-    gap: var(--gap);
-  }
-
-  ul {
-    animation: marquee var(--seconds) linear infinite;
-    gap: var(--gap);
-  }
-
-  .reverse {
-    animation-direction: reverse;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-</style>

@@ -131,6 +131,26 @@ const { title, description, image } = Astro.props;
         src: url("/fonts/clashdisplay-bold.woff2") format("woff2");
         font-display: swap;
       }
+
+      #podcast {
+        scroll-timeline-name: --squareTimeline;
+      }
+
+      #podcast > .covers,
+      #podcast > .title {
+        animation: marquee linear both;
+        animation-timeline: --squareTimeline;
+      }
+
+      .reverse {
+        animation-direction: reverse;
+      }
+
+      @keyframes marquee {
+        to {
+          transform: translateX(-100%);
+        }
+      }
     </style>
   </body>
 </html>
