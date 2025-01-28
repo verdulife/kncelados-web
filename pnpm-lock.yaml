@@ -26,9 +26,15 @@ importers:
       '@fontsource-variable/inter':
         specifier: ^5.0.18
         version: 5.0.20
+      '@justinribeiro/lite-youtube':
+        specifier: ^1.6.0
+        version: 1.6.0
       astro:
         specifier: 4.5.10
         version: 4.5.10(typescript@5.4.4)
+      cheerio:
+        specifier: ^1.0.0
+        version: 1.0.0
       core-js:
         specifier: 3.37.0
         version: 3.37.0
@@ -549,6 +555,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@justinribeiro/lite-youtube@1.6.0':
+    resolution: {integrity: sha512-gq+um2I/Q2rZYhvP9X7NVX36zFE7Lkz8V7ZNU4cPgDuN9a+2dA95PQhF4dCqIag8XspLN9lwrObIW6U0Y5moqA==}
 
   '@netlify/functions@2.8.1':
     resolution: {integrity: sha512-+6wtYdoz0yE06dSa9XkP47tw5zm6g13QMeCwM3MmHx1vn8hzwFa51JtmfraprdkL7amvb7gaNM+OOhQU1h6T8A==}
@@ -3066,6 +3075,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@justinribeiro/lite-youtube@1.6.0': {}
 
   '@netlify/functions@2.8.1':
     dependencies:
