@@ -4,14 +4,14 @@ import { seasons } from "@/lib/utils";
 
 <section
   id="podcast"
-  class="flex w-full flex-col gap-4 pt-20 text-center lg:py-24"
+  class="flex w-full flex-col gap-4 overflow-x-clip pt-20 text-center lg:py-24"
 >
   {
     seasons.map((season, i) => (
-      <div class="wrapper">
+      <div class="wrapper flex flex-col gap-4 md:gap-0">
         {i !== 0 && (
           <div class="covers flex shrink-0 gap-5 md:mt-4">
-            <ul class="flex shrink-0 gap-5">
+            <ul class="flex shrink-0 gap-2 md:gap-5">
               {season?.map(({ title, image }) => (
                 <li>
                   <img
@@ -21,12 +21,13 @@ import { seasons } from "@/lib/utils";
                     height="128"
                     loading="lazy"
                     decoding="async"
+                    class="h-[64px] w-[114px] md:h-[128px] md:w-[228px]"
                   />
                 </li>
               ))}
             </ul>
 
-            <ul class="flex shrink-0 gap-5">
+            <ul class="flex shrink-0 gap-2 md:gap-5">
               {season?.map(({ title, image }) => (
                 <li>
                   <img
@@ -36,6 +37,7 @@ import { seasons } from "@/lib/utils";
                     height="128"
                     loading="lazy"
                     decoding="async"
+                    class="h-[64px] w-[114px] md:h-[128px] md:w-[228px]"
                   />
                 </li>
               ))}
@@ -45,13 +47,13 @@ import { seasons } from "@/lib/utils";
 
         {i === 1 && (
           <div class="title flex shrink-0">
-            <h2 class="whitespace-nowrap px-4 text-[7rem] leading-none opacity-10 md:text-[12rem]">
+            <h2 class="hidden whitespace-nowrap px-4 text-[12rem] leading-none opacity-10 md:inline">
               El podcast
             </h2>
-            <h2 class="whitespace-nowrap px-4 text-[7rem] leading-none md:text-[12rem]">
+            <h2 class="w-full whitespace-nowrap px-4 text-center text-[4rem] leading-none md:text-[12rem]">
               El podcast
             </h2>
-            <h2 class="whitespace-nowrap px-4 text-[7rem] leading-none opacity-10 md:text-[12rem]">
+            <h2 class="hidden whitespace-nowrap px-4 text-[12rem] leading-none opacity-10 md:inline">
               El podcast
             </h2>
           </div>
@@ -60,7 +62,7 @@ import { seasons } from "@/lib/utils";
     ))
   }
 
-  <p class="mt-24 max-w-4xl self-center px-4 text-lg lg:text-2xl">
+  <p class="mt-12 max-w-4xl self-center px-4 text-lg md:mt-24 lg:text-2xl">
     Si te preguntas dónde ver el podcast de Kncelados, estás en el lugar
     adecuado. Tanto en esta página web, como en nuestro canal de YouTube
     encontrarás todos los episodios.
@@ -83,24 +85,17 @@ import { seasons } from "@/lib/utils";
       black 75%,
       transparent
     );
-
-    @media (max-width: 768px) {
-      mask-image: none;
-    }
   }
 
   #podcast .covers,
   #podcast .title {
     transform: translateX(0%);
-    animation-name: marquee;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
+    animation: marquee linear both;
     animation-timeline: view();
     animation-range: 0% 150%;
 
     @media (max-width: 768px) {
-      animation-name: marqueeMobile;
-      animation-range: 0% 100%;
+      animation: none;
     }
   }
 
@@ -111,12 +106,6 @@ import { seasons } from "@/lib/utils";
   @keyframes marquee {
     to {
       transform: translateX(-100%);
-    }
-  }
-
-  @keyframes marqueeMobile {
-    to {
-      transform: translateX(-300%);
     }
   }
 </style>
