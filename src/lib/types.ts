@@ -10,4 +10,5 @@ export interface Episode extends Metadata {
   createdAt?: Date,
   episode: number,
   season: number
+  hidden?: boolean
 }

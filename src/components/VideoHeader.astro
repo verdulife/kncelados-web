@@ -1,9 +1,11 @@
 ---
 import "@fontsource-variable/inter";
+import { generateSlug, hiddenEpisode } from "@/lib/utils";
 
 const { data } = Astro.props;
 const { title, description, image, url, id } = data;
 const { pathname } = Astro.url;
+const hidden_slug = generateSlug(hiddenEpisode.title);
 ---
 
 <Fragment slot="head">
@@ -88,3 +90,14 @@ const { pathname } = Astro.url;
       sans-serif;
   }
 </style>
+
+<script define:vars={{ hidden_slug }} is:inline>
+  window.addEventListener("keydown", (ev) => {
+    const { key, ctrlKey } = ev;
+
+    if (key === "m" && ctrlKey) {
+      ev.preventDefault();
+      window.location.href = `/podcast/${hidden_slug}`;
+    }
+  });
+</script>
