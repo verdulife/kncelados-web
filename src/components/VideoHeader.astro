@@ -3,7 +3,7 @@ import "@fontsource-variable/inter";
 import { generateSlug, hiddenEpisode } from "@/lib/utils";
 
 const { data } = Astro.props;
-const { title, description, image, url, id } = data;
+const { title, name, description, image, url, id, season, episode } = data;
 const { pathname } = Astro.url;
 const hidden_slug = generateSlug(hiddenEpisode.title);
 ---
@@ -32,11 +32,11 @@ const hidden_slug = generateSlug(hiddenEpisode.title);
     </picture>
 
     <span
-      class="absolute inset-0 bg-gradient-to-b from-knc-dark via-transparent to-knc-dark"
+      class="from-knc-dark to-knc-dark absolute inset-0 bg-gradient-to-b via-transparent"
     ></span>
 
     <span
-      class="absolute inset-0 bg-gradient-to-r from-knc-dark from-35% to-transparent"
+      class="from-knc-dark absolute inset-0 bg-gradient-to-r from-35% to-transparent"
     ></span>
 
     <div
@@ -45,14 +45,16 @@ const hidden_slug = generateSlug(hiddenEpisode.title);
         pathname === "/shorts" ? "my-12" : "mt-32",
       ]}
     >
+      <p class="pl-2 text-sm text-neutral-500">EP {episode} · T{season}</p>
+
       <h1 class="max-w-3xl text-4xl capitalize lg:text-7xl">
-        {title.toLowerCase()}
+        {name.toLowerCase()}
       </h1>
 
       <div class="mt-4 flex lg:mt-10">
         <a
           href={`/player/${id}`}
-          class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+          class="bg-knc-red rounded-xl px-8 py-3 transition-transform hover:scale-110"
         >
           Ver aquí
         </a>

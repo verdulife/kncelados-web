@@ -15,7 +15,10 @@ const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.jso
 const sortedEpisodes = Object.values(episodes_obj).sort((a, b) => b.episode - a.episode);
 
 export const episodes = sortedEpisodes.map((episode) => {
-  if (!episode.createdAt) return episode;
+  const [_, name] = episode.title.split(' | ');
+  const episodeData = { ...episode, name };
+
+  if (!episode.createdAt) return episodeData;
 
   const episodeDate = new Date(episode.createdAt);
   const episodeDay = episodeDate.getDate();
@@ -24,14 +27,15 @@ export const episodes = sortedEpisodes.map((episode) => {
   const sameDate = currentDay === episodeDay && currentMonth === episodeMonth && currentYear === episodeYear;
 
   if (sameDate && currentHours < TIME_TO_SHOW) {
-    return { ...episode, hidden: true } as Episode;
+    return { ...episodeData, hidden: true };
   } else {
-    return episode;
+    return episodeData;
   }
 });
 
 const seasons_object = Object.groupBy(episodes, ({ season }) => season);
 export const seasons = Object.values(seasons_object).reverse();
+
 const lastSeason = seasons[0]!;
 export const lastEpisode = lastSeason[0].hidden ? lastSeason[1] : lastSeason[0];
 export const hiddenEpisode = lastSeason[0].hidden ? lastSeason[0] : lastSeason[1];
