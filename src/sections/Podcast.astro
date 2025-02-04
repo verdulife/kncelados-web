@@ -8,7 +8,7 @@ import { seasons } from "@/lib/utils";
 >
   {
     seasons.map((season, i) => (
-      <div class="max-w-[1440px] wrapper flex flex-col gap-4 md:gap-0">
+      <div class="wrapper flex max-w-[1440px] flex-col gap-4 md:gap-0">
         {i !== 0 && (
           <div class="covers flex shrink-0 gap-5 md:mt-4">
             <ul class="flex shrink-0 gap-2 md:gap-5">
@@ -47,13 +47,13 @@ import { seasons } from "@/lib/utils";
 
         {i === 1 && (
           <div class="title flex shrink-0">
-            <h2 class="hidden whitespace-nowrap px-4 text-[12rem] leading-none opacity-10 md:inline">
+            <h2 class="hidden px-4 text-[12rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline">
               El podcast
             </h2>
-            <h2 class="w-full whitespace-nowrap px-4 text-center text-[4rem] leading-none md:text-[12rem]">
+            <h2 class="px-4 text-center text-[4rem] leading-none !text-nowrap whitespace-nowrap md:text-[12rem]">
               El podcast
             </h2>
-            <h2 class="hidden whitespace-nowrap px-4 text-[12rem] leading-none opacity-10 md:inline">
+            <h2 class="hidden px-4 text-[12rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline">
               El podcast
             </h2>
           </div>
@@ -70,7 +70,7 @@ import { seasons } from "@/lib/utils";
 
   <a
     href="/podcast"
-    class="mt-10 min-w-48 self-center rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
+    class="bg-knc-red mt-10 min-w-48 self-center rounded-xl px-8 py-3 transition-transform hover:scale-110"
   >
     Ver podcast
   </a>

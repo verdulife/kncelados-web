@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+
 import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
-
+import tailwindcss from "@tailwindcss/vite";
 import { collections, episodes, generateSlug, shorts } from "./src/lib/utils";
 
 const BASE_URL = "https://www.kncelados.com";
@@ -20,7 +20,11 @@ const pt_opts = {
 
 export default defineConfig({
   site: BASE_URL,
-  integrations: [tailwind(), sitemap({ customPages }), partytown(pt_opts)],
+  integrations: [sitemap({ customPages }), partytown(pt_opts)],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
+
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });
