@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { videos } from "mystery/mystery";
+---
+
+<Layout title="Mystery">
+  <section
+    class="container mx-auto flex flex-col items-center gap-10 px-4 py-48 text-center"
+  >
+    <h1 class="font-title text-2xl">Índice de soluciones de Mystery</h1>
+
+    <ul class="flex w-full max-w-xl flex-col items-center text-center">
+      {
+        videos.map((video) => (
+          <li class="w-full">
+            <a
+              href={`/mystery/${video.slug}`}
+              class="hover:bg-gradient-to-r flex w-full flex-col border-b border-neutral-500 p-4 hover:from-transparent hover:via-knc-blue hover:to-transparent transition-colors"
+            >
+              {video.title}
+              <br />
+              <span class="text-knc-red text-xs">Página {video.page}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

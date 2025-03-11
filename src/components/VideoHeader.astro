@@ -45,10 +45,16 @@ const hidden_slug = generateSlug(hiddenEpisode.title);
         pathname === "/shorts" ? "my-12" : "mt-32",
       ]}
     >
-      <p class="pl-2 text-sm text-neutral-500">EP {episode} · T{season}</p>
+      {
+        name && (
+          <p class="pl-2 text-sm text-neutral-500">
+            EP {episode} · T{season}
+          </p>
+        )
+      }
 
       <h1 class="max-w-3xl text-4xl capitalize lg:text-7xl">
-        {name.toLowerCase()}
+        {name ? name.toLowerCase() : title}
       </h1>
 
       <div class="mt-4 flex lg:mt-10">

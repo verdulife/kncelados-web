@@ -3,13 +3,13 @@ export const videos = [
     title: "El fanstasma de la Primera Guerra Mundial",
     page: "22",
     slug: "el-fanstasma-de-la-primera-guerra-mundial",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/S63OzKbA7tU"
   },
   {
     title: "Fortuna escurridiza",
     page: "24",
     slug: "fortuna-escurridiza",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/p2UxkMjEdgs"
   },
   {
     title: "Choque de materiales",
@@ -21,31 +21,31 @@ export const videos = [
     title: "Disciplina sabia",
     page: "26",
     slug: "disciplina-sabia",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/qYw_m6Q97kQ"
   },
   {
     title: "Los efectos del calor",
     page: "27",
     slug: "los-efectos-del-calor",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/2FbD4FQC9Yk"
   },
   {
     title: "Cliente VIP",
     page: "28",
     slug: "cliente-vip",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/kNXybciaAjM"
   },
   {
     title: "El camino de trentiago",
     page: "29",
     slug: "el-camino-de-trentiago",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/a3Apu8dXF0s"
   },
   {
     title: "Justicia sobre el rio",
     page: "30",
     slug: "justicia-sobre-el-rio",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/bBrw658dk-M"
   },
   {
     title: "La lepisma hambrienta",
@@ -63,55 +63,55 @@ export const videos = [
     title: "El torneo de artes marciales",
     page: "34",
     slug: "el-torneo-de-artes-marciales",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/5D5jDGvT6JM"
   },
   {
     title: "Marinero curtido",
     page: "35",
     slug: "marinero-curtido",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/8rQfAPUOB6M"
   },
   {
     title: "Empieza el espectáculo",
     page: "36",
     slug: "empieza-el-espectaculo",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/qTgvrQ_Idrc"
   },
   {
     title: "Palo y zanahoria",
     page: "37",
     slug: "palo-y-zanahoria",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/NnKLX8sM6G4"
   },
   {
     title: "Crimen pasional",
     page: "38",
     slug: "crimen-pasional",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/Yav0w4Samec"
   },
   {
     title: "La esperanza es lo último que se pierde",
     page: "40",
     slug: "la-esperanza-es-lo-ultimo-que-se-pierde",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/_B7jOcsO4vg"
   },
   {
     title: "El consejo de sabios",
     page: "41",
     slug: "el-consejo-de-sabios",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/cuSpJQNHQWk"
   },
   {
     title: "Que siga el espectáculo",
     page: "42",
     slug: "que-siga-el-espectaculo",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/oCxT6rOvv5o"
   },
   {
     title: "Jolly Jumper",
     page: "43",
     slug: "jolly-jumper",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/IlFRRzF7o5E"
   },
   {
     title: "Suerte esquiva",
@@ -123,13 +123,13 @@ export const videos = [
     title: "Al punto por favor",
     page: "45",
     slug: "al-punto-por-favor",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/GAJXHamcIuA"
   },
   {
     title: "Muerte artística",
     page: "46",
     slug: "muerte-artistica",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/JaXX7SHcRY0"
   },
   {
     title: "Espejo espejito",
@@ -189,7 +189,7 @@ export const videos = [
     title: "Hospedaje mortal",
     page: "56",
     slug: "hospedaje-mortal",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/RaBP_MlNuH0"
   },
   {
     title: "Control gravitatorio",
@@ -225,7 +225,7 @@ export const videos = [
     title: "Robo blindado",
     page: "62",
     slug: "robo-blindado",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/C1Nv3JExMjk"
   },
   {
     title: "Supervivencia glacial",
@@ -267,7 +267,7 @@ export const videos = [
     title: "Entrega urgente",
     page: "70",
     slug: "entrega-urgente",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/Tlf0lMKKNZ4"
   },
   {
     title: "La rica manzana",
@@ -345,7 +345,7 @@ export const videos = [
     title: "Crimen en la floristería",
     page: "84",
     slug: "crimen-en-la-floristeria",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/47lbZtHnw2A"
   },
   {
     title: "Tiempos felices",
@@ -363,7 +363,7 @@ export const videos = [
     title: "Cuando aprieta el calor",
     page: "88",
     slug: "cuando-aprieta-el-calor",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/QWYITCZAdsE"
   },
   {
     title: "El hombre milagro",
