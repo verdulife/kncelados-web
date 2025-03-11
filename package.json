@@ -7,7 +7,7 @@
     "scrape:episodes": "node --env-file=.env ./scrape/getEpisodes.js",
     "scrape:collections": "node --env-file=.env ./scrape/getCollections.js",
     "scrape:shorts": "node --env-file=.env ./scrape/getShorts.js",
-    "mystery:qr": "node ./qr/generateQr.js",
+    "mystery:qr": "node ./mystery/generateQr.js",
     "host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
