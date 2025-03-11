@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { videos } from "@/lib/mystery";
+
+const { slug } = Astro.params;
+const video = videos.find((v) => v.slug === slug);
+
+if (!video) return Astro.redirect("/");
+
+const { title, videoUrl } = video;
+---
+
+<Layout title={title}>
+  <section class="flex flex-1 flex-col items-center justify-center">
+    <h1>Redirigiendo a la solución de {title}...</h1>
+  </section>
+</Layout>
+
+<script define:vars={{ videoUrl }} is:inline>
+  setTimeout(() => (window.location.href = videoUrl), 3000);
+</script>
