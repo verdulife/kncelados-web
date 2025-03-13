@@ -7,3 +7,10 @@
 
   --font-sans: "Clash Display Variable", sans-serif;
 }
+
+:root {
+  @apply scroll-smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-knc-red) var(--color-knc-dark);
+}

@@ -9,7 +9,12 @@ const video = videos.find((v) => v.slug === slug);
 if (!video) return Astro.redirect("/");
 
 const { title, videoUrl } = video;
+return Astro.redirect(videoUrl);
 ---
+
+<Fragment>
+  <meta name="robots" content="noindex" />
+</Fragment>
 
 <Layout title={title}>
   <section
@@ -28,6 +33,7 @@ const { title, videoUrl } = video;
       siguiente enlace
     </p>
     <a
+      rel="nofollow"
       href={videoUrl}
       class="bg-knc-red rounded-xl px-8 py-3 transition-transform hover:scale-110"
     >
@@ -55,5 +61,5 @@ const { title, videoUrl } = video;
 </style>
 
 <script define:vars={{ videoUrl }} is:inline>
-  setTimeout(() => (window.location.href = videoUrl), 150);
+  setTimeout(() => (window.location.href = videoUrl), 100);
 </script>
