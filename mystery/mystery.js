@@ -1,6 +1,6 @@
 export const videos = [
   {
-    title: "El fanstasma de la Primera Guerra Mundial",
+    title: "El fantasma de la Primera Guerra Mundial",
     page: "22",
     slug: "el-fanstasma-de-la-primera-guerra-mundial",
     videoUrl: "https://youtu.be/S63OzKbA7tU"
