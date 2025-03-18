@@ -50,9 +50,6 @@ importers:
       typescript:
         specifier: 5.4.4
         version: 5.4.4
-      vanilla-tilt:
-        specifier: ^1.8.1
-        version: 1.8.1
     devDependencies:
       '@types/core-js':
         specifier: 2.5.8
@@ -2204,9 +2201,6 @@ packages:
   validator@13.12.0:
     resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
     engines: {node: '>= 0.10'}
-
-  vanilla-tilt@1.8.1:
-    resolution: {integrity: sha512-hPB1XUsnh+SIeVSW2beb5RnuFxz4ZNgxjGD78o52F49gS4xaoLeEMh9qrQnJrnEn/vjjBI7IlxrrXmz4tGV0Kw==}
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -4860,8 +4854,6 @@ snapshots:
   url-join@4.0.1: {}
 
   validator@13.12.0: {}
-
-  vanilla-tilt@1.8.1: {}
 
   vfile-location@5.0.3:
     dependencies:

@@ -1,14 +1,5 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
-/* import { getStore } from "@/lib/services/store";
-
-const store = await getStore();
-const products = store.products.sort((a: any, b: any) =>
-  a.category.localeCompare(b.category)
-); */
-
-const products = await getCollection("products");
 ---
 
 <Layout
@@ -16,54 +7,12 @@ const products = await getCollection("products");
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
   <section
-    class="flex min-h-screen flex-col items-center bg-white bg-[url('pattern.png')] px-4 py-44 text-knc-dark"
+    class="text-knc-dark flex flex-1 flex-col items-center justify-center bg-white bg-[url('pattern.png')] px-6 py-44"
   >
-    <article
-      class="relative flex aspect-video w-full max-w-7xl flex-col items-center justify-center overflow-clip rounded-3xl"
-    >
-      <div
-        class="absolute size-full bg-[url('store.jpg')] bg-cover bg-center bg-no-repeat"
-      >
-      </div>
-      <h1 class="z-10 -mt-24 text-4xl font-bold lg:text-6xl">Tienda oficial</h1>
-      <p class="z-10 mt-2 max-w-xl text-center text-xl lg:text-2xl">
-        Si te gusta nuestro look, podrás encontrar los productos aquí, en
-        nuestra tienda oficial.
-      </p>
-    </article>
-
-    <ul class="z-10 -mt-64 grid w-full max-w-6xl grid-cols-3 gap-6">
-      {
-        products.map(({ data, ...product }) => (
-          <li class="card aspect-[4/5] w-full rounded-md border-2 border-knc-dark p-4 shadow-xl">
-            <a class="flex size-full flex-col items-center justify-end text-center">
-              <img
-                src={data.images[0]}
-                alt={data.title}
-                class="size-full rounded-lg border border-gray-200 object-cover shadow-xl "
-              />
-
-              <h2 class="z-10 mt-4 text-2xl font-bold">{data.title}</h2>
-              <p class="z-10">COMING SOON</p>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <img
+      src="store/se-vienen-cositas.png"
+      alt="Se vienen cositas"
+      class="size-96 max-w-full object-contain"
+    />
   </section>
 </Layout>
-
-<script>
-  import tilt from "vanilla-tilt";
-  const cards = document.querySelectorAll(".card") as any;
-
-  tilt.init(cards, {
-    glare: true,
-  });
-</script>
-
-<style>
-  article > div {
-    mask-image: linear-gradient(to top, transparent 60%, black 100%);
-  }
-</style>

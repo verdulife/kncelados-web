@@ -28,8 +28,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "slugify": "1.6.6",
     "tailwindcss": "^4.0.3",
-    "typescript": "5.4.4",
-    "vanilla-tilt": "^1.8.1"
+    "typescript": "5.4.4"
   },
   "devDependencies": {
     "@types/core-js": "2.5.8",
