@@ -86,26 +86,31 @@ import { seasons } from "@/lib/utils";
       transparent
     );
   }
-
-  #podcast .covers,
-  #podcast .title {
-    transform: translateX(0%);
-    animation: marquee linear both;
-    animation-timeline: view();
-    animation-range: 0% 150%;
-
-    @media (max-width: 768px) {
-      animation: none;
-    }
-  }
-
-  #podcast .covers {
-    animation-direction: reverse;
-  }
-
-  @keyframes marquee {
-    to {
-      transform: translateX(-100%);
-    }
-  }
 </style>
+
+<script>
+  import { animate, scroll } from "motion";
+
+  const covers = document.querySelectorAll(
+    "#podcast .covers"
+  ) as NodeListOf<HTMLElement>;
+  const title = document.querySelector("#podcast .title") as HTMLElement;
+
+  const titleAnimation = animate(
+    title,
+    { transform: ["translateX(0%)", "translateX(-100%)"] },
+    { ease: "linear" }
+  );
+
+  const coversAnimation = animate(
+    covers,
+    { transform: ["translateX(-100%)", "translateX(0%)"] },
+    { ease: "linear" }
+  );
+
+  scroll(titleAnimation, { target: title, offset: ["start -20%", "end 120%"] });
+  scroll(coversAnimation, {
+    target: title,
+    offset: ["start -40%", "end 140%"],
+  });
+</script>
