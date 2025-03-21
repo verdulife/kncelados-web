@@ -1,5 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const storeCollection = await getCollection("store");
+console.log(storeCollection);
 ---
 
 <Layout
@@ -7,12 +11,24 @@ import Layout from "@/layouts/Layout.astro";
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
   <section
-    class="text-knc-dark flex flex-1 flex-col items-center justify-center bg-white bg-[url('pattern.png')] px-6 py-44"
+    class="text-knc-dark flex flex-1 flex-col items-center justify-center bg-white px-6 pt-[128px]"
   >
-    <img
-      src="store/se-vienen-cositas.png"
-      alt="Se vienen cositas"
-      class="size-96 max-w-full object-contain"
-    />
+    <ul class="grid grid-cols-4 border-t-2 border-black pt-2">
+      {
+        storeCollection.map((item) => (
+          <li class="size-full border-r border-black p-6 nth-[4n]:border-r-0">
+            <img
+              src={item.data.images[0]}
+              alt={item.data.title}
+              class="aspect-square w-full object-contain"
+            />
+
+            <button class="flex w-full items-center justify-center bg-black p-4 text-xl text-white">
+              Próximamente
+            </button>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 </Layout>
