@@ -6,7 +6,7 @@ const { pathname } = Astro.url;
 const isStore = pathname.startsWith("/tienda");
 ---
 
-<header class="fixed left-0 top-0 z-50 flex w-full justify-center lg:absolute">
+<header class="fixed top-0 left-0 z-50 flex w-full justify-center lg:absolute">
   <nav class="flex w-full items-center justify-between text-gray-50 lg:px-14">
     <a href="/" class="z-10 p-6">
       <Logo class="w-14 lg:w-20" />
@@ -15,17 +15,16 @@ const isStore = pathname.startsWith("/tienda");
 
     <ul
       id="nav-links"
-      class=`
-        opacity-0 pointer-events-none fixed inset-0 flex flex-col
-        bg-knc-dark pt-36 transition-all duration-500 lg:pointer-events-auto
-        lg:static lg:flex-row lg:bg-transparent lg:bg-none lg:pt-0 lg:opacity-100
-      `
+      class:list={[
+        `pointer-events-none fixed inset-0 flex flex-col pt-36 opacity-0 transition-all duration-500 lg:pointer-events-auto lg:static lg:flex-row lg:bg-transparent lg:bg-none lg:pt-0 lg:opacity-100`,
+        isStore && "bg-white",
+      ]}
     >
       <li class="flex">
         <a
           href="/"
           class:list={[
-            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
@@ -37,7 +36,7 @@ const isStore = pathname.startsWith("/tienda");
         <a
           href="/podcast"
           class:list={[
-            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
@@ -49,7 +48,7 @@ const isStore = pathname.startsWith("/tienda");
         <a
           href="/shorts"
           class:list={[
-            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
@@ -61,7 +60,7 @@ const isStore = pathname.startsWith("/tienda");
         <a
           href="/tienda"
           class:list={[
-            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
@@ -73,7 +72,7 @@ const isStore = pathname.startsWith("/tienda");
         <a
           href="/contacto"
           class:list={[
-            "w-full px-6 py-4 text-center text-2xl uppercase transition-colors hover:text-knc-red lg:w-auto lg:border-none lg:text-base",
+            "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
@@ -83,8 +82,8 @@ const isStore = pathname.startsWith("/tienda");
     </ul>
 
     <button id="nav-btn" class="z-10 p-6 transition-all lg:hidden">
-      <Menu class="size-8" />
-      <span class="sr-only">Boton menú</span>
+      <Menu class:list={["size-8", isStore && "text-knc-dark"]} />
+      <span class="sr-only">Menú</span>
     </button>
   </nav>
 </header>
