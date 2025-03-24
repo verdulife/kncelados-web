@@ -116,4 +116,5 @@ const isStore = pathname.startsWith("/tienda");
   }
 
   init_nav();
+  document.addEventListener("astro:after-swap", init_nav);
 </script>

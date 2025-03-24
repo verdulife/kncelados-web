@@ -3,7 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const storeCollection = await getCollection("store");
-console.log(storeCollection);
+const availableTags = storeCollection.map((item) => item.data.tags).flat();
+const uniqueTags = [...new Set(availableTags)];
 ---
 
 <Layout
@@ -18,8 +19,9 @@ console.log(storeCollection);
     >
       <h1 class="text-2xl md:text-6xl lg:text-8xl">Kncelados store</h1>
 
-      <select class="md:p-6 md:text-xl">
-        <option>Categoría</option>
+      <select id="filter-select" class="capitalize md:p-6 md:text-xl">
+        <option value="">Categoría</option>
+        {uniqueTags.map((tag) => <option class="capitalize">{tag}</option>)}
       </select>
     </header>
 
@@ -32,7 +34,10 @@ console.log(storeCollection);
     >
       {
         storeCollection.map((item) => (
-          <li class="flex size-full flex-col justify-between border-x border-black p-2">
+          <li
+            data-tags={item.data.tags}
+            class="flex size-full flex-col justify-between border-x border-black p-2"
+          >
             <img
               src={item.data.images[0]}
               alt={item.data.title}
@@ -48,3 +53,33 @@ console.log(storeCollection);
     </ul>
   </section>
 </Layout>
+
+<script define:vars={{ uniqueTags }} is:inline>
+  function init_filter() {
+    const filterBtn = document.querySelector("#filter-select");
+    const storeItems = document.querySelectorAll("[data-tags]");
+
+    const filterItems = (tags) => {
+      storeItems.forEach((item) => {
+        const itemTags = item.dataset.tags.split(",");
+
+        if (itemTags.includes(tags)) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+
+        if (!tags) {
+          item.classList.remove("hidden");
+        }
+      });
+    };
+
+    filterBtn.addEventListener("change", (e) => {
+      filterItems(e.target.value);
+    });
+  }
+
+  init_filter();
+  document.addEventListener("astro:after-swap", init_filter);
+</script>
