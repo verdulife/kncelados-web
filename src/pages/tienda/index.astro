@@ -20,19 +20,19 @@ console.log(storeCollection);
 
       <select class="md:p-6 md:text-xl">
         <option>Categoría</option>
-        <option>Tote bags</option>
-        <option>Láminas</option>
-        <option>Camisetas</option>
-        <option>Stickers</option>
       </select>
     </header>
 
     <ul
-      class="grid w-full grid-cols-2 border-t-2 border-black pt-2 md:grid-cols-3 lg:grid-cols-4"
+      class=`
+        relative grid w-full grid-cols-2 border-t-2 border-black pt-2 md:grid-cols-3 lg:grid-cols-4
+        before:absolute before:top-0 before:left-0 before:h-full before:w-0.5 before:bg-white
+        after:absolute after:top-0 after:right-0 after:h-full after:w-0.5 after:bg-white
+      `
     >
       {
         storeCollection.map((item) => (
-          <li class="flex size-full flex-col justify-between border-r border-black nth-[2n]:border-r-0 p-2 md:p-6 md:nth-[3n]:border-r-0 lg:nth-[4n]:border-r-0">
+          <li class="flex size-full flex-col justify-between border-x border-black p-2">
             <img
               src={item.data.images[0]}
               alt={item.data.title}
