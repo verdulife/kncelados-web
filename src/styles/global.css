@@ -14,3 +14,7 @@
   scrollbar-width: thin;
   scrollbar-color: var(--color-knc-red) var(--color-knc-dark);
 }
+
+.shopify-buy-frame--toggle {
+  @apply shadow shadow-black/50 outline-none !z-40;
+}

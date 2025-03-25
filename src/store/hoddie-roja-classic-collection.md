@@ -1,4 +1,5 @@
 ---
+productId: "15136728711548"
 created_at: "2025-03-21"
 images:
   - "/store/hoddie-roja-classic-collection/1.webp"

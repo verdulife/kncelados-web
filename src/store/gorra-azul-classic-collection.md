@@ -1,4 +1,5 @@
 ---
+productId: "15136635781500"
 created_at: "2025-03-21"
 images:
   - "/store/gorra-azul-classic-collection/1.webp"

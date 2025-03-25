@@ -44,42 +44,210 @@ const uniqueTags = [...new Set(availableTags)];
               class="aspect-square w-full object-contain p-4"
             />
 
-            <button class="flex w-full items-center justify-center bg-black p-2 text-white md:p-4 md:text-xl">
+            <a
+              href={`/tienda/${item.id}`}
+              class="flex w-full items-center justify-center bg-black p-2 text-white md:p-4 md:text-xl"
+            >
               Próximamente
-            </button>
+            </a>
           </li>
         ))
       }
     </ul>
   </section>
-</Layout>
 
-<script define:vars={{ uniqueTags }} is:inline>
-  function init_filter() {
-    const filterBtn = document.querySelector("#filter-select");
-    const storeItems = document.querySelectorAll("[data-tags]");
+  <div
+    id="coming-soon"
+    class="bg-knc-dark fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center text-white"
+  >
+    <h1 class="text-3xl md:text-6xl lg:text-8xl">Próximamente</h1>
+    <p class="mt-4 text-xl md:text-2xl lg:text-3xl">
+      La tienda está en construcción, disculpa las molestias.
+    </p>
+  </div>
 
-    const filterItems = (tags) => {
-      storeItems.forEach((item) => {
-        const itemTags = item.dataset.tags.split(",");
+  <script type="module" define:vars={{ uniqueTags }} is:inline>
+    import "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
 
-        if (itemTags.includes(tags)) {
-          item.classList.remove("hidden");
-        } else {
-          item.classList.add("hidden");
-        }
-
-        if (!tags) {
-          item.classList.remove("hidden");
-        }
-      });
-    };
-
-    filterBtn.addEventListener("change", (e) => {
-      filterItems(e.target.value);
+    const comingSoon = document.querySelector("#coming-soon");
+    window.addEventListener("keydown", (ev) => {
+      if (ev.altKey && ev.code === "KeyM") {
+        comingSoon.classList.toggle("hidden");
+      }
     });
-  }
 
-  init_filter();
-  document.addEventListener("astro:after-swap", init_filter);
-</script>
+    function ShopifyBuyInit() {
+      const client = ShopifyBuy.buildClient({
+        domain: "j1geya-ni.myshopify.com",
+        storefrontAccessToken: "3faa61063d14a1a5843c56309d8de76e",
+      });
+
+      var ui = ShopifyBuy.UI.init(client);
+      ui.createComponent("product", {
+        id: 15136731529596,
+        options: {
+          product: {
+            styles: {
+              product: {
+                display: "none",
+              },
+            },
+          },
+          cart: {
+            styles: {
+              button: {
+                "font-weight": "bold",
+                "font-size": "16px",
+                "padding-top": "16px",
+                "padding-bottom": "16px",
+                ":hover": {
+                  "background-color": "#cf2c1d",
+                },
+                "background-color": "#e63120",
+                ":focus": {
+                  "background-color": "#cf2c1d",
+                },
+                "border-radius": "12px",
+              },
+              title: {
+                color: "#060d14",
+              },
+              header: {
+                color: "#060d14",
+              },
+              lineItems: {
+                color: "#060d14",
+              },
+              subtotalText: {
+                color: "#060d14",
+              },
+              subtotal: {
+                color: "#060d14",
+              },
+              notice: {
+                color: "#060d14",
+              },
+              currency: {
+                color: "#060d14",
+              },
+              close: {
+                color: "#060d14",
+                ":hover": {
+                  color: "#060d14",
+                },
+              },
+              empty: {
+                color: "#060d14",
+              },
+              noteDescription: {
+                color: "#060d14",
+              },
+              discountText: {
+                color: "#060d14",
+              },
+              discountIcon: {
+                fill: "#060d14",
+              },
+              discountAmount: {
+                color: "#060d14",
+              },
+            },
+            text: {
+              title: "Tu pedido",
+              total: "Subtotal",
+              empty: "Tu carrito está vacío",
+              notice:
+                "Los códigos de envío y descuento se agregan al momento del pago.",
+              button: "Finalizar pago",
+            },
+          },
+          toggle: {
+            styles: {
+              toggle: {
+                "font-weight": "bold",
+                "background-color": "#e63120",
+                ":hover": {
+                  "background-color": "#cf2c1d",
+                },
+                ":focus": {
+                  "background-color": "#cf2c1d",
+                },
+              },
+              count: {
+                "font-size": "16px",
+              },
+            },
+          },
+          lineItem: {
+            styles: {
+              variantTitle: {
+                color: "#060d14",
+              },
+              title: {
+                color: "#060d14",
+              },
+              price: {
+                color: "#060d14",
+              },
+              fullPrice: {
+                color: "#060d14",
+              },
+              discount: {
+                color: "#060d14",
+              },
+              discountIcon: {
+                fill: "#060d14",
+              },
+              quantity: {
+                color: "#060d14",
+              },
+              quantityIncrement: {
+                color: "#060d14",
+                "border-color": "#060d14",
+              },
+              quantityDecrement: {
+                color: "#060d14",
+                "border-color": "#060d14",
+              },
+              quantityInput: {
+                color: "#060d14",
+                "border-color": "#060d14",
+              },
+            },
+          },
+        },
+      });
+    }
+
+    ShopifyBuyInit();
+    document.addEventListener("astro:after-swap", ShopifyBuyInit);
+
+    function init_filter() {
+      const filterBtn = document.querySelector("#filter-select");
+      const storeItems = document.querySelectorAll("[data-tags]");
+
+      const filterItems = (tags) => {
+        storeItems.forEach((item) => {
+          const itemTags = item.dataset.tags.split(",");
+
+          if (itemTags.includes(tags)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+
+          if (!tags) {
+            item.classList.remove("hidden");
+          }
+        });
+      };
+
+      filterBtn.addEventListener("change", (e) => {
+        filterItems(e.target.value);
+      });
+    }
+
+    init_filter();
+    document.addEventListener("astro:after-swap", init_filter);
+  </script>
+</Layout>

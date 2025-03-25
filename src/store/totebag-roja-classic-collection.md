@@ -1,4 +1,5 @@
 ---
+productId: "15136726221180"
 created_at: "2025-03-21"
 images:
   - "/store/totebag-roja-classic-collection/1.webp"
