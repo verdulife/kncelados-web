@@ -47,13 +47,13 @@ import { seasons } from "@/lib/utils";
 
         {i === 1 && (
           <div class="title flex shrink-0">
-            <h2 class="hidden px-4 text-[12rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline">
+            <h2 class="px-4 text-[4rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline md:text-[12rem]">
               El podcast
             </h2>
             <h2 class="px-4 text-center text-[4rem] leading-none !text-nowrap whitespace-nowrap md:text-[12rem]">
               El podcast
             </h2>
-            <h2 class="hidden px-4 text-[12rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline">
+            <h2 class="px-4 text-[4rem] leading-none !text-nowrap whitespace-nowrap opacity-10 md:inline md:text-[12rem]">
               El podcast
             </h2>
           </div>
@@ -91,6 +91,8 @@ import { seasons } from "@/lib/utils";
 <script>
   import { animate, scroll } from "motion";
 
+  const { innerWidth } = window;
+
   const covers = document.querySelectorAll(
     "#podcast .covers"
   ) as NodeListOf<HTMLElement>;
@@ -108,9 +110,23 @@ import { seasons } from "@/lib/utils";
     { ease: "linear" }
   );
 
-  scroll(titleAnimation, { target: title, offset: ["start -20%", "end 120%"] });
-  scroll(coversAnimation, {
-    target: title,
-    offset: ["start -40%", "end 140%"],
-  });
+  if (innerWidth > 768) {
+    scroll(titleAnimation, {
+      target: title,
+      offset: ["start -20%", "end 120%"],
+    });
+    scroll(coversAnimation, {
+      target: title,
+      offset: ["start -40%", "end 140%"],
+    });
+  } else {
+    scroll(titleAnimation, {
+      target: title,
+      offset: ["start 50%", "end 380%"],
+    });
+    scroll(coversAnimation, {
+      target: title,
+      offset: ["start -40%", "end 140%"],
+    });
+  }
 </script>
