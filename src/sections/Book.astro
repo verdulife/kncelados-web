@@ -1,0 +1,38 @@
+<section
+  id="mystery-book"
+  class="flex w-full items-center justify-center gap-6 px-4 py-28 text-center max-w-6xl"
+>
+  <img
+    src="/libro-kncelados-mystery.webp"
+    alt="Kncelados Mystery"
+    loading="lazy"
+    decoding="async"
+    class=""
+  />
+  <div class="flex flex-col items-center">
+    <h2 class="text-center text-5xl lg:text-7xl">Kncelados Mystery</h2>
+
+    <p class="mt-2 mb-8 max-w-5xl text-center text-lg lg:text-2xl">
+      Ya esta en preventa nuestro libro. Un libro de acertijos que esconde más
+      de lo que aparenta...
+    </p>
+
+    <a
+      href="https://www.fnac.es/a11683486/Kncelados-Mystery"
+      target="_blank"
+      class="bg-knc-red min-w-48 rounded-xl px-8 py-3 transition-transform hover:scale-110"
+    >
+      Reservar ahora
+    </a>
+  </div>
+</section>
+
+<style>
+  section {
+    clip-path: polygon(0 30px, 100% 0, 100% calc(100% - 30px), 0% 100%);
+
+    @media (min-width: 1024px) {
+      clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0% 100%);
+    }
+  }
+</style>
