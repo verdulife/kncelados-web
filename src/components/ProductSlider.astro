@@ -1,0 +1,41 @@
+---
+const { id, images, title } = Astro.props;
+---
+
+<div
+  id={`product-slider_${id}`}
+  class="product-slider inline-flex w-full snap-x snap-mandatory items-center overflow-x-auto overflow-y-hidden p-4 gap-4"
+>
+  {
+    images.map((image: string) => (
+      <button class="aspect-square w-full shrink-0 snap-center cursor-pointer">
+        <img src={image} alt={title} class="size-full object-contain hover:scale-150 transition-transform duration-700" />
+      </button>
+    ))
+  }
+</div>
+
+<style>
+  div {
+    scrollbar-width: none;
+  }
+</style>
+
+<script define:vars={{ id }} is:inline>
+  const productSlider = document.querySelector(`#product-slider_${id}`);
+
+  productSlider.addEventListener("click", () => {
+    const firstImage = productSlider.querySelector("button");
+
+    productSlider.scrollBy({
+      left: productSlider.clientWidth,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      const clonedImage = firstImage.cloneNode(true);
+      productSlider.append(clonedImage);
+      productSlider.removeChild(firstImage);
+    }, 300);
+  });
+</script>

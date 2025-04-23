@@ -1,4 +1,5 @@
 ---
+import ProductSlider from "@/components/ProductSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -12,12 +13,12 @@ const uniqueTags = [...new Set(availableTags)];
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
   <section
-    class="text-knc-dark flex flex-1 flex-col items-center justify-center bg-white px-6 pt-[128px] pb-48"
+    class="text-knc-dark flex flex-1 flex-col items-center justify-center bg-white px-14 pt-[128px] pb-48"
   >
     <header
-      class="flex w-full items-center justify-between border-t-2 border-black py-6"
+      class="flex w-full items-center justify-between border-t border-black p-6"
     >
-      <h1 class="text-2xl md:text-6xl lg:text-8xl">Kncelados store</h1>
+      <h1 class="text-2xl md:text-6xl lg:text-7xl">Kncelados store</h1>
 
       <select id="filter-select" class="capitalize md:p-6 md:text-xl">
         <option value="">Categoría</option>
@@ -26,29 +27,25 @@ const uniqueTags = [...new Set(availableTags)];
     </header>
 
     <ul
-      class=`
-        relative grid w-full grid-cols-2 border-t-2 border-black pt-2 md:grid-cols-3 lg:grid-cols-4
-        before:absolute before:top-0 before:left-0 before:h-full before:w-0.5 before:bg-white
-        after:absolute after:top-0 after:right-0 after:h-full after:w-0.5 after:bg-white
-      `
+      class="grid w-full grid-cols-2 border-t border-black pt-2 md:grid-cols-3"
     >
       {
         storeCollection.map((item) => (
           <li
             data-tags={item.data.tags}
-            class="flex size-full flex-col justify-between border-x border-black p-2"
+            class="flex size-full flex-col items-center justify-between p-2"
           >
-            <img
-              src={item.data.images[0]}
-              alt={item.data.title}
-              class="aspect-square w-full object-contain p-4"
+            <ProductSlider
+              id={item.id}
+              images={item.data.images}
+              title={item.data.title}
             />
 
             <a
               href={`/tienda/${item.id}`}
-              class="flex w-full items-center justify-center bg-black p-2 text-white md:p-4 md:text-xl"
+              class="flex w-full max-w-3/4 items-center justify-center border-y border-black p-2 transition-colors hover:bg-black hover:text-white md:p-4"
             >
-              Próximamente
+              Ver {item.data.tags[0]}
             </a>
           </li>
         ))
@@ -71,7 +68,7 @@ const uniqueTags = [...new Set(availableTags)];
 
     const comingSoon = document.querySelector("#coming-soon");
     window.addEventListener("keydown", (ev) => {
-      if (ev.altKey && ev.code === "KeyM") {
+      if (ev.ctrlKey && ev.code === "KeyM") {
         comingSoon.classList.toggle("hidden");
       }
     });
