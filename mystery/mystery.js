@@ -15,7 +15,7 @@ export const videos = [
     title: "Choque de materiales",
     page: "25",
     slug: "choque-de-materiales",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/KTitYxZqmCg"
   },
   {
     title: "Disciplina sabia",
@@ -117,7 +117,7 @@ export const videos = [
     title: "Suerte esquiva",
     page: "44",
     slug: "suerte-esquiva",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/MdhwAObujjU"
   },
   {
     title: "Al punto por favor",
@@ -153,13 +153,13 @@ export const videos = [
     title: "¡Ni un paso atrás!",
     page: "51",
     slug: "ni-un-paso-atras",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/xIaKAHjRR0Y"
   },
   {
     title: "Tomasín García",
     page: "52",
     slug: "tomasin-garcia",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/9giCbFX8u2s"
   },
   {
     title: "Puertas y más puertas",
@@ -201,7 +201,7 @@ export const videos = [
     title: "Últimos cartuchos",
     page: "59",
     slug: "ultimos-cartuchos",
-    videoUrl: ""
+    videoUrl: "https://youtu.be/q1gOKMxp6gU"
   },
   {
     title: "Resacón en Murcia",
