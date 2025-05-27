@@ -3,12 +3,11 @@ import type { Metadata, Episode } from "./types";
 import slugify from "slugify";
 
 const currentDate = new Date();
-const timezone = 1;
 const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth();
 const currentYear = currentDate.getFullYear();
 const currentUTCHours = currentDate.getUTCHours();
-const currentHours = currentUTCHours + timezone;
+const currentHours = currentUTCHours;
 const TIME_TO_SHOW = 20;
 
 const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
