@@ -8,6 +8,8 @@ import Shorts from "@/sections/Shorts.astro";
 import Us from "@/sections/Us.astro";
 import Collaborate from "@/sections/Collaborate.astro";
 import Book from "@/sections/Book.astro";
+
+import { currentHours } from "@/lib/utils";
 ---
 
 <Fragment slot="head">
@@ -19,6 +21,7 @@ import Book from "@/sections/Book.astro";
   description="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
 >
   <main class="flex w-full flex-col items-center">
+    <div id="currentHours" class="sr-only">{currentHours}</div>
     <Welcome />
     <NextEpisode />
     <Book />
