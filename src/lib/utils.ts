@@ -2,11 +2,12 @@ import "core-js/actual/object/group-by";
 import type { Metadata, Episode } from "./types";
 import slugify from "slugify";
 
+const timezone = 2;
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth();
 const currentYear = currentDate.getFullYear();
-export const currentHours = currentDate.getHours();
+export const currentHours = currentDate.getHours() + timezone;
 const TIME_TO_SHOW = 20;
 
 const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
