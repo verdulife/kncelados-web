@@ -6,8 +6,7 @@ const currentDate = new Date();
 const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth();
 const currentYear = currentDate.getFullYear();
-const currentUTCHours = currentDate.getUTCHours();
-export const currentHours = currentUTCHours;
+export const currentHours = currentDate.getHours();
 const TIME_TO_SHOW = 20;
 
 const episodes_obj: Record<string, Episode> = import.meta.glob('./episodes/*.json', { import: 'default', eager: true });
