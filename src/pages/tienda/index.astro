@@ -36,19 +36,27 @@ const uniqueTags = [...new Set(availableTags)];
             data-tags={item.data.tags}
             class="flex size-full flex-col items-center justify-between p-2"
           >
-            <ProductSlider
+            <a class="flex size-full flex-col items-center justify-between text-center p-2" href={`/tienda/${item.id}`}> 
+              {/* <ProductSlider
               id={item.id}
               images={item.data.images}
               title={item.data.title}
-            />
+            /> */}
 
-            <p class="text-xl pt-8 pb-4">{item.data.title}</p>
+              <img
+                src={item.data.images[0]}
+                alt={item.data.title}
+                class="size-full object-contain transition-transform duration-700 hover:scale-110 hover:-rotate-3"
+              />
 
-            <a
-              href={`/tienda/${item.id}`}
-              class="mb-8 flex h-14 w-full max-w-3/4 items-center justify-center gap-2 border-2 border-dashed bg-knc-red border-white text-white p-2 transition-all hover:text-lg md:p-4"
-            >
-              <Bag class="size-5" /> Ver {item.data.tags[0]}
+              <p class="pt-8 pb-4 text-xl">{item.data.title}</p>
+
+              {/* <a
+                href={`/tienda/${item.id}`}
+                class="bg-knc-red mb-8 flex h-14 w-full max-w-3/4 items-center justify-center gap-2 border-2 border-dashed border-white p-2 text-white transition-all hover:text-lg md:p-4"
+              >
+                <Bag class="size-5" /> Ver {item.data.tags[0]}
+              </a> */}
             </a>
           </li>
         ))
@@ -56,7 +64,7 @@ const uniqueTags = [...new Set(availableTags)];
     </ul>
   </section>
 
-  <div
+  <!-- <div
     id="coming-soon"
     class="bg-knc-dark fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center text-white"
   >
@@ -64,7 +72,7 @@ const uniqueTags = [...new Set(availableTags)];
     <p class="mt-4 text-xl md:text-2xl lg:text-3xl">
       La tienda está en construcción, disculpa las molestias.
     </p>
-  </div>
+  </div> -->
 
   <script type="module" define:vars={{ uniqueTags }} is:inline>
     import "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";

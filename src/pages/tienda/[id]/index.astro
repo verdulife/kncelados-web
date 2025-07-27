@@ -11,8 +11,10 @@ if (!product) return Astro.redirect("/tienda");
 const { productId } = product.data;
 ---
 
+
+
 <Layout
-  title="Tienda"
+  title={product.data.title}
   description="Proximamente en la tienda oficial KNC Store, podrás encontrar camisetas, tote bags, láminas, stickers, fondos de pantalla y más."
 >
   <section
