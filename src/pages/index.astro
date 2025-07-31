@@ -1,34 +1,46 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Welcome from "@/sections/Welcome.astro";
-import NextEpisode from "@/sections/NextEpisode.astro";
-import Podcast from "@/sections/Podcast.astro";
-import LastVideos from "@/sections/LastVideos.astro";
-import Shorts from "@/sections/Shorts.astro";
-import Us from "@/sections/Us.astro";
-import Collaborate from "@/sections/Collaborate.astro";
-import Book from "@/sections/Book.astro";
-
-import { currentHours } from "@/lib/utils";
 ---
-
-<Fragment slot="head">
-  <link rel="preload" href="/kncelados-podcast.jpg" as="image" />
-</Fragment>
 
 <Layout
   title="Kncelados | Un podcast de tonterías varias"
   description="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
 >
-  <main class="flex w-full flex-col items-center">
-    <div id="currentHours" class="sr-only">{currentHours}</div>
+  <main class="flex min-h-[500vh] w-full flex-col items-center">
     <Welcome />
-    <NextEpisode />
-    <Book />
-    <!-- <Podcast /> -->
-    <LastVideos />
-    <Shorts />
-    <Us />
-    <Collaborate />
   </main>
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    ease: "power2.out",
+    scrollTrigger: {
+      scrub: 1,
+    },
+  });
+
+  tl.to("#hero-video", {
+    scale: 1,
+    duration: 1,
+  })
+    .to(
+      "#play-button",
+      {
+        opacity: 0,
+      },
+      "<"
+    )
+    .to(
+      "#logo-mask",
+      {
+        maskSize: "clamp(20vh, 25%, 30vh)",
+      },
+      "<"
+    );
+</script>
