@@ -1,4 +1,6 @@
 ---
+import VideoOverlay from "@/components/VideoOverlay.astro";
+import PlayBig from "@/lib/assets/PlayBig.astro";
 import { generateSlug, lastEpisode } from "@/lib/utils";
 
 const slug = generateSlug(lastEpisode.title);
@@ -6,39 +8,26 @@ const lastEpisode_url = `podcast/${slug}`;
 ---
 
 <section
-  class="relative flex min-h-[90vh] w-full flex-col items-center justify-center gap-8"
+  class="relative flex h-svh w-full flex-col items-center justify-center gap-8"
 >
-  <img
-    src="/kncelados-podcast.jpg"
-    alt="Kncelados Podcast"
-    class="absolute inset-0 -z-10 size-full object-cover object-[40%_30%] opacity-15"
-  />
-  <article
-    class="flex w-full flex-col items-center justify-center px-6 pb-6 text-center lg:px-20 lg:pb-20"
+  <video
+    class="absolute inset-0 -z-20 size-full object-cover"
+    src="/hero-bg.mp4"
+    playsinline
+    autoplay
+    muted
+    loop
   >
-    <h1 class="mt-24 max-w-3xl text-5xl lg:text-8xl">
-      Un podcast de tonterías varias
-    </h1>
+  </video>
 
-    <p class="mt-6 max-w-5xl text-lg text-gray-300 lg:text-2xl">
-      Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te
-      ríes un rato. Dónde ver el podcast, quienes son estos Kncelados, todo esta
-      aquí.
-    </p>
+  <VideoOverlay />
 
-    <div class="mt-10 flex flex-wrap justify-center">
-      <a
-        href={lastEpisode_url}
-        class="rounded-xl bg-knc-red px-8 py-3 transition-transform hover:scale-110"
-      >
-        Último episodio
-      </a>
-      <a
-        href="/#nosotros"
-        class="px-8 py-3 transition-transform hover:scale-110"
-      >
-        Nosotros
-      </a>
-    </div>
-  </article>
+  <a
+    href={lastEpisode_url}
+    class="flex flex-col items-center gap-4 rounded-full shadow-2xl backdrop-blur-2xl transition-transform duration-500 hover:scale-110"
+    title="Ver el último episodio"
+  >
+    <PlayBig class="size-32" />
+    <p class="sr-only">Ver el último episodio</p>
+  </a>
 </section>

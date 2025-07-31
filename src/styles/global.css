@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-knc-red: #e5311f;
-  --color-knc-blue: #102133;
-  --color-knc-dark: #060d14;
+  --color-knc-red: #e3321f;
+  --color-knc-blue: #0f1e30;
+  --color-knc-dark: #070a0c;
 
-  --font-sans: "Clash Display Variable", sans-serif;
+  --font-sans: "Inter Variable", sans-serif;
+  --font-title: "Recoleta", sans-serif;
 }
 
 :root {
@@ -13,8 +14,4 @@
 
   scrollbar-width: thin;
   scrollbar-color: var(--color-knc-red) var(--color-knc-dark);
-}
-
-.shopify-buy-frame--toggle {
-  @apply shadow shadow-black/50 outline-none !z-40;
 }
