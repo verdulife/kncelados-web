@@ -29,12 +29,13 @@ import Welcome from "@/sections/Welcome.astro";
 
   tl.to("#hero-bg", {
     scale: 1,
-    duration: 0.5,
+    duration: 1,
   })
     .to(
       "#play-button",
       {
         opacity: 0,
+        duration: 0.05,
       },
       "<"
     )
@@ -42,6 +43,7 @@ import Welcome from "@/sections/Welcome.astro";
       "#keep-scrolling",
       {
         opacity: 0,
+        duration: 0.05,
       },
       "<"
     )
@@ -50,7 +52,7 @@ import Welcome from "@/sections/Welcome.astro";
       {
         opacity: 0,
       },
-      "<0.25"
+      "<"
     )
     .to(
       "#full-logo",
@@ -73,7 +75,8 @@ import Welcome from "@/sections/Welcome.astro";
         maskImage:
           "radial-gradient(circle at bottom, black 50%, transparent 100%)",
         pointerEvents: "auto",
+        duration: 0.05,
       },
-      "<0.35"
+      "<0.45"
     );
 </script>
