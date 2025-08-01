@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import NextEpisode from "@/sections/NextEpisode.astro";
 import Welcome from "@/sections/Welcome.astro";
 ---
 
@@ -7,8 +8,9 @@ import Welcome from "@/sections/Welcome.astro";
   title="Kncelados | Un podcast de tonterías varias"
   description="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
 >
-  <main class="flex min-h-[500vh] w-full flex-col items-center">
+  <main class="flex min-h-[400vh] w-full flex-col items-center">
     <Welcome />
+    <NextEpisode />
   </main>
 </Layout>
 
@@ -25,7 +27,7 @@ import Welcome from "@/sections/Welcome.astro";
     },
   });
 
-  tl.to("#hero-video", {
+  tl.to("#hero-bg", {
     scale: 1,
     duration: 1,
   })
@@ -37,10 +39,41 @@ import Welcome from "@/sections/Welcome.astro";
       "<"
     )
     .to(
-      "#logo-mask",
+      "#keep-scrolling",
       {
-        maskSize: "clamp(20vh, 25%, 30vh)",
+        opacity: 0,
       },
       "<"
+    )
+    .to(
+      "#hero-bg",
+      {
+        opacity: 0,
+      },
+      "<0.5"
+    )
+    .to(
+      "#full-logo",
+      {
+        opacity: 0,
+      },
+      "<"
+    )
+    .to(
+      "#logo-mask",
+      {
+        backgroundColor: "var(--color-knc-red)",
+        maskSize: "12vh",
+      },
+      "<"
+    )
+    .to(
+      "#next-episode",
+      {
+        maskImage:
+          "radial-gradient(circle at bottom, black 50%, transparent 100%)",
+        pointerEvents: "auto",
+      },
+      "<0.4"
     );
 </script>
