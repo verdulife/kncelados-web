@@ -8,10 +8,10 @@ import Welcome from "@/sections/Welcome.astro";
   title="Kncelados | Un podcast de tonterías varias"
   description="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
 >
-  <main class="flex min-h-[300vh] w-full flex-col items-center">
-    <Welcome />
-    <NextEpisode />
+  <main class="bg-knc-dark flex min-h-[300vh] w-full flex-col items-center">
   </main>
+  <Welcome />
+  <NextEpisode />
 </Layout>
 
 <script>
@@ -20,63 +20,82 @@ import Welcome from "@/sections/Welcome.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const tl = gsap.timeline({
-    ease: "power2.out",
-    scrollTrigger: {
-      scrub: 1,
-    },
-  });
+  function startAnimation() {
+    gsap.to("#container", {
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.5,
+    });
 
-  tl.to("#hero-bg", {
-    scale: 1,
-    duration: 1,
-  })
-    .to(
-      "#play-button",
-      {
-        opacity: 0,
-        duration: 0.05,
+    gsap.to("#hero-bg", {
+      scale: 1.25,
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+
+    const tl = gsap.timeline({
+      ease: "power2.out",
+      scrollTrigger: {
+        scrub: 1,
       },
-      "<"
-    )
-    .to(
-      "#keep-scrolling",
-      {
-        opacity: 0,
-        duration: 0.05,
-      },
-      "<"
-    )
-    .to(
-      "#hero-bg",
-      {
-        opacity: 0,
-      },
-      "<"
-    )
-    .to(
-      "#full-logo",
-      {
-        opacity: 0,
-      },
-      "<"
-    )
-    .to(
-      "#logo-mask",
-      {
-        backgroundColor: "var(--color-knc-red)",
-        maskSize: "12vh",
-      },
-      "<"
-    )
-    .to(
-      "#next-episode",
-      {
-        maskImage:
-          "radial-gradient(circle at bottom, black 50%, transparent 100%)",
-        pointerEvents: "auto",
-        duration: 0.05,
-      },
-      "<0.45"
-    );
+    });
+
+    tl.to("#hero-bg", {
+      scale: 1,
+      duration: 1,
+    })
+      .to(
+        "#play-button",
+        {
+          opacity: 0,
+          duration: 0.05,
+        },
+        "<"
+      )
+      .to(
+        "#keep-scrolling",
+        {
+          opacity: 0,
+          duration: 0.05,
+        },
+        "<"
+      )
+      .to(
+        "#hero-bg",
+        {
+          opacity: 0,
+        },
+        "<"
+      )
+      .to(
+        "#full-logo",
+        {
+          opacity: 0,
+        },
+        "<"
+      )
+      .to(
+        "#logo-mask",
+        {
+          backgroundColor: "var(--color-knc-red)",
+          maskSize: "12vh",
+        },
+        "<"
+      )
+      .to(
+        "#next-episode",
+        {
+          maskImage:
+            "radial-gradient(circle at bottom, black 50%, transparent 100%)",
+          pointerEvents: "auto",
+          duration: 0.05,
+        },
+        "<0.45"
+      );
+  }
+
+  window.addEventListener("load", startAnimation);
 </script>
