@@ -1,0 +1,32 @@
+<section
+  id="podcast"
+  class="pointer-events-none fixed flex h-svh w-full flex-col items-center justify-center"
+>
+  <div id="podcast-bg" class="absolute inset-0"></div>
+
+  <video
+    id="podcast-video"
+    class="size-full object-cover opacity-0"
+    src="/knc-fragment-1.mp4"
+    playsinline
+    muted
+    loop></video>
+
+  <div
+    id="podcast-overlay"
+    class="bg-knc-dark/70 absolute inset-0 flex opacity-0 backdrop-blur"
+  >
+  </div>
+</section>
+
+<style>
+  #podcast-bg {
+    background-image: radial-gradient(
+      circle at 50% 25%,
+      transparent 0%,
+      black 1000%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
