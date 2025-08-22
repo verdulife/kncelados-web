@@ -9,7 +9,7 @@ import Welcome from "@/sections/Welcome.astro";
   title="Kncelados | Un podcast de tonterías varias"
   description="Un podcast de tonterías varias. Quizá no aprendes nada, pero seguro que te ríes un rato. Mira nuestros últimos videos descubre nuestro equipo sin filtros."
 >
-  <main class="bg-knc-dark flex min-h-[400vh] w-full flex-col items-center">
+  <main class="bg-knc-dark flex min-h-[1500vh] w-full flex-col items-center">
   </main>
   <Welcome />
   <NextEpisode />
@@ -19,6 +19,61 @@ import Welcome from "@/sections/Welcome.astro";
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const canvas = document.querySelector("#podcast-canvas") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d", {
+    willReadFrequently: true,
+  }) as CanvasRenderingContext2D;
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    render();
+  });
+
+  const totalFrames = 151;
+  const images: Array<HTMLImageElement> = [];
+  const imageSeq = {
+    frame: 0,
+  };
+
+  for (let i = 0; i < totalFrames; i++) {
+    const image = new Image();
+    image.src = `/fragment-1/frame-${(i + 1).toString().padStart(3, "0")}.jpg`;
+    images.push(image);
+  }
+
+  function scaleImage(image: HTMLImageElement, ctx: CanvasRenderingContext2D) {
+    const canvas = ctx.canvas;
+    const hRatio = canvas.width / image.width;
+    const vRatio = canvas.height / image.height;
+    const ratio = Math.max(hRatio, vRatio);
+    const centerShiftX = (canvas.width - image.width * ratio) / 2;
+    const centerShiftY = (canvas.height - image.height * ratio) / 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      image,
+      0,
+      0,
+      image.width,
+      image.height,
+      centerShiftX,
+      centerShiftY,
+      image.width * ratio,
+      image.height * ratio
+    );
+  }
+
+  function render() {
+    scaleImage(images[imageSeq.frame], ctx);
+  }
+
+  images[0].onload = render;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +124,7 @@ import Welcome from "@/sections/Welcome.astro";
         "#hero-bg",
         {
           opacity: 0,
+          duration: 1,
         },
         "<"
       )
@@ -98,29 +154,64 @@ import Welcome from "@/sections/Welcome.astro";
         "<0.45"
       )
       .to(
-        "#podcast-bg",
+        "#next-episode",
         {
-          backgroundImage:
-            "radial-gradient(ellipse at 50% 25%, transparent 0%, black 0%)",
+          maskImage:
+            "radial-gradient(circle at top, black -100%, transparent 0%)",
+          pointerEvents: "none",
+          duration: 1,
+        },
+        ">0.45"
+      )
+      .to(
+        "#logo-mask",
+        {
+          opacity: 0,
         },
         "<"
       )
       .to(
-        "#podcast-video",
+        "#podcast",
         {
           opacity: 1,
         },
-        "<0.05"
+        "<0.5"
       )
       .to(
         "#podcast-overlay",
         {
-          opacity: 1,
-          duration: 0,
+          backdropFilter: "blur(0px)",
+        },
+        "<0.5"
+      )
+      .to(
+        imageSeq,
+        {
+          frame: totalFrames - 1,
+          snap: "frame",
+          ease: "none",
+          duration: 10,
+          onUpdate: render,
         },
         "<"
-      );
+      )
+      .to("#container", {
+        opacity: 0,
+        duration: 1,
+      })
+      .to(window, {
+        on: () => {
+          window.location.href = "/podcast";
+        },
+      });
   }
 
   window.addEventListener("load", startAnimation);
+
+  /* window.addEventListener("scroll", () => {
+    if (window.scrollY >= 3000) {
+      //navigate to podcast page
+      window.location.href = "/podcast";
+    }
+  }); */
 </script>
