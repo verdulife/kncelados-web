@@ -24,7 +24,7 @@ try {
   };
 
   const json = JSON.stringify(data, null, 2);
-  await writeFile(`./src/lib/collections/${id}.json`, json, "utf-8");
+  await writeFile(`./src/lib/collections/${collections.length + 1}-${id}.json`, json, "utf-8");
 } catch (error) {
   console.error(error);
 }
