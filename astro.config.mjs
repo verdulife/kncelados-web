@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
+import { collections, episodes, generateSlug, shorts } from "./src/lib/utils";
 
 import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import tailwindcss from "@tailwindcss/vite";
-import { collections, episodes, generateSlug, shorts } from "./src/lib/utils";
 
 const BASE_URL = "https://www.kncelados.com";
 const episodesPages = episodes.map(({ title }) => `${BASE_URL}/podcast/${generateSlug(title)}`);

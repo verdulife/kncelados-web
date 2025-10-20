@@ -16,19 +16,19 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/netlify": "6.2.3",
+    "@astrojs/netlify": "^6.5.13",
     "@astrojs/partytown": "2.1.4",
-    "@astrojs/sitemap": "3.2.1",
-    "@fontsource-variable/inter": "^5.0.18",
-    "@justinribeiro/lite-youtube": "^1.6.0",
-    "@tailwindcss/vite": "^4.0.3",
-    "astro": "5.4.3",
-    "cheerio": "^1.0.0",
+    "@astrojs/sitemap": "3.6.0",
+    "@fontsource-variable/inter": "5.0.18",
+    "@justinribeiro/lite-youtube": "1.6.0",
+    "@tailwindcss/vite": "4.0.3",
+    "astro": "5.14.6",
+    "cheerio": "1.1.2",
     "core-js": "3.37.0",
-    "motion": "^12.5.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "motion": "12.5.0",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "slugify": "1.6.6",
-    "tailwindcss": "^4.0.3",
+    "tailwindcss": "4.0.3",
     "typescript": "5.4.4"
   },
   "devDependencies": {
@@ -37,6 +37,6 @@
     "open-graph-scraper": "6.5.1",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
-    "qrcode": "^1.5.4"
+    "qrcode": "1.5.4"
   }
 }
