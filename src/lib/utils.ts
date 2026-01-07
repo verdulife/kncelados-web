@@ -26,7 +26,7 @@ export const episodes = sortedEpisodes.map((episode) => {
   const sameDate = currentDay === episodeDay && currentMonth === episodeMonth && currentYear === episodeYear;
 
   if (sameDate && currentHours < TIME_TO_SHOW) {
-    return { ...episodeData, hidden: true };
+    return { ...episodeData, hidden: false };
   } else {
     return episodeData;
   }

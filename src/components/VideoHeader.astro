@@ -5,7 +5,7 @@ import { generateSlug, hiddenEpisode } from "@/lib/utils";
 const { data } = Astro.props;
 const { title, name, description, image, url, id, season, episode } = data;
 const { pathname } = Astro.url;
-const hidden_slug = generateSlug(hiddenEpisode.title);
+/* const hidden_slug = generateSlug(hiddenEpisode.title); */
 ---
 
 <Fragment slot="head">
@@ -99,7 +99,7 @@ const hidden_slug = generateSlug(hiddenEpisode.title);
   }
 </style>
 
-<script define:vars={{ hidden_slug }} is:inline>
+<!-- <script define:vars={{ hidden_slug }} is:inline>
   window.addEventListener("keydown", (ev) => {
     const { key, ctrlKey } = ev;
 
@@ -109,3 +109,4 @@ const hidden_slug = generateSlug(hiddenEpisode.title);
     }
   });
 </script>
+ -->
