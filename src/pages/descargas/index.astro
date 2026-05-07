@@ -25,51 +25,75 @@ import Layout from "@/layouts/Layout.astro";
   description="Próximamente tendrás aquí todo el material oficial de Kncelados para descargar: PDFs, wallpapers, audio y ZIP especiales."
 >
   <section
-    class="flex min-h-[80vh] flex-1 flex-col items-center justify-center gap-8 px-4 pt-28 pb-20 text-center"
+    class="flex min-h-[80vh] flex-1 flex-col items-center gap-8 px-4 pb-20 text-center"
   >
-    <h1 class="text-5xl font-bold lg:text-8xl">Descargas</h1>
+    <h1 class="mt-48 max-w-3xl text-4xl lg:text-7xl">Descargas</h1>
 
     <p class="max-w-3xl text-lg text-gray-300 lg:text-xl">
-      Aquí estará el material oficial de Kncelados: recursos para fans,
-      papelería digital, audios exclusivos y fondos para tu móvil o PC. Todo
-      listo para descargar muy pronto.
+      Accede a dos PDFs oficiales de Kncelados con arte lista para descargar y
+      usar en redes, impresiones o proyectos personales.
     </p>
 
-    <div class="grid w-full max-w-5xl gap-4 sm:grid-cols-2">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-2xl font-semibold">PDF</h2>
-        <p class="mt-3 text-sm text-gray-400">
-          Dossiers, flyers y artes listos para imprimir o compartir.
-        </p>
-      </div>
+    <div class="mt-12 grid w-full max-w-5xl gap-4 sm:grid-cols-2">
+      <article
+        class="flex items-center overflow-hidden rounded-3xl border border-white/10 bg-white/5"
+      >
+        <div
+          class="flex min-h-[320px] w-full flex-col items-center lg:min-h-[200px] lg:flex-row"
+        >
+          <div
+            class="flex h-64 w-full items-center justify-center p-4 lg:h-auto lg:w-1/2"
+          >
+            <img
+              src="/descargas/no-vendo.webp"
+              alt="Vista previa No Vendo"
+              class="max-h-full max-w-full object-contain"
+            />
+          </div>
+          <div
+            class="flex w-full flex-1 flex-col items-center justify-center p-8 text-center lg:items-start lg:justify-start lg:text-left"
+          >
+            <h2 class="text-2xl">No Vendo</h2>
+            <a
+              href="/descargas/no-vendo.pdf"
+              download
+              class="bg-knc-red mt-6 inline-flex rounded-xl px-4 py-3 text-sm font-semibold transition hover:scale-105"
+            >
+              Descargar PDF
+            </a>
+          </div>
+        </div>
+      </article>
 
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-2xl font-semibold">Wallpapers</h2>
-        <p class="mt-3 text-sm text-gray-400">
-          Fondos de pantalla oficiales para tu móvil y escritorio.
-        </p>
-      </div>
-
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-2xl font-semibold">Audio</h2>
-        <p class="mt-3 text-sm text-gray-400">
-          Clips, intros y contenido extra para tu playlist.
-        </p>
-      </div>
-
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-2xl font-semibold">ZIP</h2>
-        <p class="mt-3 text-sm text-gray-400">
-          Paquetes con todo lo necesario para compartir Kncelados.
-        </p>
-      </div>
+      <article
+        class="flex items-center overflow-hidden rounded-3xl border border-white/10 bg-white/5"
+      >
+        <div
+          class="flex min-h-[320px] w-full flex-col items-center lg:min-h-[200px] lg:flex-row"
+        >
+          <div
+            class="flex h-64 w-full items-center justify-center p-4 lg:h-64 lg:w-1/2"
+          >
+            <img
+              src="/descargas/yoaparcomal.webp"
+              alt="Vista previa Yo Aparco Mal"
+              class="max-h-full max-w-full object-contain"
+            />
+          </div>
+          <div
+            class="flex w-full flex-1 flex-col items-center justify-center p-8 text-center lg:items-start lg:justify-start lg:text-left"
+          >
+            <h2 class="text-2xl">Yo Aparco Mal</h2>
+            <a
+              href="/descargas/yoaparcomal.pdf"
+              download
+              class="bg-knc-red mt-6 inline-flex rounded-xl px-4 py-3 text-sm font-semibold transition hover:scale-105"
+            >
+              Descargar PDF
+            </a>
+          </div>
+        </div>
+      </article>
     </div>
-
-    <a
-      href="/contacto"
-      class="bg-knc-red rounded-xl px-8 py-3 transition-transform hover:scale-110"
-    >
-      Avisar cuando esté listo
-    </a>
   </section>
 </Layout>
