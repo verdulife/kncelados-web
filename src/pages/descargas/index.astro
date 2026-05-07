@@ -1,0 +1,75 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Fragment slot="head">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.kncelados.com/descargas" />
+  <meta property="og:title" content="Descargas | Kncelados" />
+  <meta
+    property="og:description"
+    content="Próximamente tendrás aquí todo el material oficial de Kncelados para descargar: PDFs, wallpapers, audio y ZIP especiales."
+  />
+  <meta property="og:image" content="https://www.kncelados.com/logo-512.jpg" />
+  <meta name="twitter:title" content="Descargas | Kncelados" />
+  <meta
+    name="twitter:description"
+    content="Próximamente tendrás aquí todo el material oficial de Kncelados para descargar: PDFs, wallpapers, audio y ZIP especiales."
+  />
+  <meta name="twitter:image" content="https://www.kncelados.com/logo-512.jpg" />
+  <link rel="canonical" href="https://www.kncelados.com/descargas" />
+</Fragment>
+
+<Layout
+  title="Descargas | Kncelados"
+  description="Próximamente tendrás aquí todo el material oficial de Kncelados para descargar: PDFs, wallpapers, audio y ZIP especiales."
+>
+  <section
+    class="flex min-h-[80vh] flex-1 flex-col items-center justify-center gap-8 px-4 pt-28 pb-20 text-center"
+  >
+    <h1 class="text-5xl font-bold lg:text-8xl">Descargas</h1>
+
+    <p class="max-w-3xl text-lg text-gray-300 lg:text-xl">
+      Aquí estará el material oficial de Kncelados: recursos para fans,
+      papelería digital, audios exclusivos y fondos para tu móvil o PC. Todo
+      listo para descargar muy pronto.
+    </p>
+
+    <div class="grid w-full max-w-5xl gap-4 sm:grid-cols-2">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-semibold">PDF</h2>
+        <p class="mt-3 text-sm text-gray-400">
+          Dossiers, flyers y artes listos para imprimir o compartir.
+        </p>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-semibold">Wallpapers</h2>
+        <p class="mt-3 text-sm text-gray-400">
+          Fondos de pantalla oficiales para tu móvil y escritorio.
+        </p>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-semibold">Audio</h2>
+        <p class="mt-3 text-sm text-gray-400">
+          Clips, intros y contenido extra para tu playlist.
+        </p>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-semibold">ZIP</h2>
+        <p class="mt-3 text-sm text-gray-400">
+          Paquetes con todo lo necesario para compartir Kncelados.
+        </p>
+      </div>
+    </div>
+
+    <a
+      href="/contacto"
+      class="bg-knc-red rounded-xl px-8 py-3 transition-transform hover:scale-110"
+    >
+      Avisar cuando esté listo
+    </a>
+  </section>
+</Layout>

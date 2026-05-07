@@ -4,12 +4,12 @@ import Prev from "@/lib/assets/Prev.astro";
 import Next from "@/lib/assets/Next.astro";
 import type { Episode } from "@/lib/types";
 
-const { data, title } = Astro.props;
+const { data, title, id } = Astro.props;
 const episodes = data.filter((episode: Episode) => !episode.hidden);
 const current_season = episodes[0].season;
 ---
 
-<section class="relative flex w-full flex-col pt-4 lg:pt-8">
+<section id={id} class="relative flex w-full flex-col pt-4 lg:pt-8">
   <h2 class="px-6 text-xl lg:px-20 lg:text-3xl">
     {title || `Temporada ${current_season}`}
   </h2>

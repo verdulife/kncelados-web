@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import { collections, episodes, generateSlug, shorts } from "./src/lib/utils";
+import { collections, episodes, generateSlug } from "./src/lib/utils";
 
 import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
@@ -9,8 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 const BASE_URL = "https://www.kncelados.com";
 const episodesPages = episodes.map(({ title }) => `${BASE_URL}/podcast/${generateSlug(title)}`);
 const collectionsPages = collections.map(({ title }) => `${BASE_URL}/podcast/${generateSlug(title)}`);
-const shortsPages = shorts.map(({ title }) => `${BASE_URL}/shorts/${generateSlug(title)}`);
-const customPages = [...episodesPages, ...collectionsPages, ...shortsPages];
+const customPages = [...episodesPages, ...collectionsPages];
 
 const pt_opts = {
   config: {

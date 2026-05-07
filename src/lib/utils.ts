@@ -43,7 +43,7 @@ const collections_obj: Record<string, Metadata> = import.meta.glob('./collection
 export const collections = Object.values(collections_obj).reverse();
 
 const shorts_obj: Record<string, Metadata> = import.meta.glob('./shorts/*.json', { import: 'default', eager: true });
-export const shorts = Object.values(shorts_obj).reverse();
+export const shorts = Object.values(shorts_obj);
 
 const allVideos = [...episodes, ...shorts, ...collections];
 const titles = allVideos.map(({ title }) => generateSlug(title));

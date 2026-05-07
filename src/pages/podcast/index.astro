@@ -3,7 +3,7 @@ import VideoHeader from "@/components/VideoHeader.astro";
 import VideoSlider from "@/components/VideoSlider.astro";
 import Layout from "@/layouts/Layout.astro";
 
-import { lastEpisode, seasons, collections } from "@/lib/utils";
+import { lastEpisode, seasons, collections, shorts } from "@/lib/utils";
 ---
 
 <Layout
@@ -12,7 +12,16 @@ import { lastEpisode, seasons, collections } from "@/lib/utils";
 >
   <div class="pb-10">
     <VideoHeader data={lastEpisode} />
-    {seasons.map((season) => <VideoSlider data={season} />)}
-    <VideoSlider data={collections} title="Especiales" />
+    {
+      seasons.map((season) => (
+        <VideoSlider
+          data={season}
+          title={`Temporada ${season[0].season}`}
+          id={`temporada-${season[0].season}`}
+        />
+      ))
+    }
+    <VideoSlider data={collections} title="Especiales" id="especiales" />
+    <VideoSlider data={shorts} title="Shorts" id="shorts" />
   </div>
 </Layout>

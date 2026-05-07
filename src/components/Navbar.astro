@@ -16,7 +16,7 @@ const isStore = pathname.startsWith("/tienda");
     <ul
       id="nav-links"
       class:list={[
-        `pointer-events-none fixed inset-0 flex flex-col pt-36 opacity-0 transition-all duration-500 bg-knc-dark lg:pointer-events-auto lg:static lg:flex-row lg:bg-transparent lg:bg-none lg:pt-0 lg:opacity-100`,
+        `bg-knc-dark pointer-events-none fixed inset-0 flex flex-col pt-36 opacity-0 transition-all duration-500 lg:pointer-events-auto lg:static lg:flex-row lg:bg-transparent lg:bg-none lg:pt-0 lg:opacity-100`,
         isStore && "bg-white",
       ]}
     >
@@ -46,13 +46,13 @@ const isStore = pathname.startsWith("/tienda");
 
       <li class="flex">
         <a
-          href="/shorts"
+          href="/descargas"
           class:list={[
             "hover:text-knc-red w-full px-6 py-4 text-center text-2xl uppercase transition-colors lg:w-auto lg:border-none lg:text-base",
             isStore && "text-knc-dark",
           ]}
         >
-          Shorts
+          Descargas
         </a>
       </li>
 
