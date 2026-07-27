@@ -13,6 +13,6 @@ export const links = [
   },
   {
     slug: "sitges",
-    url: "https://luma.com/3xkkr7bu",
+    url: "https://luma.com/qroxm97t",
   },
 ];
