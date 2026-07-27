@@ -11,4 +11,8 @@ export const links = [
     slug: "patreon",
     url: "https://www.patreon.com/kncelados",
   },
+  {
+    slug: "sitges",
+    url: "https://luma.com/3xkkr7bu",
+  },
 ];
