@@ -12,6 +12,7 @@
 - Adapter código: @astrojs/vercel 11.0.4
 - Gestor de paquetes: bun
 - Repo: `https://github.com/verdulife/kncelados-web`
+- Repo destino: `https://github.com/kncelados/kncelados-web` (migración pendiente H5)
 
 ## Stack — estado destino
 
