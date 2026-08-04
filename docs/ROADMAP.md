@@ -4,10 +4,10 @@
 > Estado: `pendiente` / `en progreso` / `bloqueado` / `hecho`.
 
 | ID | Hito | Estado | Depende de | Riesgo | Criterio de aceptación |
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | H0 | Rellenar `ARCHITECTURE.md`: versiones actuales, QR, export GSC, redirects | pendiente | — | — | Secciones "estado actual" y "no se puede romper" completas |
-| H1 | `astro upgrade` en rama aparte, sin Tailwind todavía | pendiente | H0 | medio | Build pasa, capturas de páginas tipo comparadas sin diffs visuales |
-| H2 | Migrar Tailwind v3 → v4 (config CSS-first) | pendiente | H1 | **alto** | Build pasa + revisión visual manual de cada plantilla tipo |
+| H1 | Upgrade Astro 5.14.6 → 7.1.6 + adapter swap Netlify → Vercel + Tailwind 4.0.3 → 4.3.3 | hecho | — | medio | Build pasa, todas las páginas responden 200, 0 errores astro check |
+| H2 | Migrar Tailwind v3 → v4 (config CSS-first) | hecho | H1 | **alto** | Ya estaba v4.0.3 antes del upgrade; el proyecto nunca usó v3. Actualizado a 4.3.3 como parte de H1 |
 | H3 | Portar componentes de la home rediseñada al proyecto actualizado | pendiente | H2 | bajo | Home nueva renderiza igual que en el proyecto de rediseño aislado |
 | H4 | Exportar checklist de QA desde Search Console (URLs indexadas + QR) | pendiente | H0 | — | Checklist en `docs/` con lista completa de URLs a verificar |
 | H5 | Deploy preview en Vercel + validar checklist H4 contra el preview | pendiente | H3, H4 | **alto** | Todas las URLs del checklist responden 200 y con el contenido esperado |

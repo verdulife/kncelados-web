@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { collections, episodes, generateSlug } from "./src/lib/utils";
 
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import tailwindcss from "@tailwindcss/vite";
@@ -21,7 +21,7 @@ export default defineConfig({
   site: BASE_URL,
   integrations: [sitemap({ customPages }), partytown(pt_opts)],
   output: "server",
-  adapter: netlify(),
+  adapter: vercel(),
 
   vite: {
     plugins: [tailwindcss()]
