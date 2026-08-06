@@ -39,6 +39,9 @@
 | 2026-08-04 | Adapter swap incluido en H1 | `@astrojs/netlify` v6 no es compatible con Astro 7; más limpio saltar directo a Vercel que upgrade Netlify v6→v8 primero |
 | 2026-08-04 | Node engine fijado a `24.x` | Es la última LTS soportada por Vercel (default) |
 | 2026-08-04 | `compressHTML` default `'jsx'` (v7) | Confiar en el nuevo default; verificar visualmente y revertir a `true` si hay espacios perdidos |
+| 2026-08-05 | Ramas `rework` y `rollback-39` son código basura, se borrarán; no usar como referencia | Evita copiar de una rama descartada |
+| 2026-08-05 | H4 se porta manualmente sobre `migration` (usuario copia componentes) | Preferencia del usuario; sin trabajo previo en H4 |
+| 2026-08-05 | Pendiente decidir: home nueva usa `gsap`, `migration` usa `motion` | Resolver al verificar el port H4 |
 
 ## Estado del upgrade
 
@@ -46,6 +49,7 @@
 - [x] Vite actualizado a 8.2.0 (viene con Astro 7)
 - [x] Tailwind v3 → v4 migrado (ya estaba v4.0.3; actualizado a 4.3.3 junto con Astro 7)
 - [x] Adapter Netlify → Vercel (swap directo: `@astrojs/vercel` 11.0.4)
+- [x] Scripts de scrape y mystery QR verificados tras upgrade (H3): `scrape:episodes`, `scrape:collections`, `scrape:shorts`, `mystery:qr` — ejecutan sin errores, JSON/SVG válidos, árbol restaurado a limpio
 - [ ] Home rediseñada portada al proyecto actualizado
 - [ ] Deploy de prueba en Vercel (preview) validado contra checklist de URLs
 - [ ] Redirects/robots/sitemap replicados en `vercel.json`
