@@ -32,11 +32,11 @@ const { pathname } = Astro.url;
     </picture>
 
     <span
-      class="from-knc-dark to-knc-dark absolute inset-0 bg-gradient-to-b via-transparent"
+      class="from-dark-950/85 absolute inset-0 bg-gradient-to-r from-20% to-transparent"
     ></span>
 
     <span
-      class="from-knc-dark absolute inset-0 bg-gradient-to-r from-35% to-transparent"
+      class="from-transparent to-dark-950 absolute inset-0 bg-gradient-to-b"
     ></span>
 
     <div
@@ -47,7 +47,7 @@ const { pathname } = Astro.url;
     >
       {
         name && (
-          <p class="pl-2 text-sm text-neutral-500">
+          <p class="pl-2 text-sm text-dark-400 mb-4">
             EP {episode} · T{season}
           </p>
         )
@@ -60,7 +60,7 @@ const { pathname } = Astro.url;
       <div class="mt-4 flex lg:mt-10">
         <a
           href={`/player/${id}`}
-          class="bg-knc-red rounded-xl px-8 py-3 transition-transform hover:scale-110"
+          class="bg-knc-600 rounded-xl px-8 py-3 transition-transform hover:scale-110"
         >
           Ver aquí
         </a>
@@ -74,7 +74,7 @@ const { pathname } = Astro.url;
         </a>
       </div>
 
-      <p class="mt-6 line-clamp-4 max-w-4xl text-gray-300 lg:mt-12 lg:text-lg">
+      <p class="mt-6 line-clamp-4 max-w-[60ch] text-dark-100 lg:mt-12 lg:text-lg">
         {description}
       </p>
     </div>
