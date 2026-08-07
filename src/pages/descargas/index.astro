@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Link from "@/components/Link.astro";
 ---
 
 <Fragment slot="head">
@@ -34,7 +35,7 @@ import Layout from "@/layouts/Layout.astro";
       compartir, imprimir y usar.
     </p>
 
-    <div class="mt-12 grid w-full max-w-5xl gap-4 sm:grid-cols-2">
+    <div class="mt-12 grid w-full max-w-6xl gap-4 sm:grid-cols-2">
       <article
         class="flex items-center overflow-hidden rounded-3xl border border-dark-50/10 bg-dark-50/5"
       >
@@ -53,14 +54,14 @@ import Layout from "@/layouts/Layout.astro";
           <div
             class="flex w-full flex-1 flex-col items-center justify-center p-8 text-center lg:items-start lg:justify-start lg:text-left"
           >
-            <h2 class="text-2xl font-sans normal-case">No Vendo</h2>
-            <a
-              href="/descargas/no-vendo.pdf"
-              download
-              class="bg-knc-600 mt-6 inline-flex rounded-xl px-4 py-3 text-sm font-sans font-semibold normal-case transition hover:scale-105"
-            >
-              Descargar PDF
-            </a>
+            <p class="text-2xl font-sans">No Vendo</p>
+            <div class="mt-6">
+              <Link
+                href="/descargas/no-vendo.pdf"
+                label="Descargar PDF"
+                download
+              />
+            </div>
           </div>
         </div>
       </article>
@@ -83,14 +84,14 @@ import Layout from "@/layouts/Layout.astro";
           <div
             class="flex w-full flex-1 flex-col items-center justify-center p-8 text-center lg:items-start lg:justify-start lg:text-left"
           >
-            <h2 class="text-2xl font-sans normal-case">Yo Aparco Mal</h2>
-            <a
-              href="/descargas/yoaparcomal.pdf"
-              download
-              class="bg-knc-600 mt-6 inline-flex rounded-xl px-4 py-3 text-sm font-sans font-semibold normal-case transition hover:scale-105"
-            >
-              Descargar PDF
-            </a>
+            <p class="text-2xl font-sans">Yo Aparco Mal</p>
+            <div class="mt-6">
+              <Link
+                href="/descargas/yoaparcomal.pdf"
+                label="Descargar PDF"
+                download
+              />
+            </div>
           </div>
         </div>
       </article>
